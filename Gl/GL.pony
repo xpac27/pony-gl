@@ -771,914 +771,914 @@ primitive GLNoError  fun apply(): U8 => 0
 primitive GLNone     fun apply(): U8 => 0
 
 primitive GL
-  fun glClearIndex(c: F32): None =>
+  fun clear_index(c: F32): None =>
     @glClearIndex(c)
-  fun glClearColor(red: U8, green: U8, blue: U8, alpha: U8): None =>
+  fun clear_color(red: U8, green: U8, blue: U8, alpha: U8): None =>
     @glClearColor(red, green, blue, alpha)
-  fun glClear(mask: U16): None =>
+  fun clear(mask: U16): None =>
     @glClear(mask)
-  fun glIndexMask(mask: U32): None =>
+  fun index_mask(mask: U32): None =>
     @glIndexMask(mask)
-  fun glColorMask(red: U8, green: U8, blue: U8, alpha: U8): None =>
+  fun color_mask(red: U8, green: U8, blue: U8, alpha: U8): None =>
     @glColorMask(red, green, blue, alpha)
-  fun glAlphaFunc(func: U32, pref: F32): None =>
+  fun alpha_func(func: U32, pref: F32): None =>
     @glAlphaFunc(func, pref)
-  fun glBlendFunc(sfactor: U32, dfactor: U32): None =>
+  fun blend_func(sfactor: U32, dfactor: U32): None =>
     @glBlendFunc(sfactor, dfactor)
-  fun glLogicOp(opcode: U32): None =>
+  fun logic_op(opcode: U32): None =>
     @glLogicOp(opcode)
-  fun glCullFace(mode: U32): None =>
+  fun cull_face(mode: U32): None =>
     @glCullFace(mode)
-  fun glFrontFace(mode: U32): None =>
+  fun front_face(mode: U32): None =>
     @glFrontFace(mode)
-  fun glPointSize(size: F32): None =>
+  fun point_size(size: F32): None =>
     @glPointSize(size)
-  fun glLineWidth(width: F32): None =>
+  fun line_width(width: F32): None =>
     @glLineWidth(width)
-  fun glLineStipple(factor: I32, pattern: U16): None =>
+  fun line_stipple(factor: I32, pattern: U16): None =>
     @glLineStipple(factor, pattern)
-  fun glPolygonMode(face: U32, mode: U32): None =>
+  fun polygon_mode(face: U32, mode: U32): None =>
     @glPolygonMode(face, mode)
-  fun glPolygonOffset(factor: F32, units: F32): None =>
+  fun polygon_offset(factor: F32, units: F32): None =>
     @glPolygonOffset(factor, units)
-  fun glPolygonStipple(mask: String): None =>
+  fun polygon_stipple(mask: String): None =>
     @glPolygonStipple(mask.cstring())
-  fun glGetPolygonStipple(mask: String): None =>
+  fun get_polygon_stipple(mask: String): None =>
     @glGetPolygonStipple(mask.cstring())
-  fun glEdgeFlag(flag: U8): None =>
+  fun edge_flag(flag: U8): None =>
     @glEdgeFlag(flag)
-  fun glEdgeFlagv(flag: String): None =>
+  fun edge_flagv(flag: String): None =>
     @glEdgeFlagv(flag.cstring())
-  fun glScissor(x: I32, y: I32, width: I32, height: I32): None =>
+  fun scissor(x: I32, y: I32, width: I32, height: I32): None =>
     @glScissor(x, y, width, height)
-  fun glClipPlane(plane: U32, equation: Pointer[F64] tag): None =>
+  fun clip_plane(plane: U32, equation: Pointer[F64] tag): None =>
     @glClipPlane(plane, equation)
-  fun glGetClipPlane(plane: U32, equation: Pointer[F64] tag): None =>
+  fun get_clip_plane(plane: U32, equation: Pointer[F64] tag): None =>
     @glGetClipPlane(plane, equation)
-  fun glDrawBuffer(mode: U32): None =>
+  fun draw_buffer(mode: U32): None =>
     @glDrawBuffer(mode)
-  fun glReadBuffer(mode: U32): None =>
+  fun read_buffer(mode: U32): None =>
     @glReadBuffer(mode)
-  fun glEnable(cap: U32): None =>
+  fun enable(cap: U32): None =>
     @glEnable(cap)
-  fun glDisable(cap: U32): None =>
+  fun disable(cap: U32): None =>
     @glDisable(cap)
-  fun glIsEnabled(cap: U32): U8 =>
+  fun is_enabled(cap: U32): U8 =>
     @glIsEnabled(cap)
-  fun glEnableClientState(cap: U32): None =>
+  fun enable_client_state(cap: U32): None =>
     @glEnableClientState(cap)
-  fun glDisableClientState(cap: U32): None =>
+  fun disable_client_state(cap: U32): None =>
     @glDisableClientState(cap)
-  fun glGetBooleanv(pname: U32, params: String): None =>
+  fun get_booleanv(pname: U32, params: String): None =>
     @glGetBooleanv(pname, params.cstring())
-  fun glGetDoublev(pname: U32, params: Pointer[F64] tag): None =>
+  fun get_doublev(pname: U32, params: Pointer[F64] tag): None =>
     @glGetDoublev(pname, params)
-  fun glGetFloatv(pname: U32, params: Pointer[F32] tag): None =>
+  fun get_floatv(pname: U32, params: Pointer[F32] tag): None =>
     @glGetFloatv(pname, params)
-  fun glGetIntegerv(pname: U32, params: Pointer[I32] tag): None =>
+  fun get_integerv(pname: U32, params: Pointer[I32] tag): None =>
     @glGetIntegerv(pname, params)
-  fun glPushAttrib(mask: U32): None =>
+  fun push_attrib(mask: U32): None =>
     @glPushAttrib(mask)
-  fun glPopAttrib(): None =>
+  fun pop_attrib(): None =>
     @glPopAttrib()
-  fun glPushClientAttrib(mask: U32): None =>
+  fun push_client_attrib(mask: U32): None =>
     @glPushClientAttrib(mask)
-  fun glPopClientAttrib(): None =>
+  fun pop_client_attrib(): None =>
     @glPopClientAttrib()
-  fun glRenderMode(mode: U32): I32 =>
+  fun render_mode(mode: U32): I32 =>
     @glRenderMode(mode)
-  fun glGetError(): U32 =>
+  fun get_error(): U32 =>
     @glGetError()
-  fun glGetString(name: U32): String =>
+  fun get_string(name: U32): String =>
     String.from_cstring(@glGetString(name)).clone()
-  fun glFinish(): None =>
+  fun finish(): None =>
     @glFinish()
-  fun glFlush(): None =>
+  fun flush(): None =>
     @glFlush()
-  fun glHint(target: U32, mode: U32): None =>
+  fun hint(target: U32, mode: U32): None =>
     @glHint(target, mode)
-  fun glClearDepth(depth: F64): None =>
+  fun clear_depth(depth: F64): None =>
     @glClearDepth(depth)
-  fun glDepthFunc(func: U32): None =>
+  fun depth_func(func: U32): None =>
     @glDepthFunc(func)
-  fun glDepthMask(flag: U8): None =>
+  fun depth_mask(flag: U8): None =>
     @glDepthMask(flag)
-  fun glDepthRange(nearval: F64, farval: F64): None =>
+  fun depth_range(nearval: F64, farval: F64): None =>
     @glDepthRange(nearval, farval)
-  fun glClearAccum(red: F32, green: F32, blue: F32, alpha: F32): None =>
+  fun clear_accum(red: F32, green: F32, blue: F32, alpha: F32): None =>
     @glClearAccum(red, green, blue, alpha)
-  fun glAccum(op: U32, value: F32): None =>
+  fun accum(op: U32, value: F32): None =>
     @glAccum(op, value)
-  fun glMatrixMode(mode: U32): None =>
+  fun matrix_mode(mode: U32): None =>
     @glMatrixMode(mode)
-  fun glOrtho(left: F64, right: F64, bottom: F64, top: F64, nearval: F64, farval: F64): None =>
+  fun ortho(left: F64, right: F64, bottom: F64, top: F64, nearval: F64, farval: F64): None =>
     @glOrtho(left, right, bottom, top, nearval, farval)
-  fun glFrustum(left: F64, right: F64, bottom: F64, top: F64, nearval: F64, farval: F64): None =>
+  fun frustum(left: F64, right: F64, bottom: F64, top: F64, nearval: F64, farval: F64): None =>
     @glFrustum(left, right, bottom, top, nearval, farval)
-  fun glViewport(x: I32, y: I32, width: I32, height: I32): None =>
+  fun viewport(x: I32, y: I32, width: I32, height: I32): None =>
     @glViewport(x, y, width, height)
-  fun glPushMatrix(): None =>
+  fun push_matrix(): None =>
     @glPushMatrix()
-  fun glPopMatrix(): None =>
+  fun pop_matrix(): None =>
     @glPopMatrix()
-  fun glLoadIdentity(): None =>
+  fun load_identity(): None =>
     @glLoadIdentity()
-  fun glLoadMatrixd(m: Pointer[F64] tag): None =>
+  fun load_matrixd(m: Pointer[F64] tag): None =>
     @glLoadMatrixd(m)
-  fun glLoadMatrixf(m: Pointer[F32] tag): None =>
+  fun load_matrixf(m: Pointer[F32] tag): None =>
     @glLoadMatrixf(m)
-  fun glMultMatrixd(m: Pointer[F64] tag): None =>
+  fun mult_matrixd(m: Pointer[F64] tag): None =>
     @glMultMatrixd(m)
-  fun glMultMatrixf(m: Pointer[F32] tag): None =>
+  fun mult_matrixf(m: Pointer[F32] tag): None =>
     @glMultMatrixf(m)
-  fun glRotated(angle: F64, x: F64, y: F64, z: F64): None =>
+  fun rotated(angle: F64, x: F64, y: F64, z: F64): None =>
     @glRotated(angle, x, y, z)
-  fun glRotatef(angle: F32, x: F32, y: F32, z: F32): None =>
+  fun rotatef(angle: F32, x: F32, y: F32, z: F32): None =>
     @glRotatef(angle, x, y, z)
-  fun glScaled(x: F64, y: F64, z: F64): None =>
+  fun scaled(x: F64, y: F64, z: F64): None =>
     @glScaled(x, y, z)
-  fun glScalef(x: F32, y: F32, z: F32): None =>
+  fun scalef(x: F32, y: F32, z: F32): None =>
     @glScalef(x, y, z)
-  fun glTranslated(x: F64, y: F64, z: F64): None =>
+  fun translated(x: F64, y: F64, z: F64): None =>
     @glTranslated(x, y, z)
-  fun glTranslatef(x: F32, y: F32, z: F32): None =>
+  fun translatef(x: F32, y: F32, z: F32): None =>
     @glTranslatef(x, y, z)
-  fun glIsList(list: U32): U8 =>
+  fun is_list(list: U32): U8 =>
     @glIsList(list)
-  fun glDeleteLists(list: U32, range: I32): None =>
+  fun delete_lists(list: U32, range: I32): None =>
     @glDeleteLists(list, range)
-  fun glGenLists(range: I32): U32 =>
+  fun gen_lists(range: I32): U32 =>
     @glGenLists(range)
-  fun glNewList(list: U32, mode: U32): None =>
+  fun new_list(list: U32, mode: U32): None =>
     @glNewList(list, mode)
-  fun glEndList(): None =>
+  fun end_list(): None =>
     @glEndList()
-  fun glCallList(list: U32): None =>
+  fun call_list(list: U32): None =>
     @glCallList(list)
-  fun glCallLists(n: I32, ptype: U32, lists: Pointer[None] tag): None =>
+  fun call_lists(n: I32, ptype: U32, lists: Pointer[None] tag): None =>
     @glCallLists(n, ptype, lists)
-  fun glListBase(base: U32): None =>
+  fun list_base(base: U32): None =>
     @glListBase(base)
-  fun glBegin(mode: U32): None =>
+  fun glbegin(mode: U32): None =>
     @glBegin(mode)
-  fun glEnd(): None =>
+  fun glend(): None =>
     @glEnd()
-  fun glVertex2d(x: F64, y: F64): None =>
+  fun vertex2d(x: F64, y: F64): None =>
     @glVertex2d(x, y)
-  fun glVertex2f(x: F32, y: F32): None =>
+  fun vertex2f(x: F32, y: F32): None =>
     @glVertex2f(x, y)
-  fun glVertex2i(x: I32, y: I32): None =>
+  fun vertex2i(x: I32, y: I32): None =>
     @glVertex2i(x, y)
-  fun glVertex2s(x: I16, y: I16): None =>
+  fun vertex2s(x: I16, y: I16): None =>
     @glVertex2s(x, y)
-  fun glVertex3d(x: F64, y: F64, z: F64): None =>
+  fun vertex3d(x: F64, y: F64, z: F64): None =>
     @glVertex3d(x, y, z)
-  fun glVertex3f(x: F32, y: F32, z: F32): None =>
+  fun vertex3f(x: F32, y: F32, z: F32): None =>
     @glVertex3f(x, y, z)
-  fun glVertex3i(x: I32, y: I32, z: I32): None =>
+  fun vertex3i(x: I32, y: I32, z: I32): None =>
     @glVertex3i(x, y, z)
-  fun glVertex3s(x: I16, y: I16, z: I16): None =>
+  fun vertex3s(x: I16, y: I16, z: I16): None =>
     @glVertex3s(x, y, z)
-  fun glVertex4d(x: F64, y: F64, z: F64, w: F64): None =>
+  fun vertex4d(x: F64, y: F64, z: F64, w: F64): None =>
     @glVertex4d(x, y, z, w)
-  fun glVertex4f(x: F32, y: F32, z: F32, w: F32): None =>
+  fun vertex4f(x: F32, y: F32, z: F32, w: F32): None =>
     @glVertex4f(x, y, z, w)
-  fun glVertex4i(x: I32, y: I32, z: I32, w: I32): None =>
+  fun vertex4i(x: I32, y: I32, z: I32, w: I32): None =>
     @glVertex4i(x, y, z, w)
-  fun glVertex4s(x: I16, y: I16, z: I16, w: I16): None =>
+  fun vertex4s(x: I16, y: I16, z: I16, w: I16): None =>
     @glVertex4s(x, y, z, w)
-  fun glVertex2dv(v: Pointer[F64] tag): None =>
+  fun vertex2dv(v: Pointer[F64] tag): None =>
     @glVertex2dv(v)
-  fun glVertex2fv(v: Pointer[F32] tag): None =>
+  fun vertex2fv(v: Pointer[F32] tag): None =>
     @glVertex2fv(v)
-  fun glVertex2iv(v: Pointer[I32] tag): None =>
+  fun vertex2iv(v: Pointer[I32] tag): None =>
     @glVertex2iv(v)
-  fun glVertex2sv(v: Pointer[I16] tag): None =>
+  fun vertex2sv(v: Pointer[I16] tag): None =>
     @glVertex2sv(v)
-  fun glVertex3dv(v: Pointer[F64] tag): None =>
+  fun vertex3dv(v: Pointer[F64] tag): None =>
     @glVertex3dv(v)
-  fun glVertex3fv(v: Pointer[F32] tag): None =>
+  fun vertex3fv(v: Pointer[F32] tag): None =>
     @glVertex3fv(v)
-  fun glVertex3iv(v: Pointer[I32] tag): None =>
+  fun vertex3iv(v: Pointer[I32] tag): None =>
     @glVertex3iv(v)
-  fun glVertex3sv(v: Pointer[I16] tag): None =>
+  fun vertex3sv(v: Pointer[I16] tag): None =>
     @glVertex3sv(v)
-  fun glVertex4dv(v: Pointer[F64] tag): None =>
+  fun vertex4dv(v: Pointer[F64] tag): None =>
     @glVertex4dv(v)
-  fun glVertex4fv(v: Pointer[F32] tag): None =>
+  fun vertex4fv(v: Pointer[F32] tag): None =>
     @glVertex4fv(v)
-  fun glVertex4iv(v: Pointer[I32] tag): None =>
+  fun vertex4iv(v: Pointer[I32] tag): None =>
     @glVertex4iv(v)
-  fun glVertex4sv(v: Pointer[I16] tag): None =>
+  fun vertex4sv(v: Pointer[I16] tag): None =>
     @glVertex4sv(v)
-  fun glNormal3b(nx: I8, ny: I8, nz: I8): None =>
+  fun normal3b(nx: I8, ny: I8, nz: I8): None =>
     @glNormal3b(nx, ny, nz)
-  fun glNormal3d(nx: F64, ny: F64, nz: F64): None =>
+  fun normal3d(nx: F64, ny: F64, nz: F64): None =>
     @glNormal3d(nx, ny, nz)
-  fun glNormal3f(nx: F32, ny: F32, nz: F32): None =>
+  fun normal3f(nx: F32, ny: F32, nz: F32): None =>
     @glNormal3f(nx, ny, nz)
-  fun glNormal3i(nx: I32, ny: I32, nz: I32): None =>
+  fun normal3i(nx: I32, ny: I32, nz: I32): None =>
     @glNormal3i(nx, ny, nz)
-  fun glNormal3s(nx: I16, ny: I16, nz: I16): None =>
+  fun normal3s(nx: I16, ny: I16, nz: I16): None =>
     @glNormal3s(nx, ny, nz)
-  fun glNormal3bv(v: Pointer[I8] tag): None =>
+  fun normal3bv(v: Pointer[I8] tag): None =>
     @glNormal3bv(v)
-  fun glNormal3dv(v: Pointer[F64] tag): None =>
+  fun normal3dv(v: Pointer[F64] tag): None =>
     @glNormal3dv(v)
-  fun glNormal3fv(v: Pointer[F32] tag): None =>
+  fun normal3fv(v: Pointer[F32] tag): None =>
     @glNormal3fv(v)
-  fun glNormal3iv(v: Pointer[I32] tag): None =>
+  fun normal3iv(v: Pointer[I32] tag): None =>
     @glNormal3iv(v)
-  fun glNormal3sv(v: Pointer[I16] tag): None =>
+  fun normal3sv(v: Pointer[I16] tag): None =>
     @glNormal3sv(v)
-  fun glIndexd(c: F64): None =>
+  fun indexd(c: F64): None =>
     @glIndexd(c)
-  fun glIndexf(c: F32): None =>
+  fun indexf(c: F32): None =>
     @glIndexf(c)
-  fun glIndexi(c: I32): None =>
+  fun indexi(c: I32): None =>
     @glIndexi(c)
-  fun glIndexs(c: I16): None =>
+  fun indexs(c: I16): None =>
     @glIndexs(c)
-  fun glIndexub(c: U8): None =>
+  fun indexub(c: U8): None =>
     @glIndexub(c)
-  fun glIndexdv(c: Pointer[F64] tag): None =>
+  fun indexdv(c: Pointer[F64] tag): None =>
     @glIndexdv(c)
-  fun glIndexfv(c: Pointer[F32] tag): None =>
+  fun indexfv(c: Pointer[F32] tag): None =>
     @glIndexfv(c)
-  fun glIndexiv(c: Pointer[I32] tag): None =>
+  fun indexiv(c: Pointer[I32] tag): None =>
     @glIndexiv(c)
-  fun glIndexsv(c: Pointer[I16] tag): None =>
+  fun indexsv(c: Pointer[I16] tag): None =>
     @glIndexsv(c)
-  fun glIndexubv(c: String): None =>
+  fun indexubv(c: String): None =>
     @glIndexubv(c.cstring())
-  fun glColor3b(red: I8, green: I8, blue: I8): None =>
+  fun color3b(red: I8, green: I8, blue: I8): None =>
     @glColor3b(red, green, blue)
-  fun glColor3d(red: F64, green: F64, blue: F64): None =>
+  fun color3d(red: F64, green: F64, blue: F64): None =>
     @glColor3d(red, green, blue)
-  fun glColor3f(red: F32, green: F32, blue: F32): None =>
+  fun color3f(red: F32, green: F32, blue: F32): None =>
     @glColor3f(red, green, blue)
-  fun glColor3i(red: I32, green: I32, blue: I32): None =>
+  fun color3i(red: I32, green: I32, blue: I32): None =>
     @glColor3i(red, green, blue)
-  fun glColor3s(red: I16, green: I16, blue: I16): None =>
+  fun color3s(red: I16, green: I16, blue: I16): None =>
     @glColor3s(red, green, blue)
-  fun glColor3ub(red: U8, green: U8, blue: U8): None =>
+  fun color3ub(red: U8, green: U8, blue: U8): None =>
     @glColor3ub(red, green, blue)
-  fun glColor3ui(red: U32, green: U32, blue: U32): None =>
+  fun color3ui(red: U32, green: U32, blue: U32): None =>
     @glColor3ui(red, green, blue)
-  fun glColor3us(red: U16, green: U16, blue: U16): None =>
+  fun color3us(red: U16, green: U16, blue: U16): None =>
     @glColor3us(red, green, blue)
-  fun glColor4b(red: I8, green: I8, blue: I8, alpha: I8): None =>
+  fun color4b(red: I8, green: I8, blue: I8, alpha: I8): None =>
     @glColor4b(red, green, blue, alpha)
-  fun glColor4d(red: F64, green: F64, blue: F64, alpha: F64): None =>
+  fun color4d(red: F64, green: F64, blue: F64, alpha: F64): None =>
     @glColor4d(red, green, blue, alpha)
-  fun glColor4f(red: F32, green: F32, blue: F32, alpha: F32): None =>
+  fun color4f(red: F32, green: F32, blue: F32, alpha: F32): None =>
     @glColor4f(red, green, blue, alpha)
-  fun glColor4i(red: I32, green: I32, blue: I32, alpha: I32): None =>
+  fun color4i(red: I32, green: I32, blue: I32, alpha: I32): None =>
     @glColor4i(red, green, blue, alpha)
-  fun glColor4s(red: I16, green: I16, blue: I16, alpha: I16): None =>
+  fun color4s(red: I16, green: I16, blue: I16, alpha: I16): None =>
     @glColor4s(red, green, blue, alpha)
-  fun glColor4ub(red: U8, green: U8, blue: U8, alpha: U8): None =>
+  fun color4ub(red: U8, green: U8, blue: U8, alpha: U8): None =>
     @glColor4ub(red, green, blue, alpha)
-  fun glColor4ui(red: U32, green: U32, blue: U32, alpha: U32): None =>
+  fun color4ui(red: U32, green: U32, blue: U32, alpha: U32): None =>
     @glColor4ui(red, green, blue, alpha)
-  fun glColor4us(red: U16, green: U16, blue: U16, alpha: U16): None =>
+  fun color4us(red: U16, green: U16, blue: U16, alpha: U16): None =>
     @glColor4us(red, green, blue, alpha)
-  fun glColor3bv(v: Pointer[I8] tag): None =>
+  fun color3bv(v: Pointer[I8] tag): None =>
     @glColor3bv(v)
-  fun glColor3dv(v: Pointer[F64] tag): None =>
+  fun color3dv(v: Pointer[F64] tag): None =>
     @glColor3dv(v)
-  fun glColor3fv(v: Pointer[F32] tag): None =>
+  fun color3fv(v: Pointer[F32] tag): None =>
     @glColor3fv(v)
-  fun glColor3iv(v: Pointer[I32] tag): None =>
+  fun color3iv(v: Pointer[I32] tag): None =>
     @glColor3iv(v)
-  fun glColor3sv(v: Pointer[I16] tag): None =>
+  fun color3sv(v: Pointer[I16] tag): None =>
     @glColor3sv(v)
-  fun glColor3ubv(v: String): None =>
+  fun color3ubv(v: String): None =>
     @glColor3ubv(v.cstring())
-  fun glColor3uiv(v: Pointer[U32] tag): None =>
+  fun color3uiv(v: Pointer[U32] tag): None =>
     @glColor3uiv(v)
-  fun glColor3usv(v: Pointer[U16] tag): None =>
+  fun color3usv(v: Pointer[U16] tag): None =>
     @glColor3usv(v)
-  fun glColor4bv(v: Pointer[I8] tag): None =>
+  fun color4bv(v: Pointer[I8] tag): None =>
     @glColor4bv(v)
-  fun glColor4dv(v: Pointer[F64] tag): None =>
+  fun color4dv(v: Pointer[F64] tag): None =>
     @glColor4dv(v)
-  fun glColor4fv(v: Pointer[F32] tag): None =>
+  fun color4fv(v: Pointer[F32] tag): None =>
     @glColor4fv(v)
-  fun glColor4iv(v: Pointer[I32] tag): None =>
+  fun color4iv(v: Pointer[I32] tag): None =>
     @glColor4iv(v)
-  fun glColor4sv(v: Pointer[I16] tag): None =>
+  fun color4sv(v: Pointer[I16] tag): None =>
     @glColor4sv(v)
-  fun glColor4ubv(v: String): None =>
+  fun color4ubv(v: String): None =>
     @glColor4ubv(v.cstring())
-  fun glColor4uiv(v: Pointer[U32] tag): None =>
+  fun color4uiv(v: Pointer[U32] tag): None =>
     @glColor4uiv(v)
-  fun glColor4usv(v: Pointer[U16] tag): None =>
+  fun color4usv(v: Pointer[U16] tag): None =>
     @glColor4usv(v)
-  fun glTexCoord1d(s: F64): None =>
+  fun tex_coord1d(s: F64): None =>
     @glTexCoord1d(s)
-  fun glTexCoord1f(s: F32): None =>
+  fun tex_coord1f(s: F32): None =>
     @glTexCoord1f(s)
-  fun glTexCoord1i(s: I32): None =>
+  fun tex_coord1i(s: I32): None =>
     @glTexCoord1i(s)
-  fun glTexCoord1s(s: I16): None =>
+  fun tex_coord1s(s: I16): None =>
     @glTexCoord1s(s)
-  fun glTexCoord2d(s: F64, t: F64): None =>
+  fun tex_coord2d(s: F64, t: F64): None =>
     @glTexCoord2d(s, t)
-  fun glTexCoord2f(s: F32, t: F32): None =>
+  fun tex_coord2f(s: F32, t: F32): None =>
     @glTexCoord2f(s, t)
-  fun glTexCoord2i(s: I32, t: I32): None =>
+  fun tex_coord2i(s: I32, t: I32): None =>
     @glTexCoord2i(s, t)
-  fun glTexCoord2s(s: I16, t: I16): None =>
+  fun tex_coord2s(s: I16, t: I16): None =>
     @glTexCoord2s(s, t)
-  fun glTexCoord3d(s: F64, t: F64, r: F64): None =>
+  fun tex_coord3d(s: F64, t: F64, r: F64): None =>
     @glTexCoord3d(s, t, r)
-  fun glTexCoord3f(s: F32, t: F32, r: F32): None =>
+  fun tex_coord3f(s: F32, t: F32, r: F32): None =>
     @glTexCoord3f(s, t, r)
-  fun glTexCoord3i(s: I32, t: I32, r: I32): None =>
+  fun tex_coord3i(s: I32, t: I32, r: I32): None =>
     @glTexCoord3i(s, t, r)
-  fun glTexCoord3s(s: I16, t: I16, r: I16): None =>
+  fun tex_coord3s(s: I16, t: I16, r: I16): None =>
     @glTexCoord3s(s, t, r)
-  fun glTexCoord4d(s: F64, t: F64, r: F64, q: F64): None =>
+  fun tex_coord4d(s: F64, t: F64, r: F64, q: F64): None =>
     @glTexCoord4d(s, t, r, q)
-  fun glTexCoord4f(s: F32, t: F32, r: F32, q: F32): None =>
+  fun tex_coord4f(s: F32, t: F32, r: F32, q: F32): None =>
     @glTexCoord4f(s, t, r, q)
-  fun glTexCoord4i(s: I32, t: I32, r: I32, q: I32): None =>
+  fun tex_coord4i(s: I32, t: I32, r: I32, q: I32): None =>
     @glTexCoord4i(s, t, r, q)
-  fun glTexCoord4s(s: I16, t: I16, r: I16, q: I16): None =>
+  fun tex_coord4s(s: I16, t: I16, r: I16, q: I16): None =>
     @glTexCoord4s(s, t, r, q)
-  fun glTexCoord1dv(v: Pointer[F64] tag): None =>
+  fun tex_coord1dv(v: Pointer[F64] tag): None =>
     @glTexCoord1dv(v)
-  fun glTexCoord1fv(v: Pointer[F32] tag): None =>
+  fun tex_coord1fv(v: Pointer[F32] tag): None =>
     @glTexCoord1fv(v)
-  fun glTexCoord1iv(v: Pointer[I32] tag): None =>
+  fun tex_coord1iv(v: Pointer[I32] tag): None =>
     @glTexCoord1iv(v)
-  fun glTexCoord1sv(v: Pointer[I16] tag): None =>
+  fun tex_coord1sv(v: Pointer[I16] tag): None =>
     @glTexCoord1sv(v)
-  fun glTexCoord2dv(v: Pointer[F64] tag): None =>
+  fun tex_coord2dv(v: Pointer[F64] tag): None =>
     @glTexCoord2dv(v)
-  fun glTexCoord2fv(v: Pointer[F32] tag): None =>
+  fun tex_coord2fv(v: Pointer[F32] tag): None =>
     @glTexCoord2fv(v)
-  fun glTexCoord2iv(v: Pointer[I32] tag): None =>
+  fun tex_coord2iv(v: Pointer[I32] tag): None =>
     @glTexCoord2iv(v)
-  fun glTexCoord2sv(v: Pointer[I16] tag): None =>
+  fun tex_coord2sv(v: Pointer[I16] tag): None =>
     @glTexCoord2sv(v)
-  fun glTexCoord3dv(v: Pointer[F64] tag): None =>
+  fun tex_coord3dv(v: Pointer[F64] tag): None =>
     @glTexCoord3dv(v)
-  fun glTexCoord3fv(v: Pointer[F32] tag): None =>
+  fun tex_coord3fv(v: Pointer[F32] tag): None =>
     @glTexCoord3fv(v)
-  fun glTexCoord3iv(v: Pointer[I32] tag): None =>
+  fun tex_coord3iv(v: Pointer[I32] tag): None =>
     @glTexCoord3iv(v)
-  fun glTexCoord3sv(v: Pointer[I16] tag): None =>
+  fun tex_coord3sv(v: Pointer[I16] tag): None =>
     @glTexCoord3sv(v)
-  fun glTexCoord4dv(v: Pointer[F64] tag): None =>
+  fun tex_coord4dv(v: Pointer[F64] tag): None =>
     @glTexCoord4dv(v)
-  fun glTexCoord4fv(v: Pointer[F32] tag): None =>
+  fun tex_coord4fv(v: Pointer[F32] tag): None =>
     @glTexCoord4fv(v)
-  fun glTexCoord4iv(v: Pointer[I32] tag): None =>
+  fun tex_coord4iv(v: Pointer[I32] tag): None =>
     @glTexCoord4iv(v)
-  fun glTexCoord4sv(v: Pointer[I16] tag): None =>
+  fun tex_coord4sv(v: Pointer[I16] tag): None =>
     @glTexCoord4sv(v)
-  fun glRasterPos2d(x: F64, y: F64): None =>
+  fun raster_pos2d(x: F64, y: F64): None =>
     @glRasterPos2d(x, y)
-  fun glRasterPos2f(x: F32, y: F32): None =>
+  fun raster_pos2f(x: F32, y: F32): None =>
     @glRasterPos2f(x, y)
-  fun glRasterPos2i(x: I32, y: I32): None =>
+  fun raster_pos2i(x: I32, y: I32): None =>
     @glRasterPos2i(x, y)
-  fun glRasterPos2s(x: I16, y: I16): None =>
+  fun raster_pos2s(x: I16, y: I16): None =>
     @glRasterPos2s(x, y)
-  fun glRasterPos3d(x: F64, y: F64, z: F64): None =>
+  fun raster_pos3d(x: F64, y: F64, z: F64): None =>
     @glRasterPos3d(x, y, z)
-  fun glRasterPos3f(x: F32, y: F32, z: F32): None =>
+  fun raster_pos3f(x: F32, y: F32, z: F32): None =>
     @glRasterPos3f(x, y, z)
-  fun glRasterPos3i(x: I32, y: I32, z: I32): None =>
+  fun raster_pos3i(x: I32, y: I32, z: I32): None =>
     @glRasterPos3i(x, y, z)
-  fun glRasterPos3s(x: I16, y: I16, z: I16): None =>
+  fun raster_pos3s(x: I16, y: I16, z: I16): None =>
     @glRasterPos3s(x, y, z)
-  fun glRasterPos4d(x: F64, y: F64, z: F64, w: F64): None =>
+  fun raster_pos4d(x: F64, y: F64, z: F64, w: F64): None =>
     @glRasterPos4d(x, y, z, w)
-  fun glRasterPos4f(x: F32, y: F32, z: F32, w: F32): None =>
+  fun raster_pos4f(x: F32, y: F32, z: F32, w: F32): None =>
     @glRasterPos4f(x, y, z, w)
-  fun glRasterPos4i(x: I32, y: I32, z: I32, w: I32): None =>
+  fun raster_pos4i(x: I32, y: I32, z: I32, w: I32): None =>
     @glRasterPos4i(x, y, z, w)
-  fun glRasterPos4s(x: I16, y: I16, z: I16, w: I16): None =>
+  fun raster_pos4s(x: I16, y: I16, z: I16, w: I16): None =>
     @glRasterPos4s(x, y, z, w)
-  fun glRasterPos2dv(v: Pointer[F64] tag): None =>
+  fun raster_pos2dv(v: Pointer[F64] tag): None =>
     @glRasterPos2dv(v)
-  fun glRasterPos2fv(v: Pointer[F32] tag): None =>
+  fun raster_pos2fv(v: Pointer[F32] tag): None =>
     @glRasterPos2fv(v)
-  fun glRasterPos2iv(v: Pointer[I32] tag): None =>
+  fun raster_pos2iv(v: Pointer[I32] tag): None =>
     @glRasterPos2iv(v)
-  fun glRasterPos2sv(v: Pointer[I16] tag): None =>
+  fun raster_pos2sv(v: Pointer[I16] tag): None =>
     @glRasterPos2sv(v)
-  fun glRasterPos3dv(v: Pointer[F64] tag): None =>
+  fun raster_pos3dv(v: Pointer[F64] tag): None =>
     @glRasterPos3dv(v)
-  fun glRasterPos3fv(v: Pointer[F32] tag): None =>
+  fun raster_pos3fv(v: Pointer[F32] tag): None =>
     @glRasterPos3fv(v)
-  fun glRasterPos3iv(v: Pointer[I32] tag): None =>
+  fun raster_pos3iv(v: Pointer[I32] tag): None =>
     @glRasterPos3iv(v)
-  fun glRasterPos3sv(v: Pointer[I16] tag): None =>
+  fun raster_pos3sv(v: Pointer[I16] tag): None =>
     @glRasterPos3sv(v)
-  fun glRasterPos4dv(v: Pointer[F64] tag): None =>
+  fun raster_pos4dv(v: Pointer[F64] tag): None =>
     @glRasterPos4dv(v)
-  fun glRasterPos4fv(v: Pointer[F32] tag): None =>
+  fun raster_pos4fv(v: Pointer[F32] tag): None =>
     @glRasterPos4fv(v)
-  fun glRasterPos4iv(v: Pointer[I32] tag): None =>
+  fun raster_pos4iv(v: Pointer[I32] tag): None =>
     @glRasterPos4iv(v)
-  fun glRasterPos4sv(v: Pointer[I16] tag): None =>
+  fun raster_pos4sv(v: Pointer[I16] tag): None =>
     @glRasterPos4sv(v)
-  fun glRectd(x1: F64, y1: F64, x2: F64, y2: F64): None =>
+  fun rectd(x1: F64, y1: F64, x2: F64, y2: F64): None =>
     @glRectd(x1, y1, x2, y2)
-  fun glRectf(x1: F32, y1: F32, x2: F32, y2: F32): None =>
+  fun rectf(x1: F32, y1: F32, x2: F32, y2: F32): None =>
     @glRectf(x1, y1, x2, y2)
-  fun glRecti(x1: I32, y1: I32, x2: I32, y2: I32): None =>
+  fun recti(x1: I32, y1: I32, x2: I32, y2: I32): None =>
     @glRecti(x1, y1, x2, y2)
-  fun glRects(x1: I16, y1: I16, x2: I16, y2: I16): None =>
+  fun rects(x1: I16, y1: I16, x2: I16, y2: I16): None =>
     @glRects(x1, y1, x2, y2)
-  fun glRectdv(v1: Pointer[F64] tag, v2: Pointer[F64] tag): None =>
+  fun rectdv(v1: Pointer[F64] tag, v2: Pointer[F64] tag): None =>
     @glRectdv(v1, v2)
-  fun glRectfv(v1: Pointer[F32] tag, v2: Pointer[F32] tag): None =>
+  fun rectfv(v1: Pointer[F32] tag, v2: Pointer[F32] tag): None =>
     @glRectfv(v1, v2)
-  fun glRectiv(v1: Pointer[I32] tag, v2: Pointer[I32] tag): None =>
+  fun rectiv(v1: Pointer[I32] tag, v2: Pointer[I32] tag): None =>
     @glRectiv(v1, v2)
-  fun glRectsv(v1: Pointer[I16] tag, v2: Pointer[I16] tag): None =>
+  fun rectsv(v1: Pointer[I16] tag, v2: Pointer[I16] tag): None =>
     @glRectsv(v1, v2)
-  fun glVertexPointer(size: I32, ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
+  fun vertex_pointer(size: I32, ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
     @glVertexPointer(size, ptype, stride, ptr)
-  fun glNormalPointer(ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
+  fun normal_pointer(ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
     @glNormalPointer(ptype, stride, ptr)
-  fun glColorPointer(size: I32, ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
+  fun color_pointer(size: I32, ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
     @glColorPointer(size, ptype, stride, ptr)
-  fun glIndexPointer(ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
+  fun index_pointer(ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
     @glIndexPointer(ptype, stride, ptr)
-  fun glTexCoordPointer(size: I32, ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
+  fun tex_coord_pointer(size: I32, ptype: U32, stride: I32, ptr: Pointer[None] tag): None =>
     @glTexCoordPointer(size, ptype, stride, ptr)
-  fun glEdgeFlagPointer(stride: I32, ptr: Pointer[None] tag): None =>
+  fun edge_flag_pointer(stride: I32, ptr: Pointer[None] tag): None =>
     @glEdgeFlagPointer(stride, ptr)
-  fun glGetPointerv(pname: U32, params: NullablePointer[Pointer[None]] tag): None =>
+  fun get_pointerv(pname: U32, params: NullablePointer[Pointer[None]] tag): None =>
     @glGetPointerv(pname, params)
-  fun glArrayElement(i: I32): None =>
+  fun array_element(i: I32): None =>
     @glArrayElement(i)
-  fun glDrawArrays(mode: U32, first: I32, count: I32): None =>
+  fun draw_arrays(mode: U32, first: I32, count: I32): None =>
     @glDrawArrays(mode, first, count)
-  fun glDrawElements(mode: U32, count: I32, ptype: U32, indices: Pointer[None] tag): None =>
+  fun draw_elements(mode: U32, count: I32, ptype: U32, indices: Pointer[None] tag): None =>
     @glDrawElements(mode, count, ptype, indices)
-  fun glInterleavedArrays(format: U32, stride: I32, pointer: Pointer[None] tag): None =>
+  fun interleaved_arrays(format: U32, stride: I32, pointer: Pointer[None] tag): None =>
     @glInterleavedArrays(format, stride, pointer)
-  fun glShadeModel(mode: U32): None =>
+  fun shade_model(mode: U32): None =>
     @glShadeModel(mode)
-  fun glLightf(light: U32, pname: U32, param: F32): None =>
+  fun lightf(light: U32, pname: U32, param: F32): None =>
     @glLightf(light, pname, param)
-  fun glLighti(light: U32, pname: U32, param: I32): None =>
+  fun lighti(light: U32, pname: U32, param: I32): None =>
     @glLighti(light, pname, param)
-  fun glLightfv(light: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun lightfv(light: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glLightfv(light, pname, params)
-  fun glLightiv(light: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun lightiv(light: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glLightiv(light, pname, params)
-  fun glGetLightfv(light: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_lightfv(light: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetLightfv(light, pname, params)
-  fun glGetLightiv(light: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_lightiv(light: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetLightiv(light, pname, params)
-  fun glLightModelf(pname: U32, param: F32): None =>
+  fun light_modelf(pname: U32, param: F32): None =>
     @glLightModelf(pname, param)
-  fun glLightModeli(pname: U32, param: I32): None =>
+  fun light_modeli(pname: U32, param: I32): None =>
     @glLightModeli(pname, param)
-  fun glLightModelfv(pname: U32, params: Pointer[F32] tag): None =>
+  fun light_modelfv(pname: U32, params: Pointer[F32] tag): None =>
     @glLightModelfv(pname, params)
-  fun glLightModeliv(pname: U32, params: Pointer[I32] tag): None =>
+  fun light_modeliv(pname: U32, params: Pointer[I32] tag): None =>
     @glLightModeliv(pname, params)
-  fun glMaterialf(face: U32, pname: U32, param: F32): None =>
+  fun materialf(face: U32, pname: U32, param: F32): None =>
     @glMaterialf(face, pname, param)
-  fun glMateriali(face: U32, pname: U32, param: I32): None =>
+  fun materiali(face: U32, pname: U32, param: I32): None =>
     @glMateriali(face, pname, param)
-  fun glMaterialfv(face: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun materialfv(face: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glMaterialfv(face, pname, params)
-  fun glMaterialiv(face: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun materialiv(face: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glMaterialiv(face, pname, params)
-  fun glGetMaterialfv(face: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_materialfv(face: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetMaterialfv(face, pname, params)
-  fun glGetMaterialiv(face: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_materialiv(face: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetMaterialiv(face, pname, params)
-  fun glColorMaterial(face: U32, mode: U32): None =>
+  fun color_material(face: U32, mode: U32): None =>
     @glColorMaterial(face, mode)
-  fun glPixelZoom(xfactor: F32, yfactor: F32): None =>
+  fun pixel_zoom(xfactor: F32, yfactor: F32): None =>
     @glPixelZoom(xfactor, yfactor)
-  fun glPixelStoref(pname: U32, param: F32): None =>
+  fun pixel_storef(pname: U32, param: F32): None =>
     @glPixelStoref(pname, param)
-  fun glPixelStorei(pname: U32, param: I32): None =>
+  fun pixel_storei(pname: U32, param: I32): None =>
     @glPixelStorei(pname, param)
-  fun glPixelTransferf(pname: U32, param: F32): None =>
+  fun pixel_transferf(pname: U32, param: F32): None =>
     @glPixelTransferf(pname, param)
-  fun glPixelTransferi(pname: U32, param: I32): None =>
+  fun pixel_transferi(pname: U32, param: I32): None =>
     @glPixelTransferi(pname, param)
-  fun glPixelMapfv(map: U32, mapsize: I32, values: Pointer[F32] tag): None =>
+  fun pixel_mapfv(map: U32, mapsize: I32, values: Pointer[F32] tag): None =>
     @glPixelMapfv(map, mapsize, values)
-  fun glPixelMapuiv(map: U32, mapsize: I32, values: Pointer[U32] tag): None =>
+  fun pixel_mapuiv(map: U32, mapsize: I32, values: Pointer[U32] tag): None =>
     @glPixelMapuiv(map, mapsize, values)
-  fun glPixelMapusv(map: U32, mapsize: I32, values: Pointer[U16] tag): None =>
+  fun pixel_mapusv(map: U32, mapsize: I32, values: Pointer[U16] tag): None =>
     @glPixelMapusv(map, mapsize, values)
-  fun glGetPixelMapfv(map: U32, values: Pointer[F32] tag): None =>
+  fun get_pixel_mapfv(map: U32, values: Pointer[F32] tag): None =>
     @glGetPixelMapfv(map, values)
-  fun glGetPixelMapuiv(map: U32, values: Pointer[U32] tag): None =>
+  fun get_pixel_mapuiv(map: U32, values: Pointer[U32] tag): None =>
     @glGetPixelMapuiv(map, values)
-  fun glGetPixelMapusv(map: U32, values: Pointer[U16] tag): None =>
+  fun get_pixel_mapusv(map: U32, values: Pointer[U16] tag): None =>
     @glGetPixelMapusv(map, values)
-  fun glBitmap(width: I32, height: I32, xorig: F32, yorig: F32, xmove: F32, ymove: F32, bitmap: String): None =>
-    @glBitmap(width, height, xorig, yorig, xmove, ymove, bitmap.cstring())
-  fun glReadPixels(x: I32, y: I32, width: I32, height: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
+  fun bitmap(width: I32, height: I32, xorig: F32, yorig: F32, xmove: F32, ymove: F32, bitmap': String): None =>
+    @glBitmap(width, height, xorig, yorig, xmove, ymove, bitmap'.cstring())
+  fun read_pixels(x: I32, y: I32, width: I32, height: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
     @glReadPixels(x, y, width, height, format, ptype, pixels)
-  fun glDrawPixels(width: I32, height: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
+  fun draw_pixels(width: I32, height: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
     @glDrawPixels(width, height, format, ptype, pixels)
-  fun glCopyPixels(x: I32, y: I32, width: I32, height: I32, ptype: U32): None =>
+  fun copy_pixels(x: I32, y: I32, width: I32, height: I32, ptype: U32): None =>
     @glCopyPixels(x, y, width, height, ptype)
-  fun glStencilFunc(func: U32, pref: I32, mask: U32): None =>
+  fun stencil_func(func: U32, pref: I32, mask: U32): None =>
     @glStencilFunc(func, pref, mask)
-  fun glStencilMask(mask: U32): None =>
+  fun stencil_mask(mask: U32): None =>
     @glStencilMask(mask)
-  fun glStencilOp(fail: U32, zfail: U32, zpass: U32): None =>
+  fun stencil_op(fail: U32, zfail: U32, zpass: U32): None =>
     @glStencilOp(fail, zfail, zpass)
-  fun glClearStencil(s: I32): None =>
+  fun clear_stencil(s: I32): None =>
     @glClearStencil(s)
-  fun glTexGend(coord: U32, pname: U32, param: F64): None =>
+  fun tex_gend(coord: U32, pname: U32, param: F64): None =>
     @glTexGend(coord, pname, param)
-  fun glTexGenf(coord: U32, pname: U32, param: F32): None =>
+  fun tex_genf(coord: U32, pname: U32, param: F32): None =>
     @glTexGenf(coord, pname, param)
-  fun glTexGeni(coord: U32, pname: U32, param: I32): None =>
+  fun tex_geni(coord: U32, pname: U32, param: I32): None =>
     @glTexGeni(coord, pname, param)
-  fun glTexGendv(coord: U32, pname: U32, params: Pointer[F64] tag): None =>
+  fun tex_gendv(coord: U32, pname: U32, params: Pointer[F64] tag): None =>
     @glTexGendv(coord, pname, params)
-  fun glTexGenfv(coord: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun tex_genfv(coord: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glTexGenfv(coord, pname, params)
-  fun glTexGeniv(coord: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun tex_geniv(coord: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glTexGeniv(coord, pname, params)
-  fun glGetTexGendv(coord: U32, pname: U32, params: Pointer[F64] tag): None =>
+  fun get_tex_gendv(coord: U32, pname: U32, params: Pointer[F64] tag): None =>
     @glGetTexGendv(coord, pname, params)
-  fun glGetTexGenfv(coord: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_tex_genfv(coord: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetTexGenfv(coord, pname, params)
-  fun glGetTexGeniv(coord: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_tex_geniv(coord: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetTexGeniv(coord, pname, params)
-  fun glTexEnvf(target: U32, pname: U32, param: F32): None =>
+  fun tex_envf(target: U32, pname: U32, param: F32): None =>
     @glTexEnvf(target, pname, param)
-  fun glTexEnvi(target: U32, pname: U32, param: I32): None =>
+  fun tex_envi(target: U32, pname: U32, param: I32): None =>
     @glTexEnvi(target, pname, param)
-  fun glTexEnvfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun tex_envfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glTexEnvfv(target, pname, params)
-  fun glTexEnviv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun tex_enviv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glTexEnviv(target, pname, params)
-  fun glGetTexEnvfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_tex_envfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetTexEnvfv(target, pname, params)
-  fun glGetTexEnviv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_tex_enviv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetTexEnviv(target, pname, params)
-  fun glTexParameterf(target: U32, pname: U32, param: F32): None =>
+  fun tex_parameterf(target: U32, pname: U32, param: F32): None =>
     @glTexParameterf(target, pname, param)
-  fun glTexParameteri(target: U32, pname: U32, param: I32): None =>
+  fun tex_parameteri(target: U32, pname: U32, param: I32): None =>
     @glTexParameteri(target, pname, param)
-  fun glTexParameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun tex_parameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glTexParameterfv(target, pname, params)
-  fun glTexParameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun tex_parameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glTexParameteriv(target, pname, params)
-  fun glGetTexParameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_tex_parameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetTexParameterfv(target, pname, params)
-  fun glGetTexParameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_tex_parameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetTexParameteriv(target, pname, params)
-  fun glGetTexLevelParameterfv(target: U32, level: I32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_tex_level_parameterfv(target: U32, level: I32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetTexLevelParameterfv(target, level, pname, params)
-  fun glGetTexLevelParameteriv(target: U32, level: I32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_tex_level_parameteriv(target: U32, level: I32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetTexLevelParameteriv(target, level, pname, params)
-  fun glTexImage1D(target: U32, level: I32, internalFormat: I32, width: I32, border: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
-    @glTexImage1D(target, level, internalFormat, width, border, format, ptype, pixels)
-  fun glTexImage2D(target: U32, level: I32, internalFormat: I32, width: I32, height: I32, border: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
-    @glTexImage2D(target, level, internalFormat, width, height, border, format, ptype, pixels)
-  fun glGetTexImage(target: U32, level: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
+  fun tex_image1D(target: U32, level: I32, internal_format: I32, width: I32, border: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
+    @glTexImage1D(target, level, internal_format, width, border, format, ptype, pixels)
+  fun tex_image2D(target: U32, level: I32, internal_format: I32, width: I32, height: I32, border: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
+    @glTexImage2D(target, level, internal_format, width, height, border, format, ptype, pixels)
+  fun get_tex_image(target: U32, level: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
     @glGetTexImage(target, level, format, ptype, pixels)
-  fun glGenTextures(n: I32, textures: Pointer[U32] tag): None =>
+  fun gen_textures(n: I32, textures: Pointer[U32] tag): None =>
     @glGenTextures(n, textures)
-  fun glDeleteTextures(n: I32, textures: Pointer[U32] tag): None =>
+  fun delete_textures(n: I32, textures: Pointer[U32] tag): None =>
     @glDeleteTextures(n, textures)
-  fun glBindTexture(target: U32, texture: U32): None =>
+  fun bind_texture(target: U32, texture: U32): None =>
     @glBindTexture(target, texture)
-  fun glPrioritizeTextures(n: I32, textures: Pointer[U32] tag, priorities: Pointer[F32] tag): None =>
+  fun prioritize_textures(n: I32, textures: Pointer[U32] tag, priorities: Pointer[F32] tag): None =>
     @glPrioritizeTextures(n, textures, priorities)
-  fun glAreTexturesResident(n: I32, textures: Pointer[U32] tag, residences: String): U8 =>
+  fun are_textures_resident(n: I32, textures: Pointer[U32] tag, residences: String): U8 =>
     @glAreTexturesResident(n, textures, residences.cstring())
-  fun glIsTexture(texture: U32): U8 =>
+  fun is_texture(texture: U32): U8 =>
     @glIsTexture(texture)
-  fun glTexSubImage1D(target: U32, level: I32, xoffset: I32, width: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
+  fun tex_sub_image1D(target: U32, level: I32, xoffset: I32, width: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
     @glTexSubImage1D(target, level, xoffset, width, format, ptype, pixels)
-  fun glTexSubImage2D(target: U32, level: I32, xoffset: I32, yoffset: I32, width: I32, height: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
+  fun tex_sub_image2D(target: U32, level: I32, xoffset: I32, yoffset: I32, width: I32, height: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
     @glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, ptype, pixels)
-  fun glCopyTexImage1D(target: U32, level: I32, internalformat: U32, x: I32, y: I32, width: I32, border: I32): None =>
-    @glCopyTexImage1D(target, level, internalformat, x, y, width, border)
-  fun glCopyTexImage2D(target: U32, level: I32, internalformat: U32, x: I32, y: I32, width: I32, height: I32, border: I32): None =>
-    @glCopyTexImage2D(target, level, internalformat, x, y, width, height, border)
-  fun glCopyTexSubImage1D(target: U32, level: I32, xoffset: I32, x: I32, y: I32, width: I32): None =>
+  fun copy_tex_image1D(target: U32, level: I32, internal_format: U32, x: I32, y: I32, width: I32, border: I32): None =>
+    @glCopyTexImage1D(target, level, internal_format, x, y, width, border)
+  fun copy_tex_image2D(target: U32, level: I32, internal_format: U32, x: I32, y: I32, width: I32, height: I32, border: I32): None =>
+    @glCopyTexImage2D(target, level, internal_format, x, y, width, height, border)
+  fun copy_tex_sub_image1D(target: U32, level: I32, xoffset: I32, x: I32, y: I32, width: I32): None =>
     @glCopyTexSubImage1D(target, level, xoffset, x, y, width)
-  fun glCopyTexSubImage2D(target: U32, level: I32, xoffset: I32, yoffset: I32, x: I32, y: I32, width: I32, height: I32): None =>
+  fun copy_tex_sub_image2D(target: U32, level: I32, xoffset: I32, yoffset: I32, x: I32, y: I32, width: I32, height: I32): None =>
     @glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height)
-  fun glMap1d(target: U32, u1: F64, u2: F64, stride: I32, order: I32, points: Pointer[F64] tag): None =>
+  fun map1d(target: U32, u1: F64, u2: F64, stride: I32, order: I32, points: Pointer[F64] tag): None =>
     @glMap1d(target, u1, u2, stride, order, points)
-  fun glMap1f(target: U32, u1: F32, u2: F32, stride: I32, order: I32, points: Pointer[F32] tag): None =>
+  fun map1f(target: U32, u1: F32, u2: F32, stride: I32, order: I32, points: Pointer[F32] tag): None =>
     @glMap1f(target, u1, u2, stride, order, points)
-  fun glMap2d(target: U32, u1: F64, u2: F64, ustride: I32, uorder: I32, v1: F64, v2: F64, vstride: I32, vorder: I32, points: Pointer[F64] tag): None =>
+  fun map2d(target: U32, u1: F64, u2: F64, ustride: I32, uorder: I32, v1: F64, v2: F64, vstride: I32, vorder: I32, points: Pointer[F64] tag): None =>
     @glMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points)
-  fun glMap2f(target: U32, u1: F32, u2: F32, ustride: I32, uorder: I32, v1: F32, v2: F32, vstride: I32, vorder: I32, points: Pointer[F32] tag): None =>
+  fun map2f(target: U32, u1: F32, u2: F32, ustride: I32, uorder: I32, v1: F32, v2: F32, vstride: I32, vorder: I32, points: Pointer[F32] tag): None =>
     @glMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points)
-  fun glGetMapdv(target: U32, query: U32, v: Pointer[F64] tag): None =>
+  fun get_mapdv(target: U32, query: U32, v: Pointer[F64] tag): None =>
     @glGetMapdv(target, query, v)
-  fun glGetMapfv(target: U32, query: U32, v: Pointer[F32] tag): None =>
+  fun get_mapfv(target: U32, query: U32, v: Pointer[F32] tag): None =>
     @glGetMapfv(target, query, v)
-  fun glGetMapiv(target: U32, query: U32, v: Pointer[I32] tag): None =>
+  fun get_mapiv(target: U32, query: U32, v: Pointer[I32] tag): None =>
     @glGetMapiv(target, query, v)
-  fun glEvalCoord1d(u: F64): None =>
+  fun eval_coord1d(u: F64): None =>
     @glEvalCoord1d(u)
-  fun glEvalCoord1f(u: F32): None =>
+  fun eval_coord1f(u: F32): None =>
     @glEvalCoord1f(u)
-  fun glEvalCoord1dv(u: Pointer[F64] tag): None =>
+  fun eval_coord1dv(u: Pointer[F64] tag): None =>
     @glEvalCoord1dv(u)
-  fun glEvalCoord1fv(u: Pointer[F32] tag): None =>
+  fun eval_coord1fv(u: Pointer[F32] tag): None =>
     @glEvalCoord1fv(u)
-  fun glEvalCoord2d(u: F64, v: F64): None =>
+  fun eval_coord2d(u: F64, v: F64): None =>
     @glEvalCoord2d(u, v)
-  fun glEvalCoord2f(u: F32, v: F32): None =>
+  fun eval_coord2f(u: F32, v: F32): None =>
     @glEvalCoord2f(u, v)
-  fun glEvalCoord2dv(u: Pointer[F64] tag): None =>
+  fun eval_coord2dv(u: Pointer[F64] tag): None =>
     @glEvalCoord2dv(u)
-  fun glEvalCoord2fv(u: Pointer[F32] tag): None =>
+  fun eval_coord2fv(u: Pointer[F32] tag): None =>
     @glEvalCoord2fv(u)
-  fun glMapGrid1d(un: I32, u1: F64, u2: F64): None =>
+  fun map_grid1d(un: I32, u1: F64, u2: F64): None =>
     @glMapGrid1d(un, u1, u2)
-  fun glMapGrid1f(un: I32, u1: F32, u2: F32): None =>
+  fun map_grid1f(un: I32, u1: F32, u2: F32): None =>
     @glMapGrid1f(un, u1, u2)
-  fun glMapGrid2d(un: I32, u1: F64, u2: F64, vn: I32, v1: F64, v2: F64): None =>
+  fun map_grid2d(un: I32, u1: F64, u2: F64, vn: I32, v1: F64, v2: F64): None =>
     @glMapGrid2d(un, u1, u2, vn, v1, v2)
-  fun glMapGrid2f(un: I32, u1: F32, u2: F32, vn: I32, v1: F32, v2: F32): None =>
+  fun map_grid2f(un: I32, u1: F32, u2: F32, vn: I32, v1: F32, v2: F32): None =>
     @glMapGrid2f(un, u1, u2, vn, v1, v2)
-  fun glEvalPoint1(i: I32): None =>
+  fun eval_point1(i: I32): None =>
     @glEvalPoint1(i)
-  fun glEvalPoint2(i: I32, j: I32): None =>
+  fun eval_point2(i: I32, j: I32): None =>
     @glEvalPoint2(i, j)
-  fun glEvalMesh1(mode: U32, i1: I32, i2: I32): None =>
+  fun eval_mesh1(mode: U32, i1: I32, i2: I32): None =>
     @glEvalMesh1(mode, i1, i2)
-  fun glEvalMesh2(mode: U32, i1: I32, i2: I32, j1: I32, j2: I32): None =>
+  fun eval_mesh2(mode: U32, i1: I32, i2: I32, j1: I32, j2: I32): None =>
     @glEvalMesh2(mode, i1, i2, j1, j2)
-  fun glFogf(pname: U32, param: F32): None =>
+  fun fogf(pname: U32, param: F32): None =>
     @glFogf(pname, param)
-  fun glFogi(pname: U32, param: I32): None =>
+  fun fogi(pname: U32, param: I32): None =>
     @glFogi(pname, param)
-  fun glFogfv(pname: U32, params: Pointer[F32] tag): None =>
+  fun fogfv(pname: U32, params: Pointer[F32] tag): None =>
     @glFogfv(pname, params)
-  fun glFogiv(pname: U32, params: Pointer[I32] tag): None =>
+  fun fogiv(pname: U32, params: Pointer[I32] tag): None =>
     @glFogiv(pname, params)
-  fun glFeedbackBuffer(size: I32, ptype: U32, buffer: Pointer[F32] tag): None =>
+  fun feedback_buffer(size: I32, ptype: U32, buffer: Pointer[F32] tag): None =>
     @glFeedbackBuffer(size, ptype, buffer)
-  fun glPassThrough(token: F32): None =>
+  fun pass_through(token: F32): None =>
     @glPassThrough(token)
-  fun glSelectBuffer(size: I32, buffer: Pointer[U32] tag): None =>
+  fun select_buffer(size: I32, buffer: Pointer[U32] tag): None =>
     @glSelectBuffer(size, buffer)
-  fun glInitNames(): None =>
+  fun init_names(): None =>
     @glInitNames()
-  fun glLoadName(name: U32): None =>
+  fun load_name(name: U32): None =>
     @glLoadName(name)
-  fun glPushName(name: U32): None =>
+  fun push_name(name: U32): None =>
     @glPushName(name)
-  fun glPopName(): None =>
+  fun pop_name(): None =>
     @glPopName()
-  fun glDrawRangeElements(mode: U32, start: U32, pend: U32, count: I32, ptype: U32, indices: Pointer[None] tag): None =>
+  fun draw_range_elements(mode: U32, start: U32, pend: U32, count: I32, ptype: U32, indices: Pointer[None] tag): None =>
     @glDrawRangeElements(mode, start, pend, count, ptype, indices)
-  fun glTexImage3D(target: U32, level: I32, internalFormat: I32, width: I32, height: I32, depth: I32, border: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
-    @glTexImage3D(target, level, internalFormat, width, height, depth, border, format, ptype, pixels)
-  fun glTexSubImage3D(target: U32, level: I32, xoffset: I32, yoffset: I32, zoffset: I32, width: I32, height: I32, depth: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
+  fun tex_image3D(target: U32, level: I32, internal_format: I32, width: I32, height: I32, depth: I32, border: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
+    @glTexImage3D(target, level, internal_format, width, height, depth, border, format, ptype, pixels)
+  fun tex_sub_image3D(target: U32, level: I32, xoffset: I32, yoffset: I32, zoffset: I32, width: I32, height: I32, depth: I32, format: U32, ptype: U32, pixels: Pointer[None] tag): None =>
     @glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, ptype, pixels)
-  fun glCopyTexSubImage3D(target: U32, level: I32, xoffset: I32, yoffset: I32, zoffset: I32, x: I32, y: I32, width: I32, height: I32): None =>
+  fun copy_tex_sub_image3D(target: U32, level: I32, xoffset: I32, yoffset: I32, zoffset: I32, x: I32, y: I32, width: I32, height: I32): None =>
     @glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height)
-  fun glColorTable(target: U32, internalformat: U32, width: I32, format: U32, ptype: U32, table: Pointer[None] tag): None =>
-    @glColorTable(target, internalformat, width, format, ptype, table)
-  fun glColorSubTable(target: U32, start: I32, count: I32, format: U32, ptype: U32, data: Pointer[None] tag): None =>
+  fun color_table(target: U32, internal_format: U32, width: I32, format: U32, ptype: U32, table: Pointer[None] tag): None =>
+    @glColorTable(target, internal_format, width, format, ptype, table)
+  fun color_sub_table(target: U32, start: I32, count: I32, format: U32, ptype: U32, data: Pointer[None] tag): None =>
     @glColorSubTable(target, start, count, format, ptype, data)
-  fun glColorTableParameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun color_table_parameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glColorTableParameteriv(target, pname, params)
-  fun glColorTableParameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun color_table_parameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glColorTableParameterfv(target, pname, params)
-  fun glCopyColorSubTable(target: U32, start: I32, x: I32, y: I32, width: I32): None =>
+  fun copy_color_sub_table(target: U32, start: I32, x: I32, y: I32, width: I32): None =>
     @glCopyColorSubTable(target, start, x, y, width)
-  fun glCopyColorTable(target: U32, internalformat: U32, x: I32, y: I32, width: I32): None =>
-    @glCopyColorTable(target, internalformat, x, y, width)
-  fun glGetColorTable(target: U32, format: U32, ptype: U32, table: Pointer[None] tag): None =>
+  fun copy_color_table(target: U32, internal_format: U32, x: I32, y: I32, width: I32): None =>
+    @glCopyColorTable(target, internal_format, x, y, width)
+  fun get_color_table(target: U32, format: U32, ptype: U32, table: Pointer[None] tag): None =>
     @glGetColorTable(target, format, ptype, table)
-  fun glGetColorTableParameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_color_table_parameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetColorTableParameterfv(target, pname, params)
-  fun glGetColorTableParameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_color_table_parameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetColorTableParameteriv(target, pname, params)
-  fun glBlendEquation(mode: U32): None =>
+  fun blend_equation(mode: U32): None =>
     @glBlendEquation(mode)
-  fun glBlendColor(red: F32, green: F32, blue: F32, alpha: F32): None =>
+  fun blend_color(red: F32, green: F32, blue: F32, alpha: F32): None =>
     @glBlendColor(red, green, blue, alpha)
-  fun glHistogram(target: U32, width: I32, internalformat: U32, sink: U8): None =>
-    @glHistogram(target, width, internalformat, sink)
-  fun glResetHistogram(target: U32): None =>
+  fun histogram(target: U32, width: I32, internal_format: U32, sink: U8): None =>
+    @glHistogram(target, width, internal_format, sink)
+  fun reset_histogram(target: U32): None =>
     @glResetHistogram(target)
-  fun glGetHistogram(target: U32, reset: U8, format: U32, ptype: U32, values: Pointer[None] tag): None =>
+  fun get_histogram(target: U32, reset: U8, format: U32, ptype: U32, values: Pointer[None] tag): None =>
     @glGetHistogram(target, reset, format, ptype, values)
-  fun glGetHistogramParameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_histogram_parameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetHistogramParameterfv(target, pname, params)
-  fun glGetHistogramParameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_histogram_parameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetHistogramParameteriv(target, pname, params)
-  fun glMinmax(target: U32, internalformat: U32, sink: U8): None =>
-    @glMinmax(target, internalformat, sink)
-  fun glResetMinmax(target: U32): None =>
+  fun minmax(target: U32, internal_format: U32, sink: U8): None =>
+    @glMinmax(target, internal_format, sink)
+  fun reset_minmax(target: U32): None =>
     @glResetMinmax(target)
-  fun glGetMinmax(target: U32, reset: U8, format: U32, types: U32, values: Pointer[None] tag): None =>
+  fun get_minmax(target: U32, reset: U8, format: U32, types: U32, values: Pointer[None] tag): None =>
     @glGetMinmax(target, reset, format, types, values)
-  fun glGetMinmaxParameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_minmax_parameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetMinmaxParameterfv(target, pname, params)
-  fun glGetMinmaxParameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_minmax_parameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetMinmaxParameteriv(target, pname, params)
-  fun glConvolutionFilter1D(target: U32, internalformat: U32, width: I32, format: U32, ptype: U32, image: Pointer[None] tag): None =>
-    @glConvolutionFilter1D(target, internalformat, width, format, ptype, image)
-  fun glConvolutionFilter2D(target: U32, internalformat: U32, width: I32, height: I32, format: U32, ptype: U32, image: Pointer[None] tag): None =>
-    @glConvolutionFilter2D(target, internalformat, width, height, format, ptype, image)
-  fun glConvolutionParameterf(target: U32, pname: U32, params: F32): None =>
+  fun convolution_filter1D(target: U32, internal_format: U32, width: I32, format: U32, ptype: U32, image: Pointer[None] tag): None =>
+    @glConvolutionFilter1D(target, internal_format, width, format, ptype, image)
+  fun convolution_filter2D(target: U32, internal_format: U32, width: I32, height: I32, format: U32, ptype: U32, image: Pointer[None] tag): None =>
+    @glConvolutionFilter2D(target, internal_format, width, height, format, ptype, image)
+  fun convolution_parameterf(target: U32, pname: U32, params: F32): None =>
     @glConvolutionParameterf(target, pname, params)
-  fun glConvolutionParameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun convolution_parameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glConvolutionParameterfv(target, pname, params)
-  fun glConvolutionParameteri(target: U32, pname: U32, params: I32): None =>
+  fun convolution_parameteri(target: U32, pname: U32, params: I32): None =>
     @glConvolutionParameteri(target, pname, params)
-  fun glConvolutionParameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun convolution_parameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glConvolutionParameteriv(target, pname, params)
-  fun glCopyConvolutionFilter1D(target: U32, internalformat: U32, x: I32, y: I32, width: I32): None =>
-    @glCopyConvolutionFilter1D(target, internalformat, x, y, width)
-  fun glCopyConvolutionFilter2D(target: U32, internalformat: U32, x: I32, y: I32, width: I32, height: I32): None =>
-    @glCopyConvolutionFilter2D(target, internalformat, x, y, width, height)
-  fun glGetConvolutionFilter(target: U32, format: U32, ptype: U32, image: Pointer[None] tag): None =>
+  fun copy_convolution_filter1D(target: U32, internal_format: U32, x: I32, y: I32, width: I32): None =>
+    @glCopyConvolutionFilter1D(target, internal_format, x, y, width)
+  fun copy_convolution_filter2D(target: U32, internal_format: U32, x: I32, y: I32, width: I32, height: I32): None =>
+    @glCopyConvolutionFilter2D(target, internal_format, x, y, width, height)
+  fun get_convolution_filter(target: U32, format: U32, ptype: U32, image: Pointer[None] tag): None =>
     @glGetConvolutionFilter(target, format, ptype, image)
-  fun glGetConvolutionParameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
+  fun get_convolution_parameterfv(target: U32, pname: U32, params: Pointer[F32] tag): None =>
     @glGetConvolutionParameterfv(target, pname, params)
-  fun glGetConvolutionParameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
+  fun get_convolution_parameteriv(target: U32, pname: U32, params: Pointer[I32] tag): None =>
     @glGetConvolutionParameteriv(target, pname, params)
-  fun glSeparableFilter2D(target: U32, internalformat: U32, width: I32, height: I32, format: U32, ptype: U32, row: Pointer[None] tag, column: Pointer[None] tag): None =>
-    @glSeparableFilter2D(target, internalformat, width, height, format, ptype, row, column)
-  fun glGetSeparableFilter(target: U32, format: U32, ptype: U32, row: Pointer[None] tag, column: Pointer[None] tag, span: Pointer[None] tag): None =>
+  fun separable_filter2D(target: U32, internal_format: U32, width: I32, height: I32, format: U32, ptype: U32, row: Pointer[None] tag, column: Pointer[None] tag): None =>
+    @glSeparableFilter2D(target, internal_format, width, height, format, ptype, row, column)
+  fun get_separable_filter(target: U32, format: U32, ptype: U32, row: Pointer[None] tag, column: Pointer[None] tag, span: Pointer[None] tag): None =>
     @glGetSeparableFilter(target, format, ptype, row, column, span)
-  fun glActiveTexture(texture: U32): None =>
+  fun active_texture(texture: U32): None =>
     @glActiveTexture(texture)
-  fun glClientActiveTexture(texture: U32): None =>
+  fun client_active_texture(texture: U32): None =>
     @glClientActiveTexture(texture)
-  fun glCompressedTexImage1D(target: U32, level: I32, internalformat: U32, width: I32, border: I32, imageSize: I32, data: Pointer[None] tag): None =>
-    @glCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data)
-  fun glCompressedTexImage2D(target: U32, level: I32, internalformat: U32, width: I32, height: I32, border: I32, imageSize: I32, data: Pointer[None] tag): None =>
-    @glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data)
-  fun glCompressedTexImage3D(target: U32, level: I32, internalformat: U32, width: I32, height: I32, depth: I32, border: I32, imageSize: I32, data: Pointer[None] tag): None =>
-    @glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data)
-  fun glCompressedTexSubImage1D(target: U32, level: I32, xoffset: I32, width: I32, format: U32, imageSize: I32, data: Pointer[None] tag): None =>
-    @glCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data)
-  fun glCompressedTexSubImage2D(target: U32, level: I32, xoffset: I32, yoffset: I32, width: I32, height: I32, format: U32, imageSize: I32, data: Pointer[None] tag): None =>
-    @glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data)
-  fun glCompressedTexSubImage3D(target: U32, level: I32, xoffset: I32, yoffset: I32, zoffset: I32, width: I32, height: I32, depth: I32, format: U32, imageSize: I32, data: Pointer[None] tag): None =>
-    @glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data)
-  fun glGetCompressedTexImage(target: U32, lod: I32, img: Pointer[None] tag): None =>
+  fun compressed_tex_image1D(target: U32, level: I32, internal_format: U32, width: I32, border: I32, image_size: I32, data: Pointer[None] tag): None =>
+    @glCompressedTexImage1D(target, level, internal_format, width, border, image_size, data)
+  fun compressed_tex_image2D(target: U32, level: I32, internal_format: U32, width: I32, height: I32, border: I32, image_size: I32, data: Pointer[None] tag): None =>
+    @glCompressedTexImage2D(target, level, internal_format, width, height, border, image_size, data)
+  fun compressed_tex_image3D(target: U32, level: I32, internal_format: U32, width: I32, height: I32, depth: I32, border: I32, image_size: I32, data: Pointer[None] tag): None =>
+    @glCompressedTexImage3D(target, level, internal_format, width, height, depth, border, image_size, data)
+  fun compressed_tex_sub_image1D(target: U32, level: I32, xoffset: I32, width: I32, format: U32, image_size: I32, data: Pointer[None] tag): None =>
+    @glCompressedTexSubImage1D(target, level, xoffset, width, format, image_size, data)
+  fun compressed_tex_sub_image2D(target: U32, level: I32, xoffset: I32, yoffset: I32, width: I32, height: I32, format: U32, image_size: I32, data: Pointer[None] tag): None =>
+    @glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, image_size, data)
+  fun compressed_tex_sub_image3D(target: U32, level: I32, xoffset: I32, yoffset: I32, zoffset: I32, width: I32, height: I32, depth: I32, format: U32, image_size: I32, data: Pointer[None] tag): None =>
+    @glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, image_size, data)
+  fun get_compressed_tex_image(target: U32, lod: I32, img: Pointer[None] tag): None =>
     @glGetCompressedTexImage(target, lod, img)
-  fun glMultiTexCoord1d(target: U32, s: F64): None =>
+  fun multi_tex_coord1d(target: U32, s: F64): None =>
     @glMultiTexCoord1d(target, s)
-  fun glMultiTexCoord1dv(target: U32, v: Pointer[F64] tag): None =>
+  fun multi_tex_coord1dv(target: U32, v: Pointer[F64] tag): None =>
     @glMultiTexCoord1dv(target, v)
-  fun glMultiTexCoord1f(target: U32, s: F32): None =>
+  fun multi_tex_coord1f(target: U32, s: F32): None =>
     @glMultiTexCoord1f(target, s)
-  fun glMultiTexCoord1fv(target: U32, v: Pointer[F32] tag): None =>
+  fun multi_tex_coord1fv(target: U32, v: Pointer[F32] tag): None =>
     @glMultiTexCoord1fv(target, v)
-  fun glMultiTexCoord1i(target: U32, s: I32): None =>
+  fun multi_tex_coord1i(target: U32, s: I32): None =>
     @glMultiTexCoord1i(target, s)
-  fun glMultiTexCoord1iv(target: U32, v: Pointer[I32] tag): None =>
+  fun multi_tex_coord1iv(target: U32, v: Pointer[I32] tag): None =>
     @glMultiTexCoord1iv(target, v)
-  fun glMultiTexCoord1s(target: U32, s: I16): None =>
+  fun multi_tex_coord1s(target: U32, s: I16): None =>
     @glMultiTexCoord1s(target, s)
-  fun glMultiTexCoord1sv(target: U32, v: Pointer[I16] tag): None =>
+  fun multi_tex_coord1sv(target: U32, v: Pointer[I16] tag): None =>
     @glMultiTexCoord1sv(target, v)
-  fun glMultiTexCoord2d(target: U32, s: F64, t: F64): None =>
+  fun multi_tex_coord2d(target: U32, s: F64, t: F64): None =>
     @glMultiTexCoord2d(target, s, t)
-  fun glMultiTexCoord2dv(target: U32, v: Pointer[F64] tag): None =>
+  fun multi_tex_coord2dv(target: U32, v: Pointer[F64] tag): None =>
     @glMultiTexCoord2dv(target, v)
-  fun glMultiTexCoord2f(target: U32, s: F32, t: F32): None =>
+  fun multi_tex_coord2f(target: U32, s: F32, t: F32): None =>
     @glMultiTexCoord2f(target, s, t)
-  fun glMultiTexCoord2fv(target: U32, v: Pointer[F32] tag): None =>
+  fun multi_tex_coord2fv(target: U32, v: Pointer[F32] tag): None =>
     @glMultiTexCoord2fv(target, v)
-  fun glMultiTexCoord2i(target: U32, s: I32, t: I32): None =>
+  fun multi_tex_coord2i(target: U32, s: I32, t: I32): None =>
     @glMultiTexCoord2i(target, s, t)
-  fun glMultiTexCoord2iv(target: U32, v: Pointer[I32] tag): None =>
+  fun multi_tex_coord2iv(target: U32, v: Pointer[I32] tag): None =>
     @glMultiTexCoord2iv(target, v)
-  fun glMultiTexCoord2s(target: U32, s: I16, t: I16): None =>
+  fun multi_tex_coord2s(target: U32, s: I16, t: I16): None =>
     @glMultiTexCoord2s(target, s, t)
-  fun glMultiTexCoord2sv(target: U32, v: Pointer[I16] tag): None =>
+  fun multi_tex_coord2sv(target: U32, v: Pointer[I16] tag): None =>
     @glMultiTexCoord2sv(target, v)
-  fun glMultiTexCoord3d(target: U32, s: F64, t: F64, r: F64): None =>
+  fun multi_tex_coord3d(target: U32, s: F64, t: F64, r: F64): None =>
     @glMultiTexCoord3d(target, s, t, r)
-  fun glMultiTexCoord3dv(target: U32, v: Pointer[F64] tag): None =>
+  fun multi_tex_coord3dv(target: U32, v: Pointer[F64] tag): None =>
     @glMultiTexCoord3dv(target, v)
-  fun glMultiTexCoord3f(target: U32, s: F32, t: F32, r: F32): None =>
+  fun multi_tex_coord3f(target: U32, s: F32, t: F32, r: F32): None =>
     @glMultiTexCoord3f(target, s, t, r)
-  fun glMultiTexCoord3fv(target: U32, v: Pointer[F32] tag): None =>
+  fun multi_tex_coord3fv(target: U32, v: Pointer[F32] tag): None =>
     @glMultiTexCoord3fv(target, v)
-  fun glMultiTexCoord3i(target: U32, s: I32, t: I32, r: I32): None =>
+  fun multi_tex_coord3i(target: U32, s: I32, t: I32, r: I32): None =>
     @glMultiTexCoord3i(target, s, t, r)
-  fun glMultiTexCoord3iv(target: U32, v: Pointer[I32] tag): None =>
+  fun multi_tex_coord3iv(target: U32, v: Pointer[I32] tag): None =>
     @glMultiTexCoord3iv(target, v)
-  fun glMultiTexCoord3s(target: U32, s: I16, t: I16, r: I16): None =>
+  fun multi_tex_coord3s(target: U32, s: I16, t: I16, r: I16): None =>
     @glMultiTexCoord3s(target, s, t, r)
-  fun glMultiTexCoord3sv(target: U32, v: Pointer[I16] tag): None =>
+  fun multi_tex_coord3sv(target: U32, v: Pointer[I16] tag): None =>
     @glMultiTexCoord3sv(target, v)
-  fun glMultiTexCoord4d(target: U32, s: F64, t: F64, r: F64, q: F64): None =>
+  fun multi_tex_coord4d(target: U32, s: F64, t: F64, r: F64, q: F64): None =>
     @glMultiTexCoord4d(target, s, t, r, q)
-  fun glMultiTexCoord4dv(target: U32, v: Pointer[F64] tag): None =>
+  fun multi_tex_coord4dv(target: U32, v: Pointer[F64] tag): None =>
     @glMultiTexCoord4dv(target, v)
-  fun glMultiTexCoord4f(target: U32, s: F32, t: F32, r: F32, q: F32): None =>
+  fun multi_tex_coord4f(target: U32, s: F32, t: F32, r: F32, q: F32): None =>
     @glMultiTexCoord4f(target, s, t, r, q)
-  fun glMultiTexCoord4fv(target: U32, v: Pointer[F32] tag): None =>
+  fun multi_tex_coord4fv(target: U32, v: Pointer[F32] tag): None =>
     @glMultiTexCoord4fv(target, v)
-  fun glMultiTexCoord4i(target: U32, s: I32, t: I32, r: I32, q: I32): None =>
+  fun multi_tex_coord4i(target: U32, s: I32, t: I32, r: I32, q: I32): None =>
     @glMultiTexCoord4i(target, s, t, r, q)
-  fun glMultiTexCoord4iv(target: U32, v: Pointer[I32] tag): None =>
+  fun multi_tex_coord4iv(target: U32, v: Pointer[I32] tag): None =>
     @glMultiTexCoord4iv(target, v)
-  fun glMultiTexCoord4s(target: U32, s: I16, t: I16, r: I16, q: I16): None =>
+  fun multi_tex_coord4s(target: U32, s: I16, t: I16, r: I16, q: I16): None =>
     @glMultiTexCoord4s(target, s, t, r, q)
-  fun glMultiTexCoord4sv(target: U32, v: Pointer[I16] tag): None =>
+  fun multi_tex_coord4sv(target: U32, v: Pointer[I16] tag): None =>
     @glMultiTexCoord4sv(target, v)
-  fun glLoadTransposeMatrixd(m: Pointer[F64] tag): None =>
+  fun load_transpose_matrixd(m: Pointer[F64] tag): None =>
     @glLoadTransposeMatrixd(m)
-  fun glLoadTransposeMatrixf(m: Pointer[F32] tag): None =>
+  fun load_transpose_matrixf(m: Pointer[F32] tag): None =>
     @glLoadTransposeMatrixf(m)
-  fun glMultTransposeMatrixd(m: Pointer[F64] tag): None =>
+  fun mult_transpose_matrixd(m: Pointer[F64] tag): None =>
     @glMultTransposeMatrixd(m)
-  fun glMultTransposeMatrixf(m: Pointer[F32] tag): None =>
+  fun mult_transpose_matrixf(m: Pointer[F32] tag): None =>
     @glMultTransposeMatrixf(m)
-  fun glSampleCoverage(value: F32, invert: U8): None =>
+  fun sample_coverage(value: F32, invert: U8): None =>
     @glSampleCoverage(value, invert)
-  fun glActiveTextureARB(texture: U32): None =>
+  fun active_texture_ARB(texture: U32): None =>
     @glActiveTextureARB(texture)
-  fun glClientActiveTextureARB(texture: U32): None =>
+  fun client_active_texture_ARB(texture: U32): None =>
     @glClientActiveTextureARB(texture)
-  fun glMultiTexCoord1dARB(target: U32, s: F64): None =>
+  fun multi_tex_coord1d_ARB(target: U32, s: F64): None =>
     @glMultiTexCoord1dARB(target, s)
-  fun glMultiTexCoord1dvARB(target: U32, v: Pointer[F64] tag): None =>
+  fun multi_tex_coord1dv_ARB(target: U32, v: Pointer[F64] tag): None =>
     @glMultiTexCoord1dvARB(target, v)
-  fun glMultiTexCoord1fARB(target: U32, s: F32): None =>
+  fun multi_tex_coord1f_ARB(target: U32, s: F32): None =>
     @glMultiTexCoord1fARB(target, s)
-  fun glMultiTexCoord1fvARB(target: U32, v: Pointer[F32] tag): None =>
+  fun multi_tex_coord1fv_ARB(target: U32, v: Pointer[F32] tag): None =>
     @glMultiTexCoord1fvARB(target, v)
-  fun glMultiTexCoord1iARB(target: U32, s: I32): None =>
+  fun multi_tex_coord1i_ARB(target: U32, s: I32): None =>
     @glMultiTexCoord1iARB(target, s)
-  fun glMultiTexCoord1ivARB(target: U32, v: Pointer[I32] tag): None =>
+  fun multi_tex_coord1iv_ARB(target: U32, v: Pointer[I32] tag): None =>
     @glMultiTexCoord1ivARB(target, v)
-  fun glMultiTexCoord1sARB(target: U32, s: I16): None =>
+  fun multi_tex_coord1s_ARB(target: U32, s: I16): None =>
     @glMultiTexCoord1sARB(target, s)
-  fun glMultiTexCoord1svARB(target: U32, v: Pointer[I16] tag): None =>
+  fun multi_tex_coord1sv_ARB(target: U32, v: Pointer[I16] tag): None =>
     @glMultiTexCoord1svARB(target, v)
-  fun glMultiTexCoord2dARB(target: U32, s: F64, t: F64): None =>
+  fun multi_tex_coord2d_ARB(target: U32, s: F64, t: F64): None =>
     @glMultiTexCoord2dARB(target, s, t)
-  fun glMultiTexCoord2dvARB(target: U32, v: Pointer[F64] tag): None =>
+  fun multi_tex_coord2dv_ARB(target: U32, v: Pointer[F64] tag): None =>
     @glMultiTexCoord2dvARB(target, v)
-  fun glMultiTexCoord2fARB(target: U32, s: F32, t: F32): None =>
+  fun multi_tex_coord2f_ARB(target: U32, s: F32, t: F32): None =>
     @glMultiTexCoord2fARB(target, s, t)
-  fun glMultiTexCoord2fvARB(target: U32, v: Pointer[F32] tag): None =>
+  fun multi_tex_coord2fv_ARB(target: U32, v: Pointer[F32] tag): None =>
     @glMultiTexCoord2fvARB(target, v)
-  fun glMultiTexCoord2iARB(target: U32, s: I32, t: I32): None =>
+  fun multi_tex_coord2i_ARB(target: U32, s: I32, t: I32): None =>
     @glMultiTexCoord2iARB(target, s, t)
-  fun glMultiTexCoord2ivARB(target: U32, v: Pointer[I32] tag): None =>
+  fun multi_tex_coord2iv_ARB(target: U32, v: Pointer[I32] tag): None =>
     @glMultiTexCoord2ivARB(target, v)
-  fun glMultiTexCoord2sARB(target: U32, s: I16, t: I16): None =>
+  fun multi_tex_coord2s_ARB(target: U32, s: I16, t: I16): None =>
     @glMultiTexCoord2sARB(target, s, t)
-  fun glMultiTexCoord2svARB(target: U32, v: Pointer[I16] tag): None =>
+  fun multi_tex_coord2sv_ARB(target: U32, v: Pointer[I16] tag): None =>
     @glMultiTexCoord2svARB(target, v)
-  fun glMultiTexCoord3dARB(target: U32, s: F64, t: F64, r: F64): None =>
+  fun multi_tex_coord3d_ARB(target: U32, s: F64, t: F64, r: F64): None =>
     @glMultiTexCoord3dARB(target, s, t, r)
-  fun glMultiTexCoord3dvARB(target: U32, v: Pointer[F64] tag): None =>
+  fun multi_tex_coord3dv_ARB(target: U32, v: Pointer[F64] tag): None =>
     @glMultiTexCoord3dvARB(target, v)
-  fun glMultiTexCoord3fARB(target: U32, s: F32, t: F32, r: F32): None =>
+  fun multi_tex_coord3f_ARB(target: U32, s: F32, t: F32, r: F32): None =>
     @glMultiTexCoord3fARB(target, s, t, r)
-  fun glMultiTexCoord3fvARB(target: U32, v: Pointer[F32] tag): None =>
+  fun multi_tex_coord3fv_ARB(target: U32, v: Pointer[F32] tag): None =>
     @glMultiTexCoord3fvARB(target, v)
-  fun glMultiTexCoord3iARB(target: U32, s: I32, t: I32, r: I32): None =>
+  fun multi_tex_coord3i_ARB(target: U32, s: I32, t: I32, r: I32): None =>
     @glMultiTexCoord3iARB(target, s, t, r)
-  fun glMultiTexCoord3ivARB(target: U32, v: Pointer[I32] tag): None =>
+  fun multi_tex_coord3iv_ARB(target: U32, v: Pointer[I32] tag): None =>
     @glMultiTexCoord3ivARB(target, v)
-  fun glMultiTexCoord3sARB(target: U32, s: I16, t: I16, r: I16): None =>
+  fun multi_tex_coord3s_ARB(target: U32, s: I16, t: I16, r: I16): None =>
     @glMultiTexCoord3sARB(target, s, t, r)
-  fun glMultiTexCoord3svARB(target: U32, v: Pointer[I16] tag): None =>
+  fun multi_tex_coord3sv_ARB(target: U32, v: Pointer[I16] tag): None =>
     @glMultiTexCoord3svARB(target, v)
-  fun glMultiTexCoord4dARB(target: U32, s: F64, t: F64, r: F64, q: F64): None =>
+  fun multi_tex_coord4d_ARB(target: U32, s: F64, t: F64, r: F64, q: F64): None =>
     @glMultiTexCoord4dARB(target, s, t, r, q)
-  fun glMultiTexCoord4dvARB(target: U32, v: Pointer[F64] tag): None =>
+  fun multi_tex_coord4dv_ARB(target: U32, v: Pointer[F64] tag): None =>
     @glMultiTexCoord4dvARB(target, v)
-  fun glMultiTexCoord4fARB(target: U32, s: F32, t: F32, r: F32, q: F32): None =>
+  fun multi_tex_coord4f_ARB(target: U32, s: F32, t: F32, r: F32, q: F32): None =>
     @glMultiTexCoord4fARB(target, s, t, r, q)
-  fun glMultiTexCoord4fvARB(target: U32, v: Pointer[F32] tag): None =>
+  fun multi_tex_coord4fv_ARB(target: U32, v: Pointer[F32] tag): None =>
     @glMultiTexCoord4fvARB(target, v)
-  fun glMultiTexCoord4iARB(target: U32, s: I32, t: I32, r: I32, q: I32): None =>
+  fun multi_tex_coord4i_ARB(target: U32, s: I32, t: I32, r: I32, q: I32): None =>
     @glMultiTexCoord4iARB(target, s, t, r, q)
-  fun glMultiTexCoord4ivARB(target: U32, v: Pointer[I32] tag): None =>
+  fun multi_tex_coord4iv_ARB(target: U32, v: Pointer[I32] tag): None =>
     @glMultiTexCoord4ivARB(target, v)
-  fun glMultiTexCoord4sARB(target: U32, s: I16, t: I16, r: I16, q: I16): None =>
+  fun multi_tex_coord4s_ARB(target: U32, s: I16, t: I16, r: I16, q: I16): None =>
     @glMultiTexCoord4sARB(target, s, t, r, q)
-  fun glMultiTexCoord4svARB(target: U32, v: Pointer[I16] tag): None =>
+  fun multi_tex_coord4sv_ARB(target: U32, v: Pointer[I16] tag): None =>
     @glMultiTexCoord4svARB(target, v)
-  fun glBlendEquationSeparateATI(modeRGB: U32, modeA: U32): None =>
+  fun blend_equation_separate_ATI(modeRGB: U32, modeA: U32): None =>
     @glBlendEquationSeparateATI(modeRGB, modeA)
 
