@@ -30,7 +30,7 @@ You might want to using this package together with [GLFW3](https://github.com/xp
 Names are preserved and mapped to Pony types.
 
 - `GLbitfield` is `U32`
-- `GLboolean` is `Bool` (possible becausing using `GLboolean` instead of `GLbitfield` for `GLTrue` and `GLFalse`)
+- `GLboolean` is `U32`
 - `GLbyte` is `I8`
 - `GLchar` is `U8`
 - `GLdouble` is `F64`
@@ -68,7 +68,7 @@ Names are preserved.
 Pointers are treated in the following way:
 
 - `T*` arguments are replaced by `Pointer[T]`
-- `void**` arguments are replaced by `Pointer[Pointer[None]]`
+- `T**` arguments are replaced by `Pointer[Pointer[T]]`
 
 ### Wrappers
 
@@ -78,8 +78,9 @@ The following changes have been made to make using wrappers possible from non-ba
 
 - `Pointer[GLubyte]` return values are replaced by `String`
 - `Pointer[GLchar]` arguments are replaced by `String`
+- `Pointer[Pointer[GLchar]]` arguments are replaced by `Array[Pointer[GLchar]]`
+- `Pointer[Pointer[None]]` arguments are replaced by `Array[Pointer[None]]`
 - `Pointer[T]` arguments are replaced by `Array[T]`
-- `Pointer[Pointer[None]]` arguments are replaced by `Array[Array[None]]`
 
 The following defintions have been omitted.
 

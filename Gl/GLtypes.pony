@@ -1,5 +1,5 @@
 type GLbitfield is U32
-type GLboolean is Bool // Possible because using GLboolean instead of GLbitfield for GLTrue and GLFalse
+type GLboolean is U32
 type GLbyte is I8
 type GLchar is U8
 type GLdouble is F64

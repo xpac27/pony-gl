@@ -311,8 +311,8 @@ primitive GL
   fun glCompileCommandListNV(list: GLuint): None =>
     @glCompileCommandListNV(list)
 
-  fun glCompileShaderIncludeARB(shader: GLuint, count: GLsizei, path: String, length: Array[GLint]): None =>
-    @glCompileShaderIncludeARB(shader, count, path.cpointer(), length.cpointer())
+  fun glCompileShaderIncludeARB(shader: GLuint, count: GLsizei, paths: Array[Pointer[GLchar] tag], length: Array[GLint]): None =>
+    @glCompileShaderIncludeARB(shader, count, paths.cpointer(), length.cpointer())
 
   fun glCompileShader(shader: GLuint): None =>
     @glCompileShader(shader)
@@ -500,7 +500,7 @@ primitive GL
   fun glCreateShaderProgramEXT(type': GLenum, string: String): GLuint =>
     @glCreateShaderProgramEXT(type', string.cstring())
 
-  fun glCreateShaderProgramv(type': GLenum, count: GLsizei, strings: String): GLuint =>
+  fun glCreateShaderProgramv(type': GLenum, count: GLsizei, strings: Array[Pointer[GLchar] tag]): GLuint =>
     @glCreateShaderProgramv(type', count, strings.cpointer())
 
   fun glCreateShader(type': GLenum): GLuint =>
@@ -1280,8 +1280,13 @@ primitive GL
   fun glGetProgramBinary(program: GLuint, bufSize: GLsizei, length: Array[GLsizei], binaryFormat: Array[GLenum], binary: Array[Any]): None =>
     @glGetProgramBinary(program, bufSize, length.cpointer(), binaryFormat.cpointer(), binary.cpointer())
 
-  fun glGetProgramInfoLog(program: GLuint, bufSize: GLsizei, length: Array[GLsizei], infoLog: String): None =>
-    @glGetProgramInfoLog(program, bufSize, length.cpointer(), infoLog.cstring())
+  fun glGetProgramInfoLog(program: GLuint, bufSize: GLsizei, length: Array[GLsizei], infoLog: Array[GLchar] val): None =>
+    @glGetProgramInfoLog(program, bufSize, length.cpointer(), infoLog.cpointer())
+
+  fun glGetProgramInfoLog_1(program: GLuint, bufferSize: USize = 1024): String =>
+    var a: Array[GLchar val] val = recover Array[GLchar val].init(0, bufferSize) end
+    @glGetProgramInfoLog(program, GLsizei.from[USize](a.size()), Pointer[GLsizei], a.cpointer())
+    String.from_array(a)
 
   fun glGetProgramInterfaceiv(program: GLuint, programInterface: GLenum, pname: GLenum, params: Array[GLint]): None =>
     @glGetProgramInterfaceiv(program, programInterface, pname, params.cpointer())
@@ -1315,6 +1320,11 @@ primitive GL
 
   fun glGetProgramiv(program: GLuint, pname: GLenum, params: Array[GLint]): None =>
     @glGetProgramiv(program, pname, params.cpointer())
+
+  fun glGetProgramiv_1(program: GLuint, pname: GLenum): GLint =>
+    var params: GLint = 0
+    @glGetProgramiv(program, pname, addressof params)
+    params
 
   fun glGetQueryBufferObjecti64v(id: GLuint, buffer: GLuint, pname: GLenum, offset: GLintptr): None =>
     @glGetQueryBufferObjecti64v(id, buffer, pname, offset)
@@ -1361,8 +1371,13 @@ primitive GL
   fun glGetSamplerParameteriv(sampler: GLuint, pname: GLenum, params: Array[GLint]): None =>
     @glGetSamplerParameteriv(sampler, pname, params.cpointer())
 
-  fun glGetShaderInfoLog(shader: GLuint, bufSize: GLsizei, length: Array[GLsizei], infoLog: String): None =>
-    @glGetShaderInfoLog(shader, bufSize, length.cpointer(), infoLog.cstring())
+  fun glGetShaderInfoLog(shader: GLuint, bufSize: GLsizei, length: Array[GLsizei], infoLog: Array[GLchar] val): None =>
+    @glGetShaderInfoLog(shader, bufSize, length.cpointer(), infoLog.cpointer())
+
+  fun glGetShaderInfoLog_1(shader: GLuint, bufferSize: USize = 1024): String =>
+    var a: Array[GLchar val] val = recover Array[GLchar val].init(0, bufferSize) end
+    @glGetShaderInfoLog(shader, GLsizei.from[USize](a.size()), Pointer[GLsizei], a.cpointer())
+    String.from_array(a)
 
   fun glGetShaderPrecisionFormat(shadertype': GLenum, precisiontype': GLenum, range: Array[GLint], precision: Array[GLint]): None =>
     @glGetShaderPrecisionFormat(shadertype', precisiontype', range.cpointer(), precision.cpointer())
@@ -1372,6 +1387,11 @@ primitive GL
 
   fun glGetShaderiv(shader: GLuint, pname: GLenum, params: Array[GLint]): None =>
     @glGetShaderiv(shader, pname, params.cpointer())
+
+  fun glGetShaderiv_1(shader: GLuint, pname: GLenum): GLbitfield =>
+    var params: GLint = 0
+    @glGetShaderiv(shader, pname, addressof params)
+    GLbitfield.from[GLint](params)
 
   fun glGetShadingRateImagePaletteNV(viewport: GLuint, entry: GLuint, rate: Array[GLenum]): None =>
     @glGetShadingRateImagePaletteNV(viewport, entry, rate.cpointer())
@@ -1484,7 +1504,7 @@ primitive GL
   fun glGetUniformBlockIndex(program: GLuint, uniformBlockName: String): GLuint =>
     @glGetUniformBlockIndex(program, uniformBlockName.cstring())
 
-  fun glGetUniformIndices(program: GLuint, uniformCount: GLsizei, uniformNames: String, uniformIndices: Array[GLuint]): None =>
+  fun glGetUniformIndices(program: GLuint, uniformCount: GLsizei, uniformNames: Array[Pointer[GLchar] tag], uniformIndices: Array[GLuint]): None =>
     @glGetUniformIndices(program, uniformCount, uniformNames.cpointer(), uniformIndices.cpointer())
 
   fun glGetUniformLocation(program: GLuint, name: String): GLint =>
@@ -1730,12 +1750,8 @@ primitive GL
   fun glLinkProgram(program: GLuint): None =>
     @glLinkProgram(program)
 
-  fun glListDrawCommandsStatesClientNV(list: GLuint, segment: GLuint, indirects: Array[Array[None]], sizes: Array[GLsizei], states: Array[GLuint], fbos: Array[GLuint], count: GLuint): None =>
-    var indirects' = Array[Pointer[None] tag]
-    for indirect in indirects.values() do
-      indirects'.push(indirect.cpointer())
-    end
-    @glListDrawCommandsStatesClientNV(list, segment, indirects'.cpointer(), sizes.cpointer(), states.cpointer(), fbos.cpointer(), count)
+  fun glListDrawCommandsStatesClientNV(list: GLuint, segment: GLuint, indirects: Array[Pointer[None] tag], sizes: Array[GLsizei], states: Array[GLuint], fbos: Array[GLuint], count: GLuint): None =>
+    @glListDrawCommandsStatesClientNV(list, segment, indirects.cpointer(), sizes.cpointer(), states.cpointer(), fbos.cpointer(), count)
 
   fun glLogicOp(opcode: GLenum): None =>
     @glLogicOp(opcode)
@@ -1887,12 +1903,8 @@ primitive GL
   fun glMultiDrawArrays(mode: GLenum, first: Array[GLint], count: Array[GLsizei], drawcount: GLsizei): None =>
     @glMultiDrawArrays(mode, first.cpointer(), count.cpointer(), drawcount)
 
-  fun glMultiDrawElementsBaseVertex(mode: GLenum, count: Array[GLsizei], type': GLenum, indices: Array[Array[None]], drawcount: GLsizei, basevertex: Array[GLint]): None =>
-    var indices' = Array[Pointer[None] tag]
-    for indice in indices.values() do
-      indices'.push(indice.cpointer())
-    end
-    @glMultiDrawElementsBaseVertex(mode, count.cpointer(), type', indices'.cpointer(), drawcount, basevertex.cpointer())
+  fun glMultiDrawElementsBaseVertex(mode: GLenum, count: Array[GLsizei], type': GLenum, indices: Array[Pointer[None] tag], drawcount: GLsizei, basevertex: Array[GLint]): None =>
+    @glMultiDrawElementsBaseVertex(mode, count.cpointer(), type', indices.cpointer(), drawcount, basevertex.cpointer())
 
   fun glMultiDrawElementsIndirectBindlessCountNV(mode: GLenum, type': GLenum, indirect: Array[Any], drawCount: GLsizei, maxDrawCount: GLsizei, stride: GLsizei, vertexBufferCount: GLint): None =>
     @glMultiDrawElementsIndirectBindlessCountNV(mode, type', indirect.cpointer(), drawCount, maxDrawCount, stride, vertexBufferCount)
@@ -1909,12 +1921,8 @@ primitive GL
   fun glMultiDrawElementsIndirect(mode: GLenum, type': GLenum, indirect: Array[Any], drawcount: GLsizei, stride: GLsizei): None =>
     @glMultiDrawElementsIndirect(mode, type', indirect.cpointer(), drawcount, stride)
 
-  fun glMultiDrawElements(mode: GLenum, count: Array[GLsizei], type': GLenum, indices: Array[Array[None]], drawcount: GLsizei): None =>
-    var indices' = Array[Pointer[None] tag]
-    for indice in indices.values() do
-      indices'.push(indice.cpointer())
-    end
-    @glMultiDrawElements(mode, count.cpointer(), type', indices'.cpointer(), drawcount)
+  fun glMultiDrawElements(mode: GLenum, count: Array[GLsizei], type': GLenum, indices: Array[Pointer[None] tag], drawcount: GLsizei): None =>
+    @glMultiDrawElements(mode, count.cpointer(), type', indices.cpointer(), drawcount)
 
   fun glMultiDrawMeshTasksIndirectCountNV(indirect: GLintptr, drawcount: GLintptr, maxdrawcount: GLsizei, stride: GLsizei): None =>
     @glMultiDrawMeshTasksIndirectCountNV(indirect, drawcount, maxdrawcount, stride)
@@ -2789,8 +2797,13 @@ primitive GL
   fun glShaderBinary(count: GLsizei, shaders: Array[GLuint], binaryFormat: GLenum, binary: Array[Any], length: GLsizei): None =>
     @glShaderBinary(count, shaders.cpointer(), binaryFormat, binary.cpointer(), length)
 
-  fun glShaderSource(shader: GLuint, count: GLsizei, string: String, length: Array[GLint]): None =>
-    @glShaderSource(shader, count, string.cpointer(), length.cpointer())
+  fun glShaderSource(shader: GLuint, count: GLsizei, strings: Array[Pointer[GLchar] tag], length: Array[GLint]): None =>
+    @glShaderSource(shader, count, strings.cpointer(), length.cpointer())
+
+  fun glShaderSource_1(shader: GLuint, string: String): None =>
+    @glShaderSource(shader, 1,
+      Array[Pointer[GLchar val] tag].init(string.cpointer(), 1).cpointer(),
+      Array[GLint].init(GLint.from[USize](string.size()), 1).cpointer())
 
   fun glShaderStorageBlockBinding(program: GLuint, storageBlockIndex: GLuint, storageBlockBinding: GLuint): None =>
     @glShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding)
@@ -3086,7 +3099,7 @@ primitive GL
   fun glTransformFeedbackBufferRange(xfb: GLuint, index: GLuint, buffer: GLuint, offset: GLintptr, size: GLsizeiptr): None =>
     @glTransformFeedbackBufferRange(xfb, index, buffer, offset, size)
 
-  fun glTransformFeedbackVaryings(program: GLuint, count: GLsizei, varyings: String, bufferMode: GLenum): None =>
+  fun glTransformFeedbackVaryings(program: GLuint, count: GLsizei, varyings: Array[Pointer[GLchar] tag], bufferMode: GLenum): None =>
     @glTransformFeedbackVaryings(program, count, varyings.cpointer(), bufferMode)
 
   fun glTransformPathNV(resultPath: GLuint, srcPath: GLuint, transformtype': GLenum, transformValues: Array[GLfloat]): None =>
