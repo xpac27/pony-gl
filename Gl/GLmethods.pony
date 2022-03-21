@@ -1,25 +1,3 @@
-use "lib:opengl32" if windows
-use "lib:GL" if linux
-use "lib:GLESv2" if linux
-use "lib:OpenGL" if osx
-use "lib:OpenGLES" if osx // or ios arm
-
-// Extracted from https://github.com/KhronosGroup/OpenGL-Registry/blob/b9e1d1a1b37bb064a6d0e3fceffa8aeab5713a38/api/GL/glcorearb.h
-//
-// Omitted the following:
-/* use @glCreateSyncFromCLeventARB[GLsync](context: Pointer[CLcontext], event: Pointer[CLevent], flags: GLbitfield) */
-/* use @glEGLImageTargetTexStorageEXT[None](target: GLenum, image: GLeglImageOES, attrib_list: Pointer[GLint] tag) */
-/* use @glEGLImageTargetTextureStorageEXT[None](texture: GLuint, image: GLeglImageOES, attrib_list: Pointer[GLint] tag) */
-/* use @glGetBufferPointerv[None](target: GLenum, pname: GLenum, params: Pointer[Pointer[None]] tag) */
-/* use @glGetNamedBufferPointervEXT[None](buffer: GLuint, pname: GLenum, params: Pointer[Pointer[None]] tag) */
-/* use @glGetNamedBufferPointerv[None](buffer: GLuint, pname: GLenum, params: Pointer[Pointer[None]] tag) */
-/* use @glGetPointerIndexedvEXT[None](target: GLenum, index: GLuint, data: Pointer[Pointer[None]] tag) */
-/* use @glGetPointeri_vEXT[None](pname: GLenum, index: GLuint, params: Pointer[Pointer[None]] tag) */
-/* use @glGetPointerv[None](pname: GLenum, params: Pointer[Pointer[None]] tag) */
-/* use @glGetVertexArrayPointeri_vEXT[None](vaobj: GLuint, index: GLuint, pname: GLenum, param: Pointer[Pointer[None]] tag) */
-/* use @glGetVertexArrayPointervEXT[None](vaobj: GLuint, pname: GLenum, param: Pointer[Pointer[None]] tag) */
-/* use @glGetVertexAttribPointerv[None](index: GLuint, pname: GLenum, pointer: Pointer[Pointer[None]] tag) */
-
 use @glGetString[Pointer[GLubyte]](name: GLenum)
 use @glGetStringi[Pointer[GLubyte]](name: GLenum, index: GLuint)
 use @glMapBuffer[None](target: GLenum, access: GLenum)

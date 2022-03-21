@@ -1,10 +1,3 @@
-// TODO: how can we preserve the original name and not confilct with the types' names?
-/* primitive GLByte fun apply(): GLbitfield => 0x1400 */
-/* primitive GLDouble fun apply(): GLbitfield => 0x140A */
-/* primitive GLFloat fun apply(): GLbitfield => 0x1406 */
-/* primitive GLInt fun apply(): GLbitfield => 0x1404 */
-/* primitive GLShort fun apply(): GLbitfield => 0x1402 */
-
 primitive GLAccumAdjacentPairsNv fun apply(): GLbitfield => 0x90AD
 primitive GLActiveAtomicCounterBuffers fun apply(): GLbitfield => 0x92D9
 primitive GLActiveAttributeMaxLength fun apply(): GLbitfield => 0x8B8A
