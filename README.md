@@ -21,7 +21,7 @@ Start calling OpenGL methods from your Pony application:
 
     env.out.print("GL version: " + GL.glGetString(GLVersion()))
 
-You might want to using this package together with [https://github.com/xpac27/pony-glfw3](GLFW3).
+You might want to using this package together with [GLFW3](https://github.com/xpac27/pony-glfw3).
 
 ## Rules applied during conversion
 
@@ -29,25 +29,25 @@ You might want to using this package together with [https://github.com/xpac27/po
 
 Names are preserved and mapped to Pony types.
 
-* `GLbitfield` is `U32`
-* `GLboolean` is `Bool` (possible becausing using `GLboolean` instead of `GLbitfield` for `GLTrue` and `GLFalse`)
-* `GLbyte` is `I8`
-* `GLchar` is `U8`
-* `GLdouble` is `F64`
-* `GLenum` is `U32`
-* `GLfloat` is `F32`
-* `GLint` is `I32`
-* `GLint64` is `I64`
-* `GLint64EXT` is `I64`
-* `GLintptr` is `ISize`
-* `GLshort` is `I16`
-* `GLsizei` is `I32`
-* `GLsizeiptr` is `ISize`
-* `GLubyte` is `U8`
-* `GLuint` is `U32`
-* `GLuint64` is `U64`
-* `GLuint64EXT` is `U64`
-* `GLushort` is `U16`
+- `GLbitfield` is `U32`
+- `GLboolean` is `Bool` (possible becausing using `GLboolean` instead of `GLbitfield` for `GLTrue` and `GLFalse`)
+- `GLbyte` is `I8`
+- `GLchar` is `U8`
+- `GLdouble` is `F64`
+- `GLenum` is `U32`
+- `GLfloat` is `F32`
+- `GLint` is `I32`
+- `GLint64` is `I64`
+- `GLint64EXT` is `I64`
+- `GLintptr` is `ISize`
+- `GLshort` is `I16`
+- `GLsizei` is `I32`
+- `GLsizeiptr` is `ISize`
+- `GLubyte` is `U8`
+- `GLuint` is `U32`
+- `GLuint64` is `U64`
+- `GLuint64EXT` is `U64`
+- `GLushort` is `U16`
 
 ### Defined constants
 
@@ -67,21 +67,21 @@ Names are preserved.
 
 Pointers are treated in the following way:
 
-* `T*` arguments are replaced by `Pointer[T]`
-* `void**` arguments are replaced by `Pointer[Pointer[None]]`
+- `T*` arguments are replaced by `Pointer[T]`
+- `void**` arguments are replaced by `Pointer[Pointer[None]]`
 
 ### Wrappers
 
 Names are preserved but scopped inside a `GL` primitive (`glGetString` becomes `GL.glGetString`).
 
-The following changes have been made to make using wrappers or possible from non-bare context.
+The following changes have been made to make using wrappers possible from non-bare context.
 
-* `Pointer[GLubyte]` return values are replaced by `String`
-* `Pointer[GLchar]` arguments are replaced by `String`
-* `Pointer[T]` arguments are replaced by `Array[T]`
-* `Pointer[Pointer[None]]` arguments are replaced by `Array[Array[None]]`
+- `Pointer[GLubyte]` return values are replaced by `String`
+- `Pointer[GLchar]` arguments are replaced by `String`
+- `Pointer[T]` arguments are replaced by `Array[T]`
+- `Pointer[Pointer[None]]` arguments are replaced by `Array[Array[None]]`
 
-The following defintions have been omitted for simplicity.
+The following defintions have been omitted.
 
     use @glCreateSyncFromCLeventARB[GLsync](context: Pointer[CLcontext], event: Pointer[CLevent], flags: GLbitfield)
 
