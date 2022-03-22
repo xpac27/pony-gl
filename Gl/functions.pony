@@ -1,15 +1,9 @@
-primitive GL
+primitive Gl
   fun glGetString(name: GLenum): Pointer[GLubyte] =>
     @glGetString(name)
 
-  fun glGetString_1(name: GLenum): String =>
-    String.from_cstring(@glGetString(name)).clone()
-
   fun glGetStringi(name: GLenum, index: GLuint): Pointer[GLubyte] =>
     @glGetStringi(name, index)
-
-  fun glGetStringi_1(name: GLenum, index: GLuint): String =>
-    String.from_cstring(@glGetStringi(name, index)).clone()
 
   fun glMapBuffer(target: GLenum, access: GLenum): None =>
     @glMapBuffer(target, access)
@@ -1289,11 +1283,6 @@ primitive GL
   fun glGetProgramInfoLog(program: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, infoLog: Pointer[GLchar] val): None =>
     @glGetProgramInfoLog(program, bufSize, length, infoLog)
 
-  fun glGetProgramInfoLog_1(program: GLuint, bufferSize: USize = 1024): String =>
-    var a: Array[GLchar val] val = recover Array[GLchar val].init(0, bufferSize) end
-    @glGetProgramInfoLog(program, GLsizei.from[USize](a.size()), Pointer[GLsizei], a.cpointer())
-    String.from_array(a)
-
   fun glGetProgramInterfaceiv(program: GLuint, programInterface: GLenum, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetProgramInterfaceiv(program, programInterface, pname, params)
 
@@ -1326,11 +1315,6 @@ primitive GL
 
   fun glGetProgramiv(program: GLuint, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetProgramiv(program, pname, params)
-
-  fun glGetProgramiv_1(program: GLuint, pname: GLenum): GLint =>
-    var params: GLint = 0
-    @glGetProgramiv(program, pname, addressof params)
-    params
 
   fun glGetQueryBufferObjecti64v(id: GLuint, buffer: GLuint, pname: GLenum, offset: GLintptr): None =>
     @glGetQueryBufferObjecti64v(id, buffer, pname, offset)
@@ -1380,11 +1364,6 @@ primitive GL
   fun glGetShaderInfoLog(shader: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, infoLog: Pointer[GLchar] val): None =>
     @glGetShaderInfoLog(shader, bufSize, length, infoLog)
 
-  fun glGetShaderInfoLog_1(shader: GLuint, bufferSize: USize = 1024): String =>
-    var a: Array[GLchar val] val = recover Array[GLchar val].init(0, bufferSize) end
-    @glGetShaderInfoLog(shader, GLsizei.from[USize](a.size()), Pointer[GLsizei], a.cpointer())
-    String.from_array(a)
-
   fun glGetShaderPrecisionFormat(shadertype': GLenum, precisiontype': GLenum, range: Pointer[GLint] tag, precision: Pointer[GLint] tag): None =>
     @glGetShaderPrecisionFormat(shadertype', precisiontype', range, precision)
 
@@ -1393,11 +1372,6 @@ primitive GL
 
   fun glGetShaderiv(shader: GLuint, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetShaderiv(shader, pname, params)
-
-  fun glGetShaderiv_1(shader: GLuint, pname: GLenum): GLbitfield =>
-    var params: GLint = 0
-    @glGetShaderiv(shader, pname, addressof params)
-    GLbitfield.from[GLint](params)
 
   fun glGetShadingRateImagePaletteNV(viewport: GLuint, entry: GLuint, rate: Pointer[GLenum] tag): None =>
     @glGetShadingRateImagePaletteNV(viewport, entry, rate)
@@ -2806,11 +2780,6 @@ primitive GL
   fun glShaderSource(shader: GLuint, count: GLsizei, strings: Pointer[Pointer[GLchar] tag] tag, length: Pointer[GLint] tag): None =>
     @glShaderSource(shader, count, strings, length)
 
-  fun glShaderSource_1(shader: GLuint, string: String): None =>
-    @glShaderSource(shader, 1,
-      Array[Pointer[GLchar val] tag].init(string.cpointer(), 1).cpointer(),
-      Array[GLint].init(GLint.from[USize](string.size()), 1).cpointer())
-
   fun glShaderStorageBlockBinding(program: GLuint, storageBlockIndex: GLuint, storageBlockBinding: GLuint): None =>
     @glShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding)
 
@@ -3828,11 +3797,38 @@ primitive GL
   fun glWindowRectanglesEXT(mode: GLenum, count: GLsizei, box': Pointer[GLint] tag): None =>
     @glWindowRectanglesEXT(mode, count, box')
 
-// DOUBLE CHECK THAT *CONST* ATTRIBUTES ARE OK
-/* GLAPI void APIENTRY glMultiDrawElements (GLenum mode, const GLsizei *count, GLenum type, const void *const*indices, GLsizei drawcount); */
-/* GLAPI void APIENTRY glShaderSource (GLuint shader, GLsizei count, const GLchar *const*string, const GLint *length); */
-/* GLAPI void APIENTRY glTransformFeedbackVaryings (GLuint program, GLsizei count, const GLchar *const*varyings, GLenum bufferMode); */
-/* GLAPI void APIENTRY glGetUniformIndices (GLuint program, GLsizei uniformCount, const GLchar *const*uniformNames, GLuint *uniformIndices); */
-/* GLAPI void APIENTRY glMultiDrawElementsBaseVertex (GLenum mode, const GLsizei *count, GLenum type, const void *const*indices, GLsizei drawcount, const GLint *basevertex); */
-/* GLAPI GLuint APIENTRY glCreateShaderProgramv (GLenum type, GLsizei count, const GLchar *const*strings); */
-/* GLAPI void APIENTRY glCompileShaderIncludeARB (GLuint shader, GLsizei count, const GLchar *const*path, const GLint *length); */
+  fun glCreateSyncFromCLeventARB(context: Pointer[CLcontext], event: Pointer[CLevent], flags: GLbitfield): GLsync =>
+    @glCreateSyncFromCLeventARB(context, event, flags)
+
+  fun glEGLImageTargetTexStorageEXT(target: GLenum, image: GLeglImageOES, attrib_list: Pointer[GLint] tag): None =>
+    @glEGLImageTargetTexStorageEXT(target, image, attrib_list)
+
+  fun glEGLImageTargetTextureStorageEXT(texture: GLuint, image: GLeglImageOES, attrib_list: Pointer[GLint] tag): None =>
+    @glEGLImageTargetTextureStorageEXT(texture, image, attrib_list)
+
+  fun glGetBufferPointerv(target: GLenum, pname: GLenum, params: Pointer[Pointer[None] tag] tag): None =>
+    @glGetBufferPointerv(target, pname, params)
+
+  fun glGetNamedBufferPointervEXT(buffer: GLuint, pname: GLenum, params: Pointer[Pointer[None] tag] tag): None =>
+    @glGetNamedBufferPointervEXT(buffer, pname, params)
+
+  fun glGetNamedBufferPointerv(buffer: GLuint, pname: GLenum, params: Pointer[Pointer[None] tag] tag): None =>
+    @glGetNamedBufferPointerv(buffer, pname, params)
+
+  fun glGetPointerIndexedvEXT(target: GLenum, index: GLuint, data: Pointer[Pointer[None] tag] tag): None =>
+    @glGetPointerIndexedvEXT(target, index, data)
+
+  fun glGetPointeri_vEXT(pname: GLenum, index: GLuint, params: Pointer[Pointer[None] tag] tag): None =>
+    @glGetPointeri_vEXT(pname, index, params)
+
+  fun glGetPointerv(pname: GLenum, params: Pointer[Pointer[None] tag] tag): None =>
+    @glGetPointerv(pname, params)
+
+  fun glGetVertexArrayPointeri_vEXT(vaobj: GLuint, index: GLuint, pname: GLenum, param: Pointer[Pointer[None] tag] tag): None =>
+    @glGetVertexArrayPointeri_vEXT(vaobj, index, pname, param)
+
+  fun glGetVertexArrayPointervEXT(vaobj: GLuint, pname: GLenum, param: Pointer[Pointer[None] tag] tag): None =>
+    @glGetVertexArrayPointervEXT(vaobj, pname, param)
+
+  fun glGetVertexAttribPointerv(index: GLuint, pname: GLenum, pointer: Pointer[Pointer[None] tag] tag): None =>
+    @glGetVertexAttribPointerv(index, pname, pointer)

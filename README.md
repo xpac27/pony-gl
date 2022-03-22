@@ -5,6 +5,7 @@ Attempt to convert [api/GL/glcorearb.h](https://github.com/KhronosGroup/OpenGL-R
 Version used: [b9e1d1a1b37bb064a6d0e3fceffa8aeab5713a38](https://github.com/KhronosGroup/OpenGL-Registry/blob/b9e1d1a1b37bb064a6d0e3fceffa8aeab5713a38/api/GL/glcorearb.h).
 
 _Warning: experimental and un-tested, suggestions and pull-requests are welcome._
+
 _Warning: only tested on Linux, [GLlibs.pony](https://github.com/xpac27/pony-gl/blob/main/Gl/GLlibs.pony) might have to be improved to support other platforms.
 
 ## Usage
@@ -25,7 +26,7 @@ You might want to using this package together with [GLFW3](https://github.com/xp
 
 ## Rules applied during conversion
 
-### GL Types
+### Types
 
 Names are preserved and mapped to Pony types.
 
@@ -49,7 +50,7 @@ Names are preserved and mapped to Pony types.
 - `GLuint64EXT` is `U64`
 - `GLushort` is `U16`
 
-### Defined constants
+### Defines
 
 Names are converted to multicase (`GL_VERSION` becomes `GLVersion`). Using primitives of type `GLbitfield` except for `GLTrue` and `GLFalse` that use `GLboolean`.
 
@@ -61,38 +62,11 @@ The following defines have been omitted because they confilct with the type name
     primitive GLInt fun apply(): GLbitfield => 0x1404
     primitive GLShort fun apply(): GLbitfield => 0x1402
 
-### Methods definitions
-
-Names are preserved.
+### Functions
 
 Pointers are treated in the following way:
 
 - `T*` arguments are replaced by `Pointer[T]`
 - `T**` arguments are replaced by `Pointer[Pointer[T]]`
 
-### Wrappers
-
-Names are preserved but scopped inside a `GL` primitive (`glGetString` becomes `GL.glGetString`).
-
-The following defintions have been omitted.
-
-    use @glCreateSyncFromCLeventARB[GLsync](context: Pointer[CLcontext], event: Pointer[CLevent], flags: GLbitfield)
-
-The above would require a definition of `_cl_context` and `_cl_event`.
-
-    use @glEGLImageTargetTexStorageEXT[None](target: GLenum, image: GLeglImageOES, attrib_list: Pointer[GLint] tag)
-    use @glEGLImageTargetTextureStorageEXT[None](texture: GLuint, image: GLeglImageOES, attrib_list: Pointer[GLint] tag)
-
-The above would require a definition of `GLeglImageOES`.
-
-    use @glGetBufferPointerv[None](target: GLenum, pname: GLenum, params: Pointer[Pointer[None]] tag)
-    use @glGetNamedBufferPointervEXT[None](buffer: GLuint, pname: GLenum, params: Pointer[Pointer[None]] tag)
-    use @glGetNamedBufferPointerv[None](buffer: GLuint, pname: GLenum, params: Pointer[Pointer[None]] tag)
-    use @glGetPointerIndexedvEXT[None](target: GLenum, index: GLuint, data: Pointer[Pointer[None]] tag)
-    use @glGetPointeri_vEXT[None](pname: GLenum, index: GLuint, params: Pointer[Pointer[None]] tag)
-    use @glGetPointerv[None](pname: GLenum, params: Pointer[Pointer[None]] tag)
-    use @glGetVertexArrayPointeri_vEXT[None](vaobj: GLuint, index: GLuint, pname: GLenum, param: Pointer[Pointer[None]] tag)
-    use @glGetVertexArrayPointervEXT[None](vaobj: GLuint, pname: GLenum, param: Pointer[Pointer[None]] tag)
-    use @glGetVertexAttribPointerv[None](index: GLuint, pname: GLenum, pointer: Pointer[Pointer[None]] tag)
-
-The above would require support for out parameters.
+Names are preserved but scopped inside a `Gl` primitive (`glGetString` becomes `Gl.glGetString`).
