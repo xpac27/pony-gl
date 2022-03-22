@@ -74,14 +74,6 @@ Pointers are treated in the following way:
 
 Names are preserved but scopped inside a `GL` primitive (`glGetString` becomes `GL.glGetString`).
 
-The following changes have been made to make using wrappers possible from non-bare context.
-
-- `Pointer[GLubyte]` return values are replaced by `String`
-- `Pointer[GLchar]` arguments are replaced by `String`
-- `Pointer[Pointer[GLchar]]` arguments are replaced by `Array[Pointer[GLchar]]`
-- `Pointer[Pointer[None]]` arguments are replaced by `Array[Pointer[None]]`
-- `Pointer[T]` arguments are replaced by `Array[T]`
-
 The following defintions have been omitted.
 
     use @glCreateSyncFromCLeventARB[GLsync](context: Pointer[CLcontext], event: Pointer[CLevent], flags: GLbitfield)
