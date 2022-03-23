@@ -191,7 +191,7 @@ primitive Gl
   fun glBufferAttachMemoryNV(target: GLenum, memory: GLuint, offset: GLuint64): None =>
     @glBufferAttachMemoryNV(target, memory, offset)
 
-  fun glBufferData(target: GLenum, size: GLsizeiptr, data: Pointer[Any] tag, usage: GLenum): None =>
+  fun glBufferData[A = Any](target: GLenum, size: GLsizeiptr, data: Pointer[A] tag, usage: GLenum): None =>
     @glBufferData(target, size, data, usage)
 
   fun glBufferPageCommitmentARB(target: GLenum, offset: GLintptr, size: GLsizeiptr, commit: GLboolean): None =>
@@ -200,10 +200,10 @@ primitive Gl
   fun glBufferPageCommitmentMemNV(target: GLenum, offset: GLintptr, size: GLsizeiptr, memory: GLuint, memOffset: GLuint64, commit: GLboolean): None =>
     @glBufferPageCommitmentMemNV(target, offset, size, memory, memOffset, commit)
 
-  fun glBufferStorage(target: GLenum, size: GLsizeiptr, data: Pointer[Any] tag, flags: GLbitfield): None =>
+  fun glBufferStorage[A = Any](target: GLenum, size: GLsizeiptr, data: Pointer[A] tag, flags: GLbitfield): None =>
     @glBufferStorage(target, size, data, flags)
 
-  fun glBufferSubData(target: GLenum, offset: GLintptr, size: GLsizeiptr, data: Pointer[Any] tag): None =>
+  fun glBufferSubData[A = Any](target: GLenum, offset: GLintptr, size: GLsizeiptr, data: Pointer[A] tag): None =>
     @glBufferSubData(target, offset, size, data)
 
   fun glCallCommandListNV(list: GLuint): None =>
@@ -221,10 +221,10 @@ primitive Gl
   fun glClampColor(target: GLenum, clamp: GLenum): None =>
     @glClampColor(target, clamp)
 
-  fun glClearBufferData(target: GLenum, internalformat: GLenum, format: GLenum, type': GLenum, data: Pointer[Any] tag): None =>
+  fun glClearBufferData[A = Any](target: GLenum, internalformat: GLenum, format: GLenum, type': GLenum, data: Pointer[A] tag): None =>
     @glClearBufferData(target, internalformat, format, type', data)
 
-  fun glClearBufferSubData(target: GLenum, internalformat: GLenum, offset: GLintptr, size: GLsizeiptr, format: GLenum, type': GLenum, data: Pointer[Any] tag): None =>
+  fun glClearBufferSubData[A = Any](target: GLenum, internalformat: GLenum, offset: GLintptr, size: GLsizeiptr, format: GLenum, type': GLenum, data: Pointer[A] tag): None =>
     @glClearBufferSubData(target, internalformat, offset, size, format, type', data)
 
   fun glClearBufferfi(buffer: GLenum, drawbuffer: GLint, depth: GLfloat, stencil: GLint): None =>
@@ -251,16 +251,16 @@ primitive Gl
   fun glClearDepthf(d: GLfloat): None =>
     @glClearDepthf(d)
 
-  fun glClearNamedBufferDataEXT(buffer: GLuint, internalformat: GLenum, format: GLenum, type': GLenum, data: Pointer[Any] tag): None =>
+  fun glClearNamedBufferDataEXT[A = Any](buffer: GLuint, internalformat: GLenum, format: GLenum, type': GLenum, data: Pointer[A] tag): None =>
     @glClearNamedBufferDataEXT(buffer, internalformat, format, type', data)
 
-  fun glClearNamedBufferData(buffer: GLuint, internalformat: GLenum, format: GLenum, type': GLenum, data: Pointer[Any] tag): None =>
+  fun glClearNamedBufferData[A = Any](buffer: GLuint, internalformat: GLenum, format: GLenum, type': GLenum, data: Pointer[A] tag): None =>
     @glClearNamedBufferData(buffer, internalformat, format, type', data)
 
-  fun glClearNamedBufferSubDataEXT(buffer: GLuint, internalformat: GLenum, offset: GLsizeiptr, size: GLsizeiptr, format: GLenum, type': GLenum, data: Pointer[Any] tag): None =>
+  fun glClearNamedBufferSubDataEXT[A = Any](buffer: GLuint, internalformat: GLenum, offset: GLsizeiptr, size: GLsizeiptr, format: GLenum, type': GLenum, data: Pointer[A] tag): None =>
     @glClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, format, type', data)
 
-  fun glClearNamedBufferSubData(buffer: GLuint, internalformat: GLenum, offset: GLintptr, size: GLsizeiptr, format: GLenum, type': GLenum, data: Pointer[Any] tag): None =>
+  fun glClearNamedBufferSubData[A = Any](buffer: GLuint, internalformat: GLenum, offset: GLintptr, size: GLsizeiptr, format: GLenum, type': GLenum, data: Pointer[A] tag): None =>
     @glClearNamedBufferSubData(buffer, internalformat, offset, size, format, type', data)
 
   fun glClearNamedFramebufferfi(framebuffer: GLuint, buffer: GLenum, drawbuffer: GLint, depth: GLfloat, stencil: GLint): None =>
@@ -278,10 +278,10 @@ primitive Gl
   fun glClearStencil(s: GLint): None =>
     @glClearStencil(s)
 
-  fun glClearTexImage(texture: GLuint, level: GLint, format: GLenum, type': GLenum, data: Pointer[Any] tag): None =>
+  fun glClearTexImage[A = Any](texture: GLuint, level: GLint, format: GLenum, type': GLenum, data: Pointer[A] tag): None =>
     @glClearTexImage(texture, level, format, type', data)
 
-  fun glClearTexSubImage(texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, data: Pointer[Any] tag): None =>
+  fun glClearTexSubImage[A = Any](texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, data: Pointer[A] tag): None =>
     @glClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type', data)
 
   fun glClear(mask: GLbitfield): None =>
@@ -317,67 +317,67 @@ primitive Gl
   fun glCompileShader(shader: GLuint): None =>
     @glCompileShader(shader)
 
-  fun glCompressedMultiTexImage1DEXT(texunit: GLenum, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedMultiTexImage1DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, imageSize, bits)
 
-  fun glCompressedMultiTexImage2DEXT(texunit: GLenum, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedMultiTexImage2DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, imageSize, bits)
 
-  fun glCompressedMultiTexImage3DEXT(texunit: GLenum, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedMultiTexImage3DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, imageSize, bits)
 
-  fun glCompressedMultiTexSubImage1DEXT(texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedMultiTexSubImage1DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, imageSize, bits)
 
-  fun glCompressedMultiTexSubImage2DEXT(texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedMultiTexSubImage2DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, imageSize, bits)
 
-  fun glCompressedMultiTexSubImage3DEXT(texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedMultiTexSubImage3DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, bits)
 
-  fun glCompressedTexImage1D(target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, border: GLint, imageSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glCompressedTexImage1D[A = Any](target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, border: GLint, imageSize: GLsizei, data: Pointer[A] tag): None =>
     @glCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data)
 
-  fun glCompressedTexImage2D(target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, border: GLint, imageSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glCompressedTexImage2D[A = Any](target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, border: GLint, imageSize: GLsizei, data: Pointer[A] tag): None =>
     @glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data)
 
-  fun glCompressedTexImage3D(target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, imageSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glCompressedTexImage3D[A = Any](target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, imageSize: GLsizei, data: Pointer[A] tag): None =>
     @glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data)
 
-  fun glCompressedTexSubImage1D(target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glCompressedTexSubImage1D[A = Any](target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[A] tag): None =>
     @glCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data)
 
-  fun glCompressedTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glCompressedTexSubImage2D[A = Any](target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[A] tag): None =>
     @glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data)
 
-  fun glCompressedTexSubImage3D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glCompressedTexSubImage3D[A = Any](target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[A] tag): None =>
     @glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data)
 
-  fun glCompressedTextureImage1DEXT(texture: GLuint, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedTextureImage1DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedTextureImage1DEXT(texture, target, level, internalformat, width, border, imageSize, bits)
 
-  fun glCompressedTextureImage2DEXT(texture: GLuint, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedTextureImage2DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedTextureImage2DEXT(texture, target, level, internalformat, width, height, border, imageSize, bits)
 
-  fun glCompressedTextureImage3DEXT(texture: GLuint, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedTextureImage3DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, imageSize, bits)
 
-  fun glCompressedTextureSubImage1DEXT(texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedTextureSubImage1DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedTextureSubImage1DEXT(texture, target, level, xoffset, width, format, imageSize, bits)
 
-  fun glCompressedTextureSubImage1D(texture: GLuint, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glCompressedTextureSubImage1D[A = Any](texture: GLuint, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[A] tag): None =>
     @glCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, data)
 
-  fun glCompressedTextureSubImage2DEXT(texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedTextureSubImage2DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, imageSize, bits)
 
-  fun glCompressedTextureSubImage2D(texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glCompressedTextureSubImage2D[A = Any](texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[A] tag): None =>
     @glCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, data)
 
-  fun glCompressedTextureSubImage3DEXT(texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[Any] tag): None =>
+  fun glCompressedTextureSubImage3DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, imageSize: GLsizei, bits: Pointer[A] tag): None =>
     @glCompressedTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, bits)
 
-  fun glCompressedTextureSubImage3D(texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glCompressedTextureSubImage3D[A = Any](texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, imageSize: GLsizei, data: Pointer[A] tag): None =>
     @glCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data)
 
   fun glConservativeRasterParameterfNV(pname: GLenum, value: GLfloat): None =>
@@ -452,13 +452,13 @@ primitive Gl
   fun glCopyTextureSubImage3D(texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, x: GLint, y: GLint, width: GLsizei, height: GLsizei): None =>
     @glCopyTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, x, y, width, height)
 
-  fun glCoverFillPathInstancedNV(numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[Any] tag, pathBase: GLuint, coverMode: GLenum, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
+  fun glCoverFillPathInstancedNV[A = Any](numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[A] tag, pathBase: GLuint, coverMode: GLenum, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
     @glCoverFillPathInstancedNV(numPaths, pathNametype', paths, pathBase, coverMode, transformtype', transformValues)
 
   fun glCoverFillPathNV(path: GLuint, coverMode: GLenum): None =>
     @glCoverFillPathNV(path, coverMode)
 
-  fun glCoverStrokePathInstancedNV(numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[Any] tag, pathBase: GLuint, coverMode: GLenum, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
+  fun glCoverStrokePathInstancedNV[A = Any](numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[A] tag, pathBase: GLuint, coverMode: GLenum, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
     @glCoverStrokePathInstancedNV(numPaths, pathNametype', paths, pathBase, coverMode, transformtype', transformValues)
 
   fun glCoverStrokePathNV(path: GLuint, coverMode: GLenum): None =>
@@ -521,7 +521,7 @@ primitive Gl
   fun glCullFace(mode: GLenum): None =>
     @glCullFace(mode)
 
-  fun glDebugMessageCallbackARB(callback: Pointer[Any] tag, userParam: Pointer[Any] tag): None =>
+  fun glDebugMessageCallbackARB[A = Any, B = Any](callback: Pointer[A] tag, userParam: Pointer[B] tag): None =>
     @glDebugMessageCallbackARB(callback, userParam)
 
   fun glDebugMessageControlARB(source: GLenum, type': GLenum, severity: GLenum, count: GLsizei, ids: Pointer[GLuint] tag, enabled: GLboolean): None =>
@@ -659,7 +659,7 @@ primitive Gl
   fun glDispatchCompute(num_groups_x: GLuint, num_groups_y: GLuint, num_groups_z: GLuint): None =>
     @glDispatchCompute(num_groups_x, num_groups_y, num_groups_z)
 
-  fun glDrawArraysIndirect(mode: GLenum, indirect: Pointer[Any] tag): None =>
+  fun glDrawArraysIndirect[A = Any](mode: GLenum, indirect: Pointer[A] tag): None =>
     @glDrawArraysIndirect(mode, indirect)
 
   fun glDrawArraysInstancedARB(mode: GLenum, first: GLint, count: GLsizei, primcount: GLsizei): None =>
@@ -695,31 +695,31 @@ primitive Gl
   fun glDrawCommandsStatesNV(buffer: GLuint, indirects: Pointer[GLintptr] tag, sizes: Pointer[GLsizei] tag, states: Pointer[GLuint] tag, fbos: Pointer[GLuint] tag, count: GLuint): None =>
     @glDrawCommandsStatesNV(buffer, indirects, sizes, states, fbos, count)
 
-  fun glDrawElementsBaseVertex(mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[Any] tag, basevertex: GLint): None =>
+  fun glDrawElementsBaseVertex[A = Any](mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[A] tag, basevertex: GLint): None =>
     @glDrawElementsBaseVertex(mode, count, type', indices, basevertex)
 
-  fun glDrawElementsIndirect(mode: GLenum, type': GLenum, indirect: Pointer[Any] tag): None =>
+  fun glDrawElementsIndirect[A = Any](mode: GLenum, type': GLenum, indirect: Pointer[A] tag): None =>
     @glDrawElementsIndirect(mode, type', indirect)
 
-  fun glDrawElementsInstancedARB(mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[Any] tag, primcount: GLsizei): None =>
+  fun glDrawElementsInstancedARB[A = Any](mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[A] tag, primcount: GLsizei): None =>
     @glDrawElementsInstancedARB(mode, count, type', indices, primcount)
 
-  fun glDrawElementsInstancedBaseInstance(mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[Any] tag, instancecount: GLsizei, baseinstance: GLuint): None =>
+  fun glDrawElementsInstancedBaseInstance[A = Any](mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[A] tag, instancecount: GLsizei, baseinstance: GLuint): None =>
     @glDrawElementsInstancedBaseInstance(mode, count, type', indices, instancecount, baseinstance)
 
-  fun glDrawElementsInstancedBaseVertexBaseInstance(mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[Any] tag, instancecount: GLsizei, basevertex: GLint, baseinstance: GLuint): None =>
+  fun glDrawElementsInstancedBaseVertexBaseInstance[A = Any](mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[A] tag, instancecount: GLsizei, basevertex: GLint, baseinstance: GLuint): None =>
     @glDrawElementsInstancedBaseVertexBaseInstance(mode, count, type', indices, instancecount, basevertex, baseinstance)
 
-  fun glDrawElementsInstancedBaseVertex(mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[Any] tag, instancecount: GLsizei, basevertex: GLint): None =>
+  fun glDrawElementsInstancedBaseVertex[A = Any](mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[A] tag, instancecount: GLsizei, basevertex: GLint): None =>
     @glDrawElementsInstancedBaseVertex(mode, count, type', indices, instancecount, basevertex)
 
-  fun glDrawElementsInstancedEXT(mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[Any] tag, primcount: GLsizei): None =>
+  fun glDrawElementsInstancedEXT[A = Any](mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[A] tag, primcount: GLsizei): None =>
     @glDrawElementsInstancedEXT(mode, count, type', indices, primcount)
 
-  fun glDrawElementsInstanced(mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[Any] tag, instancecount: GLsizei): None =>
+  fun glDrawElementsInstanced[A = Any](mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[A] tag, instancecount: GLsizei): None =>
     @glDrawElementsInstanced(mode, count, type', indices, instancecount)
 
-  fun glDrawElements(mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[Any] tag): None =>
+  fun glDrawElements[A = Any](mode: GLenum, count: GLsizei, type': GLenum, indices: Pointer[A] tag): None =>
     @glDrawElements(mode, count, type', indices)
 
   fun glDrawMeshTasksIndirectNV(indirect: GLintptr): None =>
@@ -728,10 +728,10 @@ primitive Gl
   fun glDrawMeshTasksNV(first: GLuint, count: GLuint): None =>
     @glDrawMeshTasksNV(first, count)
 
-  fun glDrawRangeElementsBaseVertex(mode: GLenum, start: GLuint, end': GLuint, count: GLsizei, type': GLenum, indices: Pointer[Any] tag, basevertex: GLint): None =>
+  fun glDrawRangeElementsBaseVertex[A = Any](mode: GLenum, start: GLuint, end': GLuint, count: GLsizei, type': GLenum, indices: Pointer[A] tag, basevertex: GLint): None =>
     @glDrawRangeElementsBaseVertex(mode, start, end', count, type', indices, basevertex)
 
-  fun glDrawRangeElements(mode: GLenum, start: GLuint, end': GLuint, count: GLsizei, type': GLenum, indices: Pointer[Any] tag): None =>
+  fun glDrawRangeElements[A = Any](mode: GLenum, start: GLuint, end': GLuint, count: GLsizei, type': GLenum, indices: Pointer[A] tag): None =>
     @glDrawRangeElements(mode, start, end', count, type', indices)
 
   fun glDrawTransformFeedbackInstanced(mode: GLenum, id: GLuint, instancecount: GLsizei): None =>
@@ -983,25 +983,25 @@ primitive Gl
   fun glGetBufferParameterui64vNV(target: GLenum, pname: GLenum, params: Pointer[GLuint64EXT] tag): None =>
     @glGetBufferParameterui64vNV(target, pname, params)
 
-  fun glGetBufferSubData(target: GLenum, offset: GLintptr, size: GLsizeiptr, data: Pointer[Any] tag): None =>
+  fun glGetBufferSubData[A = Any](target: GLenum, offset: GLintptr, size: GLsizeiptr, data: Pointer[A] tag): None =>
     @glGetBufferSubData(target, offset, size, data)
 
   fun glGetCommandHeaderNV(tokenID: GLenum, size: GLuint): GLuint =>
     @glGetCommandHeaderNV(tokenID, size)
 
-  fun glGetCompressedMultiTexImageEXT(texunit: GLenum, target: GLenum, lod: GLint, img: Pointer[Any] tag): None =>
+  fun glGetCompressedMultiTexImageEXT[A = Any](texunit: GLenum, target: GLenum, lod: GLint, img: Pointer[A] tag): None =>
     @glGetCompressedMultiTexImageEXT(texunit, target, lod, img)
 
-  fun glGetCompressedTexImage(target: GLenum, level: GLint, img: Pointer[Any] tag): None =>
+  fun glGetCompressedTexImage[A = Any](target: GLenum, level: GLint, img: Pointer[A] tag): None =>
     @glGetCompressedTexImage(target, level, img)
 
-  fun glGetCompressedTextureImageEXT(texture: GLuint, target: GLenum, lod: GLint, img: Pointer[Any] tag): None =>
+  fun glGetCompressedTextureImageEXT[A = Any](texture: GLuint, target: GLenum, lod: GLint, img: Pointer[A] tag): None =>
     @glGetCompressedTextureImageEXT(texture, target, lod, img)
 
-  fun glGetCompressedTextureImage(texture: GLuint, level: GLint, bufSize: GLsizei, pixels: Pointer[Any] tag): None =>
+  fun glGetCompressedTextureImage[A = Any](texture: GLuint, level: GLint, bufSize: GLsizei, pixels: Pointer[A] tag): None =>
     @glGetCompressedTextureImage(texture, level, bufSize, pixels)
 
-  fun glGetCompressedTextureSubImage(texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, bufSize: GLsizei, pixels: Pointer[Any] tag): None =>
+  fun glGetCompressedTextureSubImage[A = Any](texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, bufSize: GLsizei, pixels: Pointer[A] tag): None =>
     @glGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels)
 
   fun glGetCoverageModulationTableNV(bufSize: GLsizei, v: Pointer[GLfloat] tag): None =>
@@ -1121,7 +1121,7 @@ primitive Gl
   fun glGetMultiTexGenivEXT(texunit: GLenum, coord: GLenum, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetMultiTexGenivEXT(texunit, coord, pname, params)
 
-  fun glGetMultiTexImageEXT(texunit: GLenum, target: GLenum, level: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glGetMultiTexImageEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glGetMultiTexImageEXT(texunit, target, level, format, type', pixels)
 
   fun glGetMultiTexLevelParameterfvEXT(texunit: GLenum, target: GLenum, level: GLint, pname: GLenum, params: Pointer[GLfloat] tag): None =>
@@ -1157,10 +1157,10 @@ primitive Gl
   fun glGetNamedBufferParameterui64vNV(buffer: GLuint, pname: GLenum, params: Pointer[GLuint64EXT] tag): None =>
     @glGetNamedBufferParameterui64vNV(buffer, pname, params)
 
-  fun glGetNamedBufferSubDataEXT(buffer: GLuint, offset: GLintptr, size: GLsizeiptr, data: Pointer[Any] tag): None =>
+  fun glGetNamedBufferSubDataEXT[A = Any](buffer: GLuint, offset: GLintptr, size: GLsizeiptr, data: Pointer[A] tag): None =>
     @glGetNamedBufferSubDataEXT(buffer, offset, size, data)
 
-  fun glGetNamedBufferSubData(buffer: GLuint, offset: GLintptr, size: GLsizeiptr, data: Pointer[Any] tag): None =>
+  fun glGetNamedBufferSubData[A = Any](buffer: GLuint, offset: GLintptr, size: GLsizeiptr, data: Pointer[A] tag): None =>
     @glGetNamedBufferSubData(buffer, offset, size, data)
 
   fun glGetNamedFramebufferAttachmentParameterivEXT(framebuffer: GLuint, attachment: GLenum, pname: GLenum, params: Pointer[GLint] tag): None =>
@@ -1187,7 +1187,7 @@ primitive Gl
   fun glGetNamedProgramLocalParameterfvEXT(program: GLuint, target: GLenum, index: GLuint, params: Pointer[GLfloat] tag): None =>
     @glGetNamedProgramLocalParameterfvEXT(program, target, index, params)
 
-  fun glGetNamedProgramStringEXT(program: GLuint, target: GLenum, pname: GLenum, string: Pointer[Any] tag): None =>
+  fun glGetNamedProgramStringEXT[A = Any](program: GLuint, target: GLenum, pname: GLenum, string: Pointer[A] tag): None =>
     @glGetNamedProgramStringEXT(program, target, pname, string)
 
   fun glGetNamedProgramivEXT(program: GLuint, target: GLenum, pname: GLenum, params: Pointer[GLint] tag): None =>
@@ -1214,7 +1214,7 @@ primitive Gl
   fun glGetObjectLabel(identifier: GLenum, name: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, label: Pointer[GLchar]): None =>
     @glGetObjectLabel(identifier, name, bufSize, length, label)
 
-  fun glGetObjectPtrLabel(ptr: Pointer[Any] tag, bufSize: GLsizei, length: Pointer[GLsizei] tag, label: Pointer[GLchar]): None =>
+  fun glGetObjectPtrLabel[A = Any](ptr: Pointer[A] tag, bufSize: GLsizei, length: Pointer[GLsizei] tag, label: Pointer[GLchar]): None =>
     @glGetObjectPtrLabel(ptr, bufSize, length, label)
 
   fun glGetPathCommandsNV(path: GLuint, commands: Pointer[GLubyte] tag): None =>
@@ -1232,7 +1232,7 @@ primitive Gl
   fun glGetPathMetricRangeNV(metricQueryMask: GLbitfield, firstPathName: GLuint, numPaths: GLsizei, stride: GLsizei, metrics: Pointer[GLfloat] tag): None =>
     @glGetPathMetricRangeNV(metricQueryMask, firstPathName, numPaths, stride, metrics)
 
-  fun glGetPathMetricsNV(metricQueryMask: GLbitfield, numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[Any] tag, pathBase: GLuint, stride: GLsizei, metrics: Pointer[GLfloat] tag): None =>
+  fun glGetPathMetricsNV[A = Any](metricQueryMask: GLbitfield, numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[A] tag, pathBase: GLuint, stride: GLsizei, metrics: Pointer[GLfloat] tag): None =>
     @glGetPathMetricsNV(metricQueryMask, numPaths, pathNametype', paths, pathBase, stride, metrics)
 
   fun glGetPathParameterfvNV(path: GLuint, pname: GLenum, value: Pointer[GLfloat] tag): None =>
@@ -1241,7 +1241,7 @@ primitive Gl
   fun glGetPathParameterivNV(path: GLuint, pname: GLenum, value: Pointer[GLint] tag): None =>
     @glGetPathParameterivNV(path, pname, value)
 
-  fun glGetPathSpacingNV(pathListMode: GLenum, numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[Any] tag, pathBase: GLuint, advanceScale: GLfloat, kerningScale: GLfloat, transformtype': GLenum, returnedSpacing: Pointer[GLfloat] tag): None =>
+  fun glGetPathSpacingNV[A = Any](pathListMode: GLenum, numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[A] tag, pathBase: GLuint, advanceScale: GLfloat, kerningScale: GLfloat, transformtype': GLenum, returnedSpacing: Pointer[GLfloat] tag): None =>
     @glGetPathSpacingNV(pathListMode, numPaths, pathNametype', paths, pathBase, advanceScale, kerningScale, transformtype', returnedSpacing)
 
   fun glGetPerfCounterInfoINTEL(queryId: GLuint, counterId: GLuint, counterNameLength: GLuint, counterName: Pointer[GLchar], counterDescLength: GLuint, counterDesc: Pointer[GLchar], counterOffset: Pointer[GLuint] tag, counterDataSize: Pointer[GLuint] tag, counterTypeEnum: Pointer[GLuint] tag, counterDataTypeEnum: Pointer[GLuint] tag, rawCounterMaxValue: Pointer[GLuint64] tag): None =>
@@ -1250,7 +1250,7 @@ primitive Gl
   fun glGetPerfMonitorCounterDataAMD(monitor: GLuint, pname: GLenum, dataSize: GLsizei, data: Pointer[GLuint] tag, bytesWritten: Pointer[GLint] tag): None =>
     @glGetPerfMonitorCounterDataAMD(monitor, pname, dataSize, data, bytesWritten)
 
-  fun glGetPerfMonitorCounterInfoAMD(group: GLuint, counter: GLuint, pname: GLenum, data: Pointer[Any] tag): None =>
+  fun glGetPerfMonitorCounterInfoAMD[A = Any](group: GLuint, counter: GLuint, pname: GLenum, data: Pointer[A] tag): None =>
     @glGetPerfMonitorCounterInfoAMD(group, counter, pname, data)
 
   fun glGetPerfMonitorCounterStringAMD(group: GLuint, counter: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, counterString: Pointer[GLchar]): None =>
@@ -1265,7 +1265,7 @@ primitive Gl
   fun glGetPerfMonitorGroupsAMD(numGroups: Pointer[GLint] tag, groupsSize: GLsizei, groups: Pointer[GLuint] tag): None =>
     @glGetPerfMonitorGroupsAMD(numGroups, groupsSize, groups)
 
-  fun glGetPerfQueryDataINTEL(queryHandle: GLuint, flags: GLuint, dataSize: GLsizei, data: Pointer[Any] tag, bytesWritten: Pointer[GLuint] tag): None =>
+  fun glGetPerfQueryDataINTEL[A = Any](queryHandle: GLuint, flags: GLuint, dataSize: GLsizei, data: Pointer[A] tag, bytesWritten: Pointer[GLuint] tag): None =>
     @glGetPerfQueryDataINTEL(queryHandle, flags, dataSize, data, bytesWritten)
 
   fun glGetPerfQueryIdByNameINTEL(queryName: Pointer[GLchar], queryId: Pointer[GLuint] tag): None =>
@@ -1274,7 +1274,7 @@ primitive Gl
   fun glGetPerfQueryInfoINTEL(queryId: GLuint, queryNameLength: GLuint, queryName: Pointer[GLchar], dataSize: Pointer[GLuint] tag, noCounters: Pointer[GLuint] tag, noInstances: Pointer[GLuint] tag, capsMask: Pointer[GLuint] tag): None =>
     @glGetPerfQueryInfoINTEL(queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask)
 
-  fun glGetProgramBinary(program: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, binaryFormat: Pointer[GLenum] tag, binary: Pointer[Any] tag): None =>
+  fun glGetProgramBinary[A = Any](program: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, binaryFormat: Pointer[GLenum] tag, binary: Pointer[A] tag): None =>
     @glGetProgramBinary(program, bufSize, length, binaryFormat, binary)
 
   fun glGetProgramInfoLog(program: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, infoLog: Pointer[GLchar] val): None =>
@@ -1388,7 +1388,7 @@ primitive Gl
   fun glGetSynciv(sync: GLsync, pname: GLenum, count: GLsizei, length: Pointer[GLsizei] tag, values: Pointer[GLint] tag): None =>
     @glGetSynciv(sync, pname, count, length, values)
 
-  fun glGetTexImage(target: GLenum, level: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glGetTexImage[A = Any](target: GLenum, level: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glGetTexImage(target, level, format, type', pixels)
 
   fun glGetTexLevelParameterfv(target: GLenum, level: GLint, pname: GLenum, params: Pointer[GLfloat] tag): None =>
@@ -1415,10 +1415,10 @@ primitive Gl
   fun glGetTextureHandleNV(texture: GLuint): GLuint64 =>
     @glGetTextureHandleNV(texture)
 
-  fun glGetTextureImageEXT(texture: GLuint, target: GLenum, level: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glGetTextureImageEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glGetTextureImageEXT(texture, target, level, format, type', pixels)
 
-  fun glGetTextureImage(texture: GLuint, level: GLint, format: GLenum, type': GLenum, bufSize: GLsizei, pixels: Pointer[Any] tag): None =>
+  fun glGetTextureImage[A = Any](texture: GLuint, level: GLint, format: GLenum, type': GLenum, bufSize: GLsizei, pixels: Pointer[A] tag): None =>
     @glGetTextureImage(texture, level, format, type', bufSize, pixels)
 
   fun glGetTextureLevelParameterfvEXT(texture: GLuint, target: GLenum, level: GLint, pname: GLenum, params: Pointer[GLfloat] tag): None =>
@@ -1463,7 +1463,7 @@ primitive Gl
   fun glGetTextureSamplerHandleNV(texture: GLuint, sampler: GLuint): GLuint64 =>
     @glGetTextureSamplerHandleNV(texture, sampler)
 
-  fun glGetTextureSubImage(texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, bufSize: GLsizei, pixels: Pointer[Any] tag): None =>
+  fun glGetTextureSubImage[A = Any](texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, bufSize: GLsizei, pixels: Pointer[A] tag): None =>
     @glGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type', bufSize, pixels)
 
   fun glGetTransformFeedbackVarying(program: GLuint, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, size: Pointer[GLsizei] tag, type': Pointer[GLenum] tag, name: Pointer[GLchar]): None =>
@@ -1559,16 +1559,16 @@ primitive Gl
   fun glGetVkProcAddrNV(name: Pointer[GLchar]): Pointer[None] =>
     @glGetVkProcAddrNV(name)
 
-  fun glGetnCompressedTexImageARB(target: GLenum, lod: GLint, bufSize: GLsizei, img: Pointer[Any] tag): None =>
+  fun glGetnCompressedTexImageARB[A = Any](target: GLenum, lod: GLint, bufSize: GLsizei, img: Pointer[A] tag): None =>
     @glGetnCompressedTexImageARB(target, lod, bufSize, img)
 
-  fun glGetnCompressedTexImage(target: GLenum, lod: GLint, bufSize: GLsizei, pixels: Pointer[Any] tag): None =>
+  fun glGetnCompressedTexImage[A = Any](target: GLenum, lod: GLint, bufSize: GLsizei, pixels: Pointer[A] tag): None =>
     @glGetnCompressedTexImage(target, lod, bufSize, pixels)
 
-  fun glGetnTexImageARB(target: GLenum, level: GLint, format: GLenum, type': GLenum, bufSize: GLsizei, img: Pointer[Any] tag): None =>
+  fun glGetnTexImageARB[A = Any](target: GLenum, level: GLint, format: GLenum, type': GLenum, bufSize: GLsizei, img: Pointer[A] tag): None =>
     @glGetnTexImageARB(target, level, format, type', bufSize, img)
 
-  fun glGetnTexImage(target: GLenum, level: GLint, format: GLenum, type': GLenum, bufSize: GLsizei, pixels: Pointer[Any] tag): None =>
+  fun glGetnTexImage[A = Any](target: GLenum, level: GLint, format: GLenum, type': GLenum, bufSize: GLsizei, pixels: Pointer[A] tag): None =>
     @glGetnTexImage(target, level, format, type', bufSize, pixels)
 
   fun glGetnUniformdvARB(program: GLuint, location: GLint, bufSize: GLsizei, params: Pointer[GLdouble] tag): None =>
@@ -1862,19 +1862,19 @@ primitive Gl
   fun glMinSampleShading(value: GLfloat): None =>
     @glMinSampleShading(value)
 
-  fun glMultiDrawArraysIndirectBindlessCountNV(mode: GLenum, indirect: Pointer[Any] tag, drawCount: GLsizei, maxDrawCount: GLsizei, stride: GLsizei, vertexBufferCount: GLint): None =>
+  fun glMultiDrawArraysIndirectBindlessCountNV[A = Any](mode: GLenum, indirect: Pointer[A] tag, drawCount: GLsizei, maxDrawCount: GLsizei, stride: GLsizei, vertexBufferCount: GLint): None =>
     @glMultiDrawArraysIndirectBindlessCountNV(mode, indirect, drawCount, maxDrawCount, stride, vertexBufferCount)
 
-  fun glMultiDrawArraysIndirectBindlessNV(mode: GLenum, indirect: Pointer[Any] tag, drawCount: GLsizei, stride: GLsizei, vertexBufferCount: GLint): None =>
+  fun glMultiDrawArraysIndirectBindlessNV[A = Any](mode: GLenum, indirect: Pointer[A] tag, drawCount: GLsizei, stride: GLsizei, vertexBufferCount: GLint): None =>
     @glMultiDrawArraysIndirectBindlessNV(mode, indirect, drawCount, stride, vertexBufferCount)
 
-  fun glMultiDrawArraysIndirectCountARB(mode: GLenum, indirect: Pointer[Any] tag, drawcount: GLintptr, maxdrawcount: GLsizei, stride: GLsizei): None =>
+  fun glMultiDrawArraysIndirectCountARB[A = Any](mode: GLenum, indirect: Pointer[A] tag, drawcount: GLintptr, maxdrawcount: GLsizei, stride: GLsizei): None =>
     @glMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride)
 
-  fun glMultiDrawArraysIndirectCount(mode: GLenum, indirect: Pointer[Any] tag, drawcount: GLintptr, maxdrawcount: GLsizei, stride: GLsizei): None =>
+  fun glMultiDrawArraysIndirectCount[A = Any](mode: GLenum, indirect: Pointer[A] tag, drawcount: GLintptr, maxdrawcount: GLsizei, stride: GLsizei): None =>
     @glMultiDrawArraysIndirectCount(mode, indirect, drawcount, maxdrawcount, stride)
 
-  fun glMultiDrawArraysIndirect(mode: GLenum, indirect: Pointer[Any] tag, drawcount: GLsizei, stride: GLsizei): None =>
+  fun glMultiDrawArraysIndirect[A = Any](mode: GLenum, indirect: Pointer[A] tag, drawcount: GLsizei, stride: GLsizei): None =>
     @glMultiDrawArraysIndirect(mode, indirect, drawcount, stride)
 
   fun glMultiDrawArrays(mode: GLenum, first: Pointer[GLint] tag, count: Pointer[GLsizei] tag, drawcount: GLsizei): None =>
@@ -1883,19 +1883,19 @@ primitive Gl
   fun glMultiDrawElementsBaseVertex(mode: GLenum, count: Pointer[GLsizei] tag, type': GLenum, indices: Pointer[Pointer[None] tag] tag, drawcount: GLsizei, basevertex: Pointer[GLint] tag): None =>
     @glMultiDrawElementsBaseVertex(mode, count, type', indices, drawcount, basevertex)
 
-  fun glMultiDrawElementsIndirectBindlessCountNV(mode: GLenum, type': GLenum, indirect: Pointer[Any] tag, drawCount: GLsizei, maxDrawCount: GLsizei, stride: GLsizei, vertexBufferCount: GLint): None =>
+  fun glMultiDrawElementsIndirectBindlessCountNV[A = Any](mode: GLenum, type': GLenum, indirect: Pointer[A] tag, drawCount: GLsizei, maxDrawCount: GLsizei, stride: GLsizei, vertexBufferCount: GLint): None =>
     @glMultiDrawElementsIndirectBindlessCountNV(mode, type', indirect, drawCount, maxDrawCount, stride, vertexBufferCount)
 
-  fun glMultiDrawElementsIndirectBindlessNV(mode: GLenum, type': GLenum, indirect: Pointer[Any] tag, drawCount: GLsizei, stride: GLsizei, vertexBufferCount: GLint): None =>
+  fun glMultiDrawElementsIndirectBindlessNV[A = Any](mode: GLenum, type': GLenum, indirect: Pointer[A] tag, drawCount: GLsizei, stride: GLsizei, vertexBufferCount: GLint): None =>
     @glMultiDrawElementsIndirectBindlessNV(mode, type', indirect, drawCount, stride, vertexBufferCount)
 
-  fun glMultiDrawElementsIndirectCountARB(mode: GLenum, type': GLenum, indirect: Pointer[Any] tag, drawcount: GLintptr, maxdrawcount: GLsizei, stride: GLsizei): None =>
+  fun glMultiDrawElementsIndirectCountARB[A = Any](mode: GLenum, type': GLenum, indirect: Pointer[A] tag, drawcount: GLintptr, maxdrawcount: GLsizei, stride: GLsizei): None =>
     @glMultiDrawElementsIndirectCountARB(mode, type', indirect, drawcount, maxdrawcount, stride)
 
-  fun glMultiDrawElementsIndirectCount(mode: GLenum, type': GLenum, indirect: Pointer[Any] tag, drawcount: GLintptr, maxdrawcount: GLsizei, stride: GLsizei): None =>
+  fun glMultiDrawElementsIndirectCount[A = Any](mode: GLenum, type': GLenum, indirect: Pointer[A] tag, drawcount: GLintptr, maxdrawcount: GLsizei, stride: GLsizei): None =>
     @glMultiDrawElementsIndirectCount(mode, type', indirect, drawcount, maxdrawcount, stride)
 
-  fun glMultiDrawElementsIndirect(mode: GLenum, type': GLenum, indirect: Pointer[Any] tag, drawcount: GLsizei, stride: GLsizei): None =>
+  fun glMultiDrawElementsIndirect[A = Any](mode: GLenum, type': GLenum, indirect: Pointer[A] tag, drawcount: GLsizei, stride: GLsizei): None =>
     @glMultiDrawElementsIndirect(mode, type', indirect, drawcount, stride)
 
   fun glMultiDrawElements(mode: GLenum, count: Pointer[GLsizei] tag, type': GLenum, indices: Pointer[Pointer[None] tag] tag, drawcount: GLsizei): None =>
@@ -1910,7 +1910,7 @@ primitive Gl
   fun glMultiTexBufferEXT(texunit: GLenum, target: GLenum, internalformat: GLenum, buffer: GLuint): None =>
     @glMultiTexBufferEXT(texunit, target, internalformat, buffer)
 
-  fun glMultiTexCoordPointerEXT(texunit: GLenum, size: GLint, type': GLenum, stride: GLsizei, pointer: Pointer[Any] tag): None =>
+  fun glMultiTexCoordPointerEXT[A = Any](texunit: GLenum, size: GLint, type': GLenum, stride: GLsizei, pointer: Pointer[A] tag): None =>
     @glMultiTexCoordPointerEXT(texunit, size, type', stride, pointer)
 
   fun glMultiTexEnvfEXT(texunit: GLenum, target: GLenum, pname: GLenum, param: GLfloat): None =>
@@ -1943,13 +1943,13 @@ primitive Gl
   fun glMultiTexGenivEXT(texunit: GLenum, coord: GLenum, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glMultiTexGenivEXT(texunit, coord, pname, params)
 
-  fun glMultiTexImage1DEXT(texunit: GLenum, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glMultiTexImage1DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, type', pixels)
 
-  fun glMultiTexImage2DEXT(texunit: GLenum, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glMultiTexImage2DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, type', pixels)
 
-  fun glMultiTexImage3DEXT(texunit: GLenum, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glMultiTexImage3DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, type', pixels)
 
   fun glMultiTexParameterIivEXT(texunit: GLenum, target: GLenum, pname: GLenum, params: Pointer[GLint] tag): None =>
@@ -1973,22 +1973,22 @@ primitive Gl
   fun glMultiTexRenderbufferEXT(texunit: GLenum, target: GLenum, renderbuffer: GLuint): None =>
     @glMultiTexRenderbufferEXT(texunit, target, renderbuffer)
 
-  fun glMultiTexSubImage1DEXT(texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glMultiTexSubImage1DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, type', pixels)
 
-  fun glMultiTexSubImage2DEXT(texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glMultiTexSubImage2DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, type', pixels)
 
-  fun glMultiTexSubImage3DEXT(texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glMultiTexSubImage3DEXT[A = Any](texunit: GLenum, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type', pixels)
 
   fun glNamedBufferAttachMemoryNV(buffer: GLuint, memory: GLuint, offset: GLuint64): None =>
     @glNamedBufferAttachMemoryNV(buffer, memory, offset)
 
-  fun glNamedBufferDataEXT(buffer: GLuint, size: GLsizeiptr, data: Pointer[Any] tag, usage: GLenum): None =>
+  fun glNamedBufferDataEXT[A = Any](buffer: GLuint, size: GLsizeiptr, data: Pointer[A] tag, usage: GLenum): None =>
     @glNamedBufferDataEXT(buffer, size, data, usage)
 
-  fun glNamedBufferData(buffer: GLuint, size: GLsizeiptr, data: Pointer[Any] tag, usage: GLenum): None =>
+  fun glNamedBufferData[A = Any](buffer: GLuint, size: GLsizeiptr, data: Pointer[A] tag, usage: GLenum): None =>
     @glNamedBufferData(buffer, size, data, usage)
 
   fun glNamedBufferPageCommitmentARB(buffer: GLuint, offset: GLintptr, size: GLsizeiptr, commit: GLboolean): None =>
@@ -2000,16 +2000,16 @@ primitive Gl
   fun glNamedBufferPageCommitmentMemNV(buffer: GLuint, offset: GLintptr, size: GLsizeiptr, memory: GLuint, memOffset: GLuint64, commit: GLboolean): None =>
     @glNamedBufferPageCommitmentMemNV(buffer, offset, size, memory, memOffset, commit)
 
-  fun glNamedBufferStorageEXT(buffer: GLuint, size: GLsizeiptr, data: Pointer[Any] tag, flags: GLbitfield): None =>
+  fun glNamedBufferStorageEXT[A = Any](buffer: GLuint, size: GLsizeiptr, data: Pointer[A] tag, flags: GLbitfield): None =>
     @glNamedBufferStorageEXT(buffer, size, data, flags)
 
-  fun glNamedBufferStorage(buffer: GLuint, size: GLsizeiptr, data: Pointer[Any] tag, flags: GLbitfield): None =>
+  fun glNamedBufferStorage[A = Any](buffer: GLuint, size: GLsizeiptr, data: Pointer[A] tag, flags: GLbitfield): None =>
     @glNamedBufferStorage(buffer, size, data, flags)
 
-  fun glNamedBufferSubDataEXT(buffer: GLuint, offset: GLintptr, size: GLsizeiptr, data: Pointer[Any] tag): None =>
+  fun glNamedBufferSubDataEXT[A = Any](buffer: GLuint, offset: GLintptr, size: GLsizeiptr, data: Pointer[A] tag): None =>
     @glNamedBufferSubDataEXT(buffer, offset, size, data)
 
-  fun glNamedBufferSubData(buffer: GLuint, offset: GLintptr, size: GLsizeiptr, data: Pointer[Any] tag): None =>
+  fun glNamedBufferSubData[A = Any](buffer: GLuint, offset: GLintptr, size: GLsizeiptr, data: Pointer[A] tag): None =>
     @glNamedBufferSubData(buffer, offset, size, data)
 
   fun glNamedCopyBufferSubDataEXT(readBuffer: GLuint, writeBuffer: GLuint, readOffset: GLintptr, writeOffset: GLintptr, size: GLsizeiptr): None =>
@@ -2099,7 +2099,7 @@ primitive Gl
   fun glNamedProgramLocalParametersI4uivEXT(program: GLuint, target: GLenum, index: GLuint, count: GLsizei, params: Pointer[GLuint] tag): None =>
     @glNamedProgramLocalParametersI4uivEXT(program, target, index, count, params)
 
-  fun glNamedProgramStringEXT(program: GLuint, target: GLenum, format: GLenum, len: GLsizei, string: Pointer[Any] tag): None =>
+  fun glNamedProgramStringEXT[A = Any](program: GLuint, target: GLenum, format: GLenum, len: GLsizei, string: Pointer[A] tag): None =>
     @glNamedProgramStringEXT(program, target, format, len, string)
 
   fun glNamedRenderbufferStorageEXT(renderbuffer: GLuint, internalformat: GLenum, width: GLsizei, height: GLsizei): None =>
@@ -2129,7 +2129,7 @@ primitive Gl
   fun glObjectLabel(identifier: GLenum, name: GLuint, length: GLsizei, label: Pointer[GLchar]): None =>
     @glObjectLabel(identifier, name, length, label)
 
-  fun glObjectPtrLabel(ptr: Pointer[Any] tag, length: GLsizei, label: Pointer[GLchar]): None =>
+  fun glObjectPtrLabel[A = Any](ptr: Pointer[A] tag, length: GLsizei, label: Pointer[GLchar]): None =>
     @glObjectPtrLabel(ptr, length, label)
 
   fun glPatchParameterfv(pname: GLenum, values: Pointer[GLfloat] tag): None =>
@@ -2138,10 +2138,10 @@ primitive Gl
   fun glPatchParameteri(pname: GLenum, value: GLint): None =>
     @glPatchParameteri(pname, value)
 
-  fun glPathCommandsNV(path: GLuint, numCommands: GLsizei, commands: Pointer[GLubyte] tag, numCoords: GLsizei, coordtype': GLenum, coords: Pointer[Any] tag): None =>
+  fun glPathCommandsNV[A = Any](path: GLuint, numCommands: GLsizei, commands: Pointer[GLubyte] tag, numCoords: GLsizei, coordtype': GLenum, coords: Pointer[A] tag): None =>
     @glPathCommandsNV(path, numCommands, commands, numCoords, coordtype', coords)
 
-  fun glPathCoordsNV(path: GLuint, numCoords: GLsizei, coordtype': GLenum, coords: Pointer[Any] tag): None =>
+  fun glPathCoordsNV[A = Any](path: GLuint, numCoords: GLsizei, coordtype': GLenum, coords: Pointer[A] tag): None =>
     @glPathCoordsNV(path, numCoords, coordtype', coords)
 
   fun glPathCoverDepthFuncNV(func: GLenum): None =>
@@ -2150,19 +2150,19 @@ primitive Gl
   fun glPathDashArrayNV(path: GLuint, dashCount: GLsizei, dashArray: Pointer[GLfloat] tag): None =>
     @glPathDashArrayNV(path, dashCount, dashArray)
 
-  fun glPathGlyphIndexArrayNV(firstPathName: GLuint, fontTarget: GLenum, fontName: Pointer[Any] tag, fontStyle: GLbitfield, firstGlyphIndex: GLuint, numGlyphs: GLsizei, pathParameterTemplate: GLuint, emScale: GLfloat): GLenum =>
+  fun glPathGlyphIndexArrayNV[A = Any](firstPathName: GLuint, fontTarget: GLenum, fontName: Pointer[A] tag, fontStyle: GLbitfield, firstGlyphIndex: GLuint, numGlyphs: GLsizei, pathParameterTemplate: GLuint, emScale: GLfloat): GLenum =>
     @glPathGlyphIndexArrayNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale)
 
-  fun glPathGlyphIndexRangeNV(fontTarget: GLenum, fontName: Pointer[Any] tag, fontStyle: GLbitfield, pathParameterTemplate: GLuint, emScale: GLfloat, baseAndCount: Pointer[GLuint] tag): GLenum =>
+  fun glPathGlyphIndexRangeNV[A = Any](fontTarget: GLenum, fontName: Pointer[A] tag, fontStyle: GLbitfield, pathParameterTemplate: GLuint, emScale: GLfloat, baseAndCount: Pointer[GLuint] tag): GLenum =>
     @glPathGlyphIndexRangeNV(fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, baseAndCount)
 
-  fun glPathGlyphRangeNV(firstPathName: GLuint, fontTarget: GLenum, fontName: Pointer[Any] tag, fontStyle: GLbitfield, firstGlyph: GLuint, numGlyphs: GLsizei, handleMissingGlyphs: GLenum, pathParameterTemplate: GLuint, emScale: GLfloat): None =>
+  fun glPathGlyphRangeNV[A = Any](firstPathName: GLuint, fontTarget: GLenum, fontName: Pointer[A] tag, fontStyle: GLbitfield, firstGlyph: GLuint, numGlyphs: GLsizei, handleMissingGlyphs: GLenum, pathParameterTemplate: GLuint, emScale: GLfloat): None =>
     @glPathGlyphRangeNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale)
 
-  fun glPathGlyphsNV(firstPathName: GLuint, fontTarget: GLenum, fontName: Pointer[Any] tag, fontStyle: GLbitfield, numGlyphs: GLsizei, type': GLenum, charcodes: Pointer[Any] tag, handleMissingGlyphs: GLenum, pathParameterTemplate: GLuint, emScale: GLfloat): None =>
+  fun glPathGlyphsNV[A = Any, B = Any](firstPathName: GLuint, fontTarget: GLenum, fontName: Pointer[A] tag, fontStyle: GLbitfield, numGlyphs: GLsizei, type': GLenum, charcodes: Pointer[B] tag, handleMissingGlyphs: GLenum, pathParameterTemplate: GLuint, emScale: GLfloat): None =>
     @glPathGlyphsNV(firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type', charcodes, handleMissingGlyphs, pathParameterTemplate, emScale)
 
-  fun glPathMemoryGlyphIndexArrayNV(firstPathName: GLuint, fontTarget: GLenum, fontSize: GLsizeiptr, fontData: Pointer[Any] tag, faceIndex: GLsizei, firstGlyphIndex: GLuint, numGlyphs: GLsizei, pathParameterTemplate: GLuint, emScale: GLfloat): GLenum =>
+  fun glPathMemoryGlyphIndexArrayNV[A = Any](firstPathName: GLuint, fontTarget: GLenum, fontSize: GLsizeiptr, fontData: Pointer[A] tag, faceIndex: GLsizei, firstGlyphIndex: GLuint, numGlyphs: GLsizei, pathParameterTemplate: GLuint, emScale: GLfloat): GLenum =>
     @glPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale)
 
   fun glPathParameterfNV(path: GLuint, pname: GLenum, value: GLfloat): None =>
@@ -2183,13 +2183,13 @@ primitive Gl
   fun glPathStencilFuncNV(func: GLenum, ref': GLint, mask: GLuint): None =>
     @glPathStencilFuncNV(func, ref', mask)
 
-  fun glPathStringNV(path: GLuint, format: GLenum, length: GLsizei, pathString: Pointer[Any] tag): None =>
+  fun glPathStringNV[A = Any](path: GLuint, format: GLenum, length: GLsizei, pathString: Pointer[A] tag): None =>
     @glPathStringNV(path, format, length, pathString)
 
-  fun glPathSubCommandsNV(path: GLuint, commandStart: GLsizei, commandsToDelete: GLsizei, numCommands: GLsizei, commands: Pointer[GLubyte] tag, numCoords: GLsizei, coordtype': GLenum, coords: Pointer[Any] tag): None =>
+  fun glPathSubCommandsNV[A = Any](path: GLuint, commandStart: GLsizei, commandsToDelete: GLsizei, numCommands: GLsizei, commands: Pointer[GLubyte] tag, numCoords: GLsizei, coordtype': GLenum, coords: Pointer[A] tag): None =>
     @glPathSubCommandsNV(path, commandStart, commandsToDelete, numCommands, commands, numCoords, coordtype', coords)
 
-  fun glPathSubCoordsNV(path: GLuint, coordStart: GLsizei, numCoords: GLsizei, coordtype': GLenum, coords: Pointer[Any] tag): None =>
+  fun glPathSubCoordsNV[A = Any](path: GLuint, coordStart: GLsizei, numCoords: GLsizei, coordtype': GLenum, coords: Pointer[A] tag): None =>
     @glPathSubCoordsNV(path, coordStart, numCoords, coordtype', coords)
 
   fun glPauseTransformFeedback(): None =>
@@ -2243,7 +2243,7 @@ primitive Gl
   fun glPrimitiveRestartIndex(index: GLuint): None =>
     @glPrimitiveRestartIndex(index)
 
-  fun glProgramBinary(program: GLuint, binaryFormat: GLenum, binary: Pointer[Any] tag, length: GLsizei): None =>
+  fun glProgramBinary[A = Any](program: GLuint, binaryFormat: GLenum, binary: Pointer[A] tag, length: GLsizei): None =>
     @glProgramBinary(program, binaryFormat, binary, length)
 
   fun glProgramParameteriARB(program: GLuint, pname: GLenum, value: GLint): None =>
@@ -2690,13 +2690,13 @@ primitive Gl
   fun glReadBuffer(src: GLenum): None =>
     @glReadBuffer(src)
 
-  fun glReadPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glReadPixels[A = Any](x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glReadPixels(x, y, width, height, format, type', pixels)
 
-  fun glReadnPixelsARB(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, bufSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glReadnPixelsARB[A = Any](x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, bufSize: GLsizei, data: Pointer[A] tag): None =>
     @glReadnPixelsARB(x, y, width, height, format, type', bufSize, data)
 
-  fun glReadnPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, bufSize: GLsizei, data: Pointer[Any] tag): None =>
+  fun glReadnPixels[A = Any](x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, bufSize: GLsizei, data: Pointer[A] tag): None =>
     @glReadnPixels(x, y, width, height, format, type', bufSize, data)
 
   fun glReleaseShaderCompiler(): None =>
@@ -2771,7 +2771,7 @@ primitive Gl
   fun glSelectPerfMonitorCountersAMD(monitor: GLuint, enable: GLboolean, group: GLuint, numCounters: GLint, counterList: Pointer[GLuint] tag): None =>
     @glSelectPerfMonitorCountersAMD(monitor, enable, group, numCounters, counterList)
 
-  fun glShaderBinary(count: GLsizei, shaders: Pointer[GLuint] tag, binaryFormat: GLenum, binary: Pointer[Any] tag, length: GLsizei): None =>
+  fun glShaderBinary[A = Any](count: GLsizei, shaders: Pointer[GLuint] tag, binaryFormat: GLenum, binary: Pointer[A] tag, length: GLsizei): None =>
     @glShaderBinary(count, shaders, binaryFormat, binary, length)
 
   fun glShaderSource(shader: GLuint, count: GLsizei, strings: Pointer[Pointer[GLchar] tag] tag, length: Pointer[GLint] tag): None =>
@@ -2807,7 +2807,7 @@ primitive Gl
   fun glStateCaptureNV(state: GLuint, mode: GLenum): None =>
     @glStateCaptureNV(state, mode)
 
-  fun glStencilFillPathInstancedNV(numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[Any] tag, pathBase: GLuint, fillMode: GLenum, mask: GLuint, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
+  fun glStencilFillPathInstancedNV[A = Any](numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[A] tag, pathBase: GLuint, fillMode: GLenum, mask: GLuint, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
     @glStencilFillPathInstancedNV(numPaths, pathNametype', paths, pathBase, fillMode, mask, transformtype', transformValues)
 
   fun glStencilFillPathNV(path: GLuint, fillMode: GLenum, mask: GLuint): None =>
@@ -2831,19 +2831,19 @@ primitive Gl
   fun glStencilOp(fail: GLenum, zfail: GLenum, zpass: GLenum): None =>
     @glStencilOp(fail, zfail, zpass)
 
-  fun glStencilStrokePathInstancedNV(numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[Any] tag, pathBase: GLuint, reference: GLint, mask: GLuint, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
+  fun glStencilStrokePathInstancedNV[A = Any](numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[A] tag, pathBase: GLuint, reference: GLint, mask: GLuint, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
     @glStencilStrokePathInstancedNV(numPaths, pathNametype', paths, pathBase, reference, mask, transformtype', transformValues)
 
   fun glStencilStrokePathNV(path: GLuint, reference: GLint, mask: GLuint): None =>
     @glStencilStrokePathNV(path, reference, mask)
 
-  fun glStencilThenCoverFillPathInstancedNV(numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[Any] tag, pathBase: GLuint, fillMode: GLenum, mask: GLuint, coverMode: GLenum, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
+  fun glStencilThenCoverFillPathInstancedNV[A = Any](numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[A] tag, pathBase: GLuint, fillMode: GLenum, mask: GLuint, coverMode: GLenum, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
     @glStencilThenCoverFillPathInstancedNV(numPaths, pathNametype', paths, pathBase, fillMode, mask, coverMode, transformtype', transformValues)
 
   fun glStencilThenCoverFillPathNV(path: GLuint, fillMode: GLenum, mask: GLuint, coverMode: GLenum): None =>
     @glStencilThenCoverFillPathNV(path, fillMode, mask, coverMode)
 
-  fun glStencilThenCoverStrokePathInstancedNV(numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[Any] tag, pathBase: GLuint, reference: GLint, mask: GLuint, coverMode: GLenum, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
+  fun glStencilThenCoverStrokePathInstancedNV[A = Any](numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[A] tag, pathBase: GLuint, reference: GLint, mask: GLuint, coverMode: GLenum, transformtype': GLenum, transformValues: Pointer[GLfloat] tag): None =>
     @glStencilThenCoverStrokePathInstancedNV(numPaths, pathNametype', paths, pathBase, reference, mask, coverMode, transformtype', transformValues)
 
   fun glStencilThenCoverStrokePathNV(path: GLuint, reference: GLint, mask: GLuint, coverMode: GLenum): None =>
@@ -2867,19 +2867,19 @@ primitive Gl
   fun glTexCoordFormatNV(size: GLint, type': GLenum, stride: GLsizei): None =>
     @glTexCoordFormatNV(size, type', stride)
 
-  fun glTexImage1D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTexImage1D[A = Any](target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTexImage1D(target, level, internalformat, width, border, format, type', pixels)
 
   fun glTexImage2DMultisample(target: GLenum, samples: GLsizei, internalformat: GLenum, width: GLsizei, height: GLsizei, fixedsamplelocations: GLboolean): None =>
     @glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations)
 
-  fun glTexImage2D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTexImage2D[A = Any](target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTexImage2D(target, level, internalformat, width, height, border, format, type', pixels)
 
   fun glTexImage3DMultisample(target: GLenum, samples: GLsizei, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, fixedsamplelocations: GLboolean): None =>
     @glTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations)
 
-  fun glTexImage3D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTexImage3D[A = Any](target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTexImage3D(target, level, internalformat, width, height, depth, border, format, type', pixels)
 
   fun glTexPageCommitmentARB(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, commit: GLboolean): None =>
@@ -2930,13 +2930,13 @@ primitive Gl
   fun glTexStorage3D(target: GLenum, levels: GLsizei, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei): None =>
     @glTexStorage3D(target, levels, internalformat, width, height, depth)
 
-  fun glTexSubImage1D(target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTexSubImage1D[A = Any](target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTexSubImage1D(target, level, xoffset, width, format, type', pixels)
 
-  fun glTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTexSubImage2D[A = Any](target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type', pixels)
 
-  fun glTexSubImage3D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTexSubImage3D[A = Any](target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type', pixels)
 
   fun glTextureAttachMemoryNV(texture: GLuint, memory: GLuint, offset: GLuint64): None =>
@@ -2960,13 +2960,13 @@ primitive Gl
   fun glTextureBuffer(texture: GLuint, internalformat: GLenum, buffer: GLuint): None =>
     @glTextureBuffer(texture, internalformat, buffer)
 
-  fun glTextureImage1DEXT(texture: GLuint, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTextureImage1DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type', pixels)
 
-  fun glTextureImage2DEXT(texture: GLuint, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTextureImage2DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type', pixels)
 
-  fun glTextureImage3DEXT(texture: GLuint, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTextureImage3DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type', pixels)
 
   fun glTexturePageCommitmentEXT(texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, commit: GLboolean): None =>
@@ -3044,22 +3044,22 @@ primitive Gl
   fun glTextureStorage3D(texture: GLuint, levels: GLsizei, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei): None =>
     @glTextureStorage3D(texture, levels, internalformat, width, height, depth)
 
-  fun glTextureSubImage1DEXT(texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTextureSubImage1DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type', pixels)
 
-  fun glTextureSubImage1D(texture: GLuint, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTextureSubImage1D[A = Any](texture: GLuint, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTextureSubImage1D(texture, level, xoffset, width, format, type', pixels)
 
-  fun glTextureSubImage2DEXT(texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTextureSubImage2DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type', pixels)
 
-  fun glTextureSubImage2D(texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTextureSubImage2D[A = Any](texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type', pixels)
 
-  fun glTextureSubImage3DEXT(texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTextureSubImage3DEXT[A = Any](texture: GLuint, target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type', pixels)
 
-  fun glTextureSubImage3D(texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[Any] tag): None =>
+  fun glTextureSubImage3D[A = Any](texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, pixels: Pointer[A] tag): None =>
     @glTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type', pixels)
 
   fun glTextureView(texture: GLuint, target: GLenum, origtexture: GLuint, internalformat: GLenum, minlevel: GLuint, numlevels: GLuint, minlayer: GLuint, numlayers: GLuint): None =>
@@ -3641,7 +3641,7 @@ primitive Gl
   fun glVertexAttribIFormat(attribindex: GLuint, size: GLint, type': GLenum, relativeoffset: GLuint): None =>
     @glVertexAttribIFormat(attribindex, size, type', relativeoffset)
 
-  fun glVertexAttribIPointer(index: GLuint, size: GLint, type': GLenum, stride: GLsizei, pointer: Pointer[Any] tag): None =>
+  fun glVertexAttribIPointer[A = Any](index: GLuint, size: GLint, type': GLenum, stride: GLsizei, pointer: Pointer[A] tag): None =>
     @glVertexAttribIPointer(index, size, type', stride, pointer)
 
   fun glVertexAttribL1d(index0: GLuint, x1: GLdouble): None =>
@@ -3728,7 +3728,7 @@ primitive Gl
   fun glVertexAttribLFormat(attribindex: GLuint, size: GLint, type': GLenum, relativeoffset: GLuint): None =>
     @glVertexAttribLFormat(attribindex, size, type', relativeoffset)
 
-  fun glVertexAttribLPointer(index: GLuint, size: GLint, type': GLenum, stride: GLsizei, pointer: Pointer[Any] tag): None =>
+  fun glVertexAttribLPointer[A = Any](index: GLuint, size: GLint, type': GLenum, stride: GLsizei, pointer: Pointer[A] tag): None =>
     @glVertexAttribLPointer(index, size, type', stride, pointer)
 
   fun glVertexAttribP1ui(index: GLuint, type': GLenum, normalized: GLboolean, value: GLuint): None =>
@@ -3755,7 +3755,7 @@ primitive Gl
   fun glVertexAttribP4uiv(index: GLuint, type': GLenum, normalized: GLboolean, value: Pointer[GLuint] tag): None =>
     @glVertexAttribP4uiv(index, type', normalized, value)
 
-  fun glVertexAttribPointer(index: GLuint, size: GLint, type': GLenum, normalized: GLboolean, stride: GLsizei, pointer: Pointer[Any] tag = Pointer[Any]): None =>
+  fun glVertexAttribPointer[A = Any](index: GLuint, size: GLint, type': GLenum, normalized: GLboolean, stride: GLsizei, pointer: Pointer[A] tag = Pointer[A]): None =>
     @glVertexAttribPointer(index, size, type', normalized, stride, pointer)
 
   fun glVertexBindingDivisor(bindingindex: GLuint, divisor: GLuint): None =>
