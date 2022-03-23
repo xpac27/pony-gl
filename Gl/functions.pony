@@ -524,9 +524,6 @@ primitive Gl
   fun glDebugMessageCallbackARB(callback: Pointer[Any] tag, userParam: Pointer[Any] tag): None =>
     @glDebugMessageCallbackARB(callback, userParam)
 
-  fun glDebugMessageCallback(callback: Pointer[Any] tag, userParam: Pointer[Any] tag): None =>
-    @glDebugMessageCallback(callback, userParam)
-
   fun glDebugMessageControlARB(source: GLenum, type': GLenum, severity: GLenum, count: GLsizei, ids: Pointer[GLuint] tag, enabled: GLboolean): None =>
     @glDebugMessageControlARB(source, type', severity, count, ids, enabled)
 
