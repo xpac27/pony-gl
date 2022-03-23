@@ -7,9 +7,9 @@ primitive GlHelper
     String.from_cstring(@glGetStringi(name, index)).clone()
 
   fun glGetProgramInfoLog(program: GLuint, bufferSize: USize = 1024): String =>
-    var a: Array[GLchar val] val = recover Array[GLchar val].init(0, bufferSize) end
+    var a: Array[GLchar val] iso = recover Array[GLchar val].init(0, bufferSize) end
     @glGetProgramInfoLog(program, GLsizei.from[USize](a.size()), Pointer[GLsizei], a.cpointer())
-    String.from_array(a)
+    String.from_iso_array(consume a).>recalc()
 
   fun glGetProgramiv(program: GLuint, pname: GLenum): GLint =>
     var params: GLint = 0
@@ -17,9 +17,9 @@ primitive GlHelper
     params
 
   fun glGetShaderInfoLog(shader: GLuint, bufferSize: USize = 1024): String =>
-    var a: Array[GLchar val] val = recover Array[GLchar val].init(0, bufferSize) end
+    var a: Array[GLchar val] iso = recover Array[GLchar val].init(0, bufferSize) end
     @glGetShaderInfoLog(shader, GLsizei.from[USize](a.size()), Pointer[GLsizei], a.cpointer())
-    String.from_array(a)
+    String.from_iso_array(consume a).>recalc()
 
   fun glGetShaderiv(shader: GLuint, pname: GLenum): GLbitfield =>
     var params: GLint = 0
