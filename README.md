@@ -54,13 +54,13 @@ Names are preserved and mapped to Pony types.
 
 Names are converted to multicase (`GL_VERSION` becomes `GLVersion`). Using primitives of type `GLbitfield` except for `GLTrue` and `GLFalse` that use `GLboolean`.
 
-The following defines have been omitted because they confilct with the type names.
+The following defines have been renamed because they confilct with the type names.
 
-    primitive GLByte fun apply(): GLbitfield => 0x1400
-    primitive GLDouble fun apply(): GLbitfield => 0x140A
-    primitive GLFloat fun apply(): GLbitfield => 0x1406
-    primitive GLInt fun apply(): GLbitfield => 0x1404
-    primitive GLShort fun apply(): GLbitfield => 0x1402
+- `GLByte` to `GLByteType`
+- `GLDouble` to `GLDoubleType`
+- `GLFloat` to `GLFloatType`
+- `GLInt` to `GLIntType`
+- `GLShort` to `GLShortType`
 
 ### Functions
 
