@@ -527,7 +527,7 @@ primitive Gl
   fun glDebugMessageControlARB(source: GLenum, type': GLenum, severity: GLenum, count: GLsizei, ids: Pointer[GLuint] tag, enabled: GLboolean): None =>
     @glDebugMessageControlARB(source, type', severity, count, ids, enabled)
 
-  fun glDebugMessageControl(source: GLenum, type': GLenum, severity: GLenum, count: GLsizei, ids: Pointer[GLuint] tag, enabled: GLboolean): None =>
+  fun glDebugMessageControl(source: GLenum, type': GLenum, severity: GLenum, count: GLsizei = 0, ids: Pointer[GLuint] tag = Pointer[GLuint], enabled: GLboolean = GLFalse()): None =>
     @glDebugMessageControl(source, type', severity, count, ids, enabled)
 
   fun glDebugMessageInsertARB(source: GLenum, type': GLenum, id: GLuint, severity: GLenum, length: GLsizei, buf: Pointer[GLchar]): None =>
@@ -3755,7 +3755,7 @@ primitive Gl
   fun glVertexAttribP4uiv(index: GLuint, type': GLenum, normalized: GLboolean, value: Pointer[GLuint] tag): None =>
     @glVertexAttribP4uiv(index, type', normalized, value)
 
-  fun glVertexAttribPointer(index: GLuint, size: GLint, type': GLenum, normalized: GLboolean, stride: GLsizei, pointer: Pointer[Any] tag): None =>
+  fun glVertexAttribPointer(index: GLuint, size: GLint, type': GLenum, normalized: GLboolean, stride: GLsizei, pointer: Pointer[Any] tag = Pointer[Any]): None =>
     @glVertexAttribPointer(index, size, type', normalized, stride, pointer)
 
   fun glVertexBindingDivisor(bindingindex: GLuint, divisor: GLuint): None =>
