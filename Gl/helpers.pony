@@ -1,10 +1,10 @@
 primitive GlHelper
 
   fun glGetString(name: GLenum): String =>
-    String.from_cstring(@glGetString(name)).clone()
+    recover String.from_cstring(@glGetString(name)) end
 
   fun glGetStringi(name: GLenum, index: GLuint): String =>
-    String.from_cstring(@glGetStringi(name, index)).clone()
+    recover String.from_cstring(@glGetStringi(name, index)) end
 
   fun glGetProgramInfoLog(program: GLuint, bufferSize: USize = 1024): String =>
     var a: Array[GLchar val] iso = recover Array[GLchar val].init(0, bufferSize) end
