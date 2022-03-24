@@ -59,7 +59,7 @@ primitive Gl
   fun glBeginTransformFeedback(primitiveMode: GLenum): None =>
     @glBeginTransformFeedback(primitiveMode)
 
-  fun glBindAttribLocation(program: GLuint, index: GLuint, name: Pointer[GLchar]): None =>
+  fun glBindAttribLocation(program: GLuint, index: GLuint, name: Pointer[GLchar] tag): None =>
     @glBindAttribLocation(program, index, name)
 
   fun glBindBufferBase(target: GLenum, index: GLuint, buffer: GLuint): None =>
@@ -77,10 +77,10 @@ primitive Gl
   fun glBindBuffersRange(target: GLenum, first: GLuint, count: GLsizei, buffers: Pointer[GLuint] tag, offsets: Pointer[GLintptr] tag, sizes: Pointer[GLsizeiptr] tag): None =>
     @glBindBuffersRange(target, first, count, buffers, offsets, sizes)
 
-  fun glBindFragDataLocationIndexed(program: GLuint, colorNumber: GLuint, index: GLuint, name: Pointer[GLchar]): None =>
+  fun glBindFragDataLocationIndexed(program: GLuint, colorNumber: GLuint, index: GLuint, name: Pointer[GLchar] tag): None =>
     @glBindFragDataLocationIndexed(program, colorNumber, index, name)
 
-  fun glBindFragDataLocation(program: GLuint, color: GLuint, name: Pointer[GLchar]): None =>
+  fun glBindFragDataLocation(program: GLuint, color: GLuint, name: Pointer[GLchar] tag): None =>
     @glBindFragDataLocation(program, color, name)
 
   fun glBindFramebuffer(target: GLenum, framebuffer: GLuint): None =>
@@ -497,7 +497,7 @@ primitive Gl
   fun glCreateSamplers(n: GLsizei, samplers: Pointer[GLuint] tag): None =>
     @glCreateSamplers(n, samplers)
 
-  fun glCreateShaderProgramEXT(type': GLenum, string: Pointer[GLchar]): GLuint =>
+  fun glCreateShaderProgramEXT(type': GLenum, string: Pointer[GLchar] tag): GLuint =>
     @glCreateShaderProgramEXT(type', string)
 
   fun glCreateShaderProgramv(type': GLenum, count: GLsizei, strings: Pointer[Pointer[GLchar] tag] tag): GLuint =>
@@ -530,10 +530,10 @@ primitive Gl
   fun glDebugMessageControl(source: GLenum, type': GLenum, severity: GLenum, count: GLsizei = 0, ids: Pointer[GLuint] tag = Pointer[GLuint], enabled: GLboolean = GLFalse()): None =>
     @glDebugMessageControl(source, type', severity, count, ids, enabled)
 
-  fun glDebugMessageInsertARB(source: GLenum, type': GLenum, id: GLuint, severity: GLenum, length: GLsizei, buf: Pointer[GLchar]): None =>
+  fun glDebugMessageInsertARB(source: GLenum, type': GLenum, id: GLuint, severity: GLenum, length: GLsizei, buf: Pointer[GLchar] tag): None =>
     @glDebugMessageInsertARB(source, type', id, severity, length, buf)
 
-  fun glDebugMessageInsert(source: GLenum, type': GLenum, id: GLuint, severity: GLenum, length: GLsizei, buf: Pointer[GLchar]): None =>
+  fun glDebugMessageInsert(source: GLenum, type': GLenum, id: GLuint, severity: GLenum, length: GLsizei, buf: Pointer[GLchar] tag): None =>
     @glDebugMessageInsert(source, type', id, severity, length, buf)
 
   fun glDeleteBuffers(n: GLsizei, buffers: Pointer[GLuint] tag): None =>
@@ -545,7 +545,7 @@ primitive Gl
   fun glDeleteFramebuffers(n: GLsizei, framebuffers: Pointer[GLuint] tag): None =>
     @glDeleteFramebuffers(n, framebuffers)
 
-  fun glDeleteNamedStringARB(namelen: GLint, name: Pointer[GLchar]): None =>
+  fun glDeleteNamedStringARB(namelen: GLint, name: Pointer[GLchar] tag): None =>
     @glDeleteNamedStringARB(namelen, name)
 
   fun glDeletePathsNV(path: GLuint, range: GLsizei): None =>
@@ -932,28 +932,28 @@ primitive Gl
   fun glGetActiveAtomicCounterBufferiv(program: GLuint, bufferIndex: GLuint, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params)
 
-  fun glGetActiveAttrib(program: GLuint, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, size: Pointer[GLint] tag, type': Pointer[GLenum] tag, name: Pointer[GLchar]): None =>
+  fun glGetActiveAttrib(program: GLuint, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, size: Pointer[GLint] tag, type': Pointer[GLenum] tag, name: Pointer[GLchar] tag): None =>
     @glGetActiveAttrib(program, index, bufSize, length, size, type', name)
 
-  fun glGetActiveSubroutineName(program: GLuint, shadertype': GLenum, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, name: Pointer[GLchar]): None =>
+  fun glGetActiveSubroutineName(program: GLuint, shadertype': GLenum, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, name: Pointer[GLchar] tag): None =>
     @glGetActiveSubroutineName(program, shadertype', index, bufSize, length, name)
 
-  fun glGetActiveSubroutineUniformName(program: GLuint, shadertype': GLenum, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, name: Pointer[GLchar]): None =>
+  fun glGetActiveSubroutineUniformName(program: GLuint, shadertype': GLenum, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, name: Pointer[GLchar] tag): None =>
     @glGetActiveSubroutineUniformName(program, shadertype', index, bufSize, length, name)
 
   fun glGetActiveSubroutineUniformiv(program: GLuint, shadertype': GLenum, index: GLuint, pname: GLenum, values: Pointer[GLint] tag): None =>
     @glGetActiveSubroutineUniformiv(program, shadertype', index, pname, values)
 
-  fun glGetActiveUniformBlockName(program: GLuint, uniformBlockIndex: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, uniformBlockName: Pointer[GLchar]): None =>
+  fun glGetActiveUniformBlockName(program: GLuint, uniformBlockIndex: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, uniformBlockName: Pointer[GLchar] tag): None =>
     @glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName)
 
   fun glGetActiveUniformBlockiv(program: GLuint, uniformBlockIndex: GLuint, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, params)
 
-  fun glGetActiveUniformName(program: GLuint, uniformIndex: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, uniformName: Pointer[GLchar]): None =>
+  fun glGetActiveUniformName(program: GLuint, uniformIndex: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, uniformName: Pointer[GLchar] tag): None =>
     @glGetActiveUniformName(program, uniformIndex, bufSize, length, uniformName)
 
-  fun glGetActiveUniform(program: GLuint, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, size: Pointer[GLint] tag, type': Pointer[GLenum] tag, name: Pointer[GLchar]): None =>
+  fun glGetActiveUniform(program: GLuint, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, size: Pointer[GLint] tag, type': Pointer[GLenum] tag, name: Pointer[GLchar] tag): None =>
     @glGetActiveUniform(program, index, bufSize, length, size, type', name)
 
   fun glGetActiveUniformsiv(program: GLuint, uniformCount: GLsizei, uniformIndices: Pointer[GLuint] tag, pname: GLenum, params: Pointer[GLint] tag): None =>
@@ -962,7 +962,7 @@ primitive Gl
   fun glGetAttachedShaders(program: GLuint, maxCount: GLsizei, count: Pointer[GLsizei] tag, shaders: Pointer[GLuint] tag): None =>
     @glGetAttachedShaders(program, maxCount, count, shaders)
 
-  fun glGetAttribLocation(program: GLuint, name: Pointer[GLchar]): GLint =>
+  fun glGetAttribLocation(program: GLuint, name: Pointer[GLchar] tag): GLint =>
     @glGetAttribLocation(program, name)
 
   fun glGetBooleanIndexedvEXT(target: GLenum, index: GLuint, data: Pointer[GLboolean] tag): None =>
@@ -1007,10 +1007,10 @@ primitive Gl
   fun glGetCoverageModulationTableNV(bufSize: GLsizei, v: Pointer[GLfloat] tag): None =>
     @glGetCoverageModulationTableNV(bufSize, v)
 
-  fun glGetDebugMessageLogARB(count: GLuint, bufSize: GLsizei, sources: Pointer[GLenum] tag, types: Pointer[GLenum] tag, ids: Pointer[GLuint] tag, severities: Pointer[GLenum] tag, lengths: Pointer[GLsizei] tag, messageLog: Pointer[GLchar]): GLuint =>
+  fun glGetDebugMessageLogARB(count: GLuint, bufSize: GLsizei, sources: Pointer[GLenum] tag, types: Pointer[GLenum] tag, ids: Pointer[GLuint] tag, severities: Pointer[GLenum] tag, lengths: Pointer[GLsizei] tag, messageLog: Pointer[GLchar] tag): GLuint =>
     @glGetDebugMessageLogARB(count, bufSize, sources, types, ids, severities, lengths, messageLog)
 
-  fun glGetDebugMessageLog(count: GLuint, bufSize: GLsizei, sources: Pointer[GLenum] tag, types: Pointer[GLenum] tag, ids: Pointer[GLuint] tag, severities: Pointer[GLenum] tag, lengths: Pointer[GLsizei] tag, messageLog: Pointer[GLchar]): GLuint =>
+  fun glGetDebugMessageLog(count: GLuint, bufSize: GLsizei, sources: Pointer[GLenum] tag, types: Pointer[GLenum] tag, ids: Pointer[GLuint] tag, severities: Pointer[GLenum] tag, lengths: Pointer[GLsizei] tag, messageLog: Pointer[GLchar] tag): GLuint =>
     @glGetDebugMessageLog(count, bufSize, sources, types, ids, severities, lengths, messageLog)
 
   fun glGetDoubleIndexedvEXT(target: GLenum, index: GLuint, data: Pointer[GLdouble] tag): None =>
@@ -1043,10 +1043,10 @@ primitive Gl
   fun glGetFloatv(pname: GLenum, data: Pointer[GLfloat] tag): None =>
     @glGetFloatv(pname, data)
 
-  fun glGetFragDataIndex(program: GLuint, name: Pointer[GLchar]): GLint =>
+  fun glGetFragDataIndex(program: GLuint, name: Pointer[GLchar] tag): GLint =>
     @glGetFragDataIndex(program, name)
 
-  fun glGetFragDataLocation(program: GLuint, name: Pointer[GLchar]): GLint =>
+  fun glGetFragDataLocation(program: GLuint, name: Pointer[GLchar] tag): GLint =>
     @glGetFragDataLocation(program, name)
 
   fun glGetFramebufferAttachmentParameteriv(target: GLenum, attachment: GLenum, pname: GLenum, params: Pointer[GLint] tag): None =>
@@ -1199,22 +1199,22 @@ primitive Gl
   fun glGetNamedRenderbufferParameteriv(renderbuffer: GLuint, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetNamedRenderbufferParameteriv(renderbuffer, pname, params)
 
-  fun glGetNamedStringARB(namelen: GLint, name: Pointer[GLchar], bufSize: GLsizei, stringlen: Pointer[GLint] tag, string: Pointer[GLchar]): None =>
+  fun glGetNamedStringARB(namelen: GLint, name: Pointer[GLchar] tag, bufSize: GLsizei, stringlen: Pointer[GLint] tag, string: Pointer[GLchar] tag): None =>
     @glGetNamedStringARB(namelen, name, bufSize, stringlen, string)
 
-  fun glGetNamedStringivARB(namelen: GLint, name: Pointer[GLchar], pname: GLenum, params: Pointer[GLint] tag): None =>
+  fun glGetNamedStringivARB(namelen: GLint, name: Pointer[GLchar] tag, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetNamedStringivARB(namelen, name, pname, params)
 
   fun glGetNextPerfQueryIdINTEL(queryId: GLuint, nextQueryId: Pointer[GLuint] tag): None =>
     @glGetNextPerfQueryIdINTEL(queryId, nextQueryId)
 
-  fun glGetObjectLabelEXT(type': GLenum, object': GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, label: Pointer[GLchar]): None =>
+  fun glGetObjectLabelEXT(type': GLenum, object': GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, label: Pointer[GLchar] tag): None =>
     @glGetObjectLabelEXT(type', object', bufSize, length, label)
 
-  fun glGetObjectLabel(identifier: GLenum, name: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, label: Pointer[GLchar]): None =>
+  fun glGetObjectLabel(identifier: GLenum, name: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, label: Pointer[GLchar] tag): None =>
     @glGetObjectLabel(identifier, name, bufSize, length, label)
 
-  fun glGetObjectPtrLabel[A = Any](ptr: Pointer[A] tag, bufSize: GLsizei, length: Pointer[GLsizei] tag, label: Pointer[GLchar]): None =>
+  fun glGetObjectPtrLabel[A = Any](ptr: Pointer[A] tag, bufSize: GLsizei, length: Pointer[GLsizei] tag, label: Pointer[GLchar] tag): None =>
     @glGetObjectPtrLabel(ptr, bufSize, length, label)
 
   fun glGetPathCommandsNV(path: GLuint, commands: Pointer[GLubyte] tag): None =>
@@ -1244,7 +1244,7 @@ primitive Gl
   fun glGetPathSpacingNV[A = Any](pathListMode: GLenum, numPaths: GLsizei, pathNametype': GLenum, paths: Pointer[A] tag, pathBase: GLuint, advanceScale: GLfloat, kerningScale: GLfloat, transformtype': GLenum, returnedSpacing: Pointer[GLfloat] tag): None =>
     @glGetPathSpacingNV(pathListMode, numPaths, pathNametype', paths, pathBase, advanceScale, kerningScale, transformtype', returnedSpacing)
 
-  fun glGetPerfCounterInfoINTEL(queryId: GLuint, counterId: GLuint, counterNameLength: GLuint, counterName: Pointer[GLchar], counterDescLength: GLuint, counterDesc: Pointer[GLchar], counterOffset: Pointer[GLuint] tag, counterDataSize: Pointer[GLuint] tag, counterTypeEnum: Pointer[GLuint] tag, counterDataTypeEnum: Pointer[GLuint] tag, rawCounterMaxValue: Pointer[GLuint64] tag): None =>
+  fun glGetPerfCounterInfoINTEL(queryId: GLuint, counterId: GLuint, counterNameLength: GLuint, counterName: Pointer[GLchar] tag, counterDescLength: GLuint, counterDesc: Pointer[GLchar] tag, counterOffset: Pointer[GLuint] tag, counterDataSize: Pointer[GLuint] tag, counterTypeEnum: Pointer[GLuint] tag, counterDataTypeEnum: Pointer[GLuint] tag, rawCounterMaxValue: Pointer[GLuint64] tag): None =>
     @glGetPerfCounterInfoINTEL(queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue)
 
   fun glGetPerfMonitorCounterDataAMD(monitor: GLuint, pname: GLenum, dataSize: GLsizei, data: Pointer[GLuint] tag, bytesWritten: Pointer[GLint] tag): None =>
@@ -1253,13 +1253,13 @@ primitive Gl
   fun glGetPerfMonitorCounterInfoAMD[A = Any](group: GLuint, counter: GLuint, pname: GLenum, data: Pointer[A] tag): None =>
     @glGetPerfMonitorCounterInfoAMD(group, counter, pname, data)
 
-  fun glGetPerfMonitorCounterStringAMD(group: GLuint, counter: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, counterString: Pointer[GLchar]): None =>
+  fun glGetPerfMonitorCounterStringAMD(group: GLuint, counter: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, counterString: Pointer[GLchar] tag): None =>
     @glGetPerfMonitorCounterStringAMD(group, counter, bufSize, length, counterString)
 
   fun glGetPerfMonitorCountersAMD(group: GLuint, numCounters: Pointer[GLint] tag, maxActiveCounters: Pointer[GLint] tag, counterSize: GLsizei, counters: Pointer[GLuint] tag): None =>
     @glGetPerfMonitorCountersAMD(group, numCounters, maxActiveCounters, counterSize, counters)
 
-  fun glGetPerfMonitorGroupStringAMD(group: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, groupString: Pointer[GLchar]): None =>
+  fun glGetPerfMonitorGroupStringAMD(group: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, groupString: Pointer[GLchar] tag): None =>
     @glGetPerfMonitorGroupStringAMD(group, bufSize, length, groupString)
 
   fun glGetPerfMonitorGroupsAMD(numGroups: Pointer[GLint] tag, groupsSize: GLsizei, groups: Pointer[GLuint] tag): None =>
@@ -1268,10 +1268,10 @@ primitive Gl
   fun glGetPerfQueryDataINTEL[A = Any](queryHandle: GLuint, flags: GLuint, dataSize: GLsizei, data: Pointer[A] tag, bytesWritten: Pointer[GLuint] tag): None =>
     @glGetPerfQueryDataINTEL(queryHandle, flags, dataSize, data, bytesWritten)
 
-  fun glGetPerfQueryIdByNameINTEL(queryName: Pointer[GLchar], queryId: Pointer[GLuint] tag): None =>
+  fun glGetPerfQueryIdByNameINTEL(queryName: Pointer[GLchar] tag, queryId: Pointer[GLuint] tag): None =>
     @glGetPerfQueryIdByNameINTEL(queryName, queryId)
 
-  fun glGetPerfQueryInfoINTEL(queryId: GLuint, queryNameLength: GLuint, queryName: Pointer[GLchar], dataSize: Pointer[GLuint] tag, noCounters: Pointer[GLuint] tag, noInstances: Pointer[GLuint] tag, capsMask: Pointer[GLuint] tag): None =>
+  fun glGetPerfQueryInfoINTEL(queryId: GLuint, queryNameLength: GLuint, queryName: Pointer[GLchar] tag, dataSize: Pointer[GLuint] tag, noCounters: Pointer[GLuint] tag, noInstances: Pointer[GLuint] tag, capsMask: Pointer[GLuint] tag): None =>
     @glGetPerfQueryInfoINTEL(queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask)
 
   fun glGetProgramBinary[A = Any](program: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, binaryFormat: Pointer[GLenum] tag, binary: Pointer[A] tag): None =>
@@ -1283,22 +1283,22 @@ primitive Gl
   fun glGetProgramInterfaceiv(program: GLuint, programInterface: GLenum, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetProgramInterfaceiv(program, programInterface, pname, params)
 
-  fun glGetProgramPipelineInfoLog(pipeline: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, infoLog: Pointer[GLchar]): None =>
+  fun glGetProgramPipelineInfoLog(pipeline: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, infoLog: Pointer[GLchar] tag): None =>
     @glGetProgramPipelineInfoLog(pipeline, bufSize, length, infoLog)
 
   fun glGetProgramPipelineiv(pipeline: GLuint, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetProgramPipelineiv(pipeline, pname, params)
 
-  fun glGetProgramResourceIndex(program: GLuint, programInterface: GLenum, name: Pointer[GLchar]): GLuint =>
+  fun glGetProgramResourceIndex(program: GLuint, programInterface: GLenum, name: Pointer[GLchar] tag): GLuint =>
     @glGetProgramResourceIndex(program, programInterface, name)
 
-  fun glGetProgramResourceLocationIndex(program: GLuint, programInterface: GLenum, name: Pointer[GLchar]): GLint =>
+  fun glGetProgramResourceLocationIndex(program: GLuint, programInterface: GLenum, name: Pointer[GLchar] tag): GLint =>
     @glGetProgramResourceLocationIndex(program, programInterface, name)
 
-  fun glGetProgramResourceLocation(program: GLuint, programInterface: GLenum, name: Pointer[GLchar]): GLint =>
+  fun glGetProgramResourceLocation(program: GLuint, programInterface: GLenum, name: Pointer[GLchar] tag): GLint =>
     @glGetProgramResourceLocation(program, programInterface, name)
 
-  fun glGetProgramResourceName(program: GLuint, programInterface: GLenum, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, name: Pointer[GLchar]): None =>
+  fun glGetProgramResourceName(program: GLuint, programInterface: GLenum, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, name: Pointer[GLchar] tag): None =>
     @glGetProgramResourceName(program, programInterface, index, bufSize, length, name)
 
   fun glGetProgramResourcefvNV(program: GLuint, programInterface: GLenum, index: GLuint, propCount: GLsizei, props: Pointer[GLenum] tag, count: GLsizei, length: Pointer[GLsizei] tag, params: Pointer[GLfloat] tag): None =>
@@ -1364,7 +1364,7 @@ primitive Gl
   fun glGetShaderPrecisionFormat(shadertype': GLenum, precisiontype': GLenum, range: Pointer[GLint] tag, precision: Pointer[GLint] tag): None =>
     @glGetShaderPrecisionFormat(shadertype', precisiontype', range, precision)
 
-  fun glGetShaderSource(shader: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, source: Pointer[GLchar]): None =>
+  fun glGetShaderSource(shader: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, source: Pointer[GLchar] tag): None =>
     @glGetShaderSource(shader, bufSize, length, source)
 
   fun glGetShaderiv(shader: GLuint, pname: GLenum, params: Pointer[GLint] tag): None =>
@@ -1379,10 +1379,10 @@ primitive Gl
   fun glGetStageIndexNV(shadertype': GLenum): GLushort =>
     @glGetStageIndexNV(shadertype')
 
-  fun glGetSubroutineIndex(program: GLuint, shadertype': GLenum, name: Pointer[GLchar]): GLuint =>
+  fun glGetSubroutineIndex(program: GLuint, shadertype': GLenum, name: Pointer[GLchar] tag): GLuint =>
     @glGetSubroutineIndex(program, shadertype', name)
 
-  fun glGetSubroutineUniformLocation(program: GLuint, shadertype': GLenum, name: Pointer[GLchar]): GLint =>
+  fun glGetSubroutineUniformLocation(program: GLuint, shadertype': GLenum, name: Pointer[GLchar] tag): GLint =>
     @glGetSubroutineUniformLocation(program, shadertype', name)
 
   fun glGetSynciv(sync: GLsync, pname: GLenum, count: GLsizei, length: Pointer[GLsizei] tag, values: Pointer[GLint] tag): None =>
@@ -1466,7 +1466,7 @@ primitive Gl
   fun glGetTextureSubImage[A = Any](texture: GLuint, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type': GLenum, bufSize: GLsizei, pixels: Pointer[A] tag): None =>
     @glGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type', bufSize, pixels)
 
-  fun glGetTransformFeedbackVarying(program: GLuint, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, size: Pointer[GLsizei] tag, type': Pointer[GLenum] tag, name: Pointer[GLchar]): None =>
+  fun glGetTransformFeedbackVarying(program: GLuint, index: GLuint, bufSize: GLsizei, length: Pointer[GLsizei] tag, size: Pointer[GLsizei] tag, type': Pointer[GLenum] tag, name: Pointer[GLchar] tag): None =>
     @glGetTransformFeedbackVarying(program, index, bufSize, length, size, type', name)
 
   fun glGetTransformFeedbacki64_v(xfb: GLuint, pname: GLenum, index: GLuint, param: Pointer[GLint64] tag): None =>
@@ -1478,13 +1478,13 @@ primitive Gl
   fun glGetTransformFeedbackiv(xfb: GLuint, pname: GLenum, param: Pointer[GLint] tag): None =>
     @glGetTransformFeedbackiv(xfb, pname, param)
 
-  fun glGetUniformBlockIndex(program: GLuint, uniformBlockName: Pointer[GLchar]): GLuint =>
+  fun glGetUniformBlockIndex(program: GLuint, uniformBlockName: Pointer[GLchar] tag): GLuint =>
     @glGetUniformBlockIndex(program, uniformBlockName)
 
   fun glGetUniformIndices(program: GLuint, uniformCount: GLsizei, uniformNames: Pointer[Pointer[GLchar] tag] tag, uniformIndices: Pointer[GLuint] tag): None =>
     @glGetUniformIndices(program, uniformCount, uniformNames, uniformIndices)
 
-  fun glGetUniformLocation(program: GLuint, name: Pointer[GLchar]): GLint =>
+  fun glGetUniformLocation(program: GLuint, name: Pointer[GLchar] tag): GLint =>
     @glGetUniformLocation(program, name)
 
   fun glGetUniformSubroutineuiv(shadertype': GLenum, location: GLint, params: Pointer[GLuint] tag): None =>
@@ -1556,7 +1556,7 @@ primitive Gl
   fun glGetVertexAttribiv(index: GLuint, pname: GLenum, params: Pointer[GLint] tag): None =>
     @glGetVertexAttribiv(index, pname, params)
 
-  fun glGetVkProcAddrNV(name: Pointer[GLchar]): Pointer[None] =>
+  fun glGetVkProcAddrNV(name: Pointer[GLchar] tag): Pointer[None] =>
     @glGetVkProcAddrNV(name)
 
   fun glGetnCompressedTexImageARB[A = Any](target: GLenum, lod: GLint, bufSize: GLsizei, img: Pointer[A] tag): None =>
@@ -1607,7 +1607,7 @@ primitive Gl
   fun glIndexFormatNV(type': GLenum, stride: GLsizei): None =>
     @glIndexFormatNV(type', stride)
 
-  fun glInsertEventMarkerEXT(length: GLsizei, marker: Pointer[GLchar]): None =>
+  fun glInsertEventMarkerEXT(length: GLsizei, marker: Pointer[GLchar] tag): None =>
     @glInsertEventMarkerEXT(length, marker)
 
   fun glInterpolatePathsNV(resultPath: GLuint, pathA: GLuint, pathB: GLuint, weight: GLfloat): None =>
@@ -1667,7 +1667,7 @@ primitive Gl
   fun glIsNamedBufferResidentNV(buffer: GLuint): GLboolean =>
     @glIsNamedBufferResidentNV(buffer)
 
-  fun glIsNamedStringARB(namelen: GLint, name: Pointer[GLchar]): GLboolean =>
+  fun glIsNamedStringARB(namelen: GLint, name: Pointer[GLchar] tag): GLboolean =>
     @glIsNamedStringARB(namelen, name)
 
   fun glIsPathNV(path: GLuint): GLboolean =>
@@ -1718,7 +1718,7 @@ primitive Gl
   fun glIsVertexArray(array: GLuint): GLboolean =>
     @glIsVertexArray(array)
 
-  fun glLabelObjectEXT(type': GLenum, object': GLuint, length: GLsizei, label: Pointer[GLchar]): None =>
+  fun glLabelObjectEXT(type': GLenum, object': GLuint, length: GLsizei, label: Pointer[GLchar] tag): None =>
     @glLabelObjectEXT(type', object', length, label)
 
   fun glLineWidth(width: GLfloat): None =>
@@ -2120,16 +2120,16 @@ primitive Gl
   fun glNamedRenderbufferStorage(renderbuffer: GLuint, internalformat: GLenum, width: GLsizei, height: GLsizei): None =>
     @glNamedRenderbufferStorage(renderbuffer, internalformat, width, height)
 
-  fun glNamedStringARB(type': GLenum, namelen: GLint, name: Pointer[GLchar], stringlen: GLint, string: Pointer[GLchar]): None =>
+  fun glNamedStringARB(type': GLenum, namelen: GLint, name: Pointer[GLchar] tag, stringlen: GLint, string: Pointer[GLchar] tag): None =>
     @glNamedStringARB(type', namelen, name, stringlen, string)
 
   fun glNormalFormatNV(type': GLenum, stride: GLsizei): None =>
     @glNormalFormatNV(type', stride)
 
-  fun glObjectLabel(identifier: GLenum, name: GLuint, length: GLsizei, label: Pointer[GLchar]): None =>
+  fun glObjectLabel(identifier: GLenum, name: GLuint, length: GLsizei, label: Pointer[GLchar] tag): None =>
     @glObjectLabel(identifier, name, length, label)
 
-  fun glObjectPtrLabel[A = Any](ptr: Pointer[A] tag, length: GLsizei, label: Pointer[GLchar]): None =>
+  fun glObjectPtrLabel[A = Any](ptr: Pointer[A] tag, length: GLsizei, label: Pointer[GLchar] tag): None =>
     @glObjectPtrLabel(ptr, length, label)
 
   fun glPatchParameterfv(pname: GLenum, values: Pointer[GLfloat] tag): None =>
@@ -2675,10 +2675,10 @@ primitive Gl
   fun glPushClientAttribDefaultEXT(mask: GLbitfield): None =>
     @glPushClientAttribDefaultEXT(mask)
 
-  fun glPushDebugGroup(source: GLenum, id: GLuint, length: GLsizei, message: Pointer[GLchar]): None =>
+  fun glPushDebugGroup(source: GLenum, id: GLuint, length: GLsizei, message: Pointer[GLchar] tag): None =>
     @glPushDebugGroup(source, id, length, message)
 
-  fun glPushGroupMarkerEXT(length: GLsizei, marker: Pointer[GLchar]): None =>
+  fun glPushGroupMarkerEXT(length: GLsizei, marker: Pointer[GLchar] tag): None =>
     @glPushGroupMarkerEXT(length, marker)
 
   fun glQueryCounter(id: GLuint, target: GLenum): None =>
@@ -2798,10 +2798,10 @@ primitive Gl
   fun glSignalVkSemaphoreNV(vkSemaphore: GLuint64): None =>
     @glSignalVkSemaphoreNV(vkSemaphore)
 
-  fun glSpecializeShaderARB(shader: GLuint, pEntryPoint: Pointer[GLchar], numSpecializationConstants: GLuint, pConstantIndex: Pointer[GLuint] tag, pConstantValue: Pointer[GLuint] tag): None =>
+  fun glSpecializeShaderARB(shader: GLuint, pEntryPoint: Pointer[GLchar] tag, numSpecializationConstants: GLuint, pConstantIndex: Pointer[GLuint] tag, pConstantValue: Pointer[GLuint] tag): None =>
     @glSpecializeShaderARB(shader, pEntryPoint, numSpecializationConstants, pConstantIndex, pConstantValue)
 
-  fun glSpecializeShader(shader: GLuint, pEntryPoint: Pointer[GLchar], numSpecializationConstants: GLuint, pConstantIndex: Pointer[GLuint] tag, pConstantValue: Pointer[GLuint] tag): None =>
+  fun glSpecializeShader(shader: GLuint, pEntryPoint: Pointer[GLchar] tag, numSpecializationConstants: GLuint, pConstantIndex: Pointer[GLuint] tag, pConstantValue: Pointer[GLuint] tag): None =>
     @glSpecializeShader(shader, pEntryPoint, numSpecializationConstants, pConstantIndex, pConstantValue)
 
   fun glStateCaptureNV(state: GLuint, mode: GLenum): None =>
