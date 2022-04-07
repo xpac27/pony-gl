@@ -6,7 +6,7 @@ Version used: [b9e1d1a1b37bb064a6d0e3fceffa8aeab5713a38](https://github.com/Khro
 
 _Warning: experimental and un-tested, suggestions and pull-requests are welcome._
 
-_Warning: only tested on Linux, [GLlibs.pony](https://github.com/xpac27/pony-gl/blob/main/Gl/GLlibs.pony) might have to be improved to support other platforms.
+_Warning: only tested on Linux, [GLlibs.pony](https://github.com/xpac27/pony-gl/blob/main/Gl/GLlibs.pony) might have to be improved to support other platforms._
 
 ## Usage
 
@@ -20,7 +20,11 @@ Include this package in your Pony application:
 
 Start calling OpenGL methods from your Pony application:
 
-    env.out.print("GL version: " + GL.glGetString(GLVersion()))
+    env.out.print("GL version: " + String.from_cstring(Gl.glGetString(GLVersion())))
+    
+Or use provided helpers:
+
+    env.out.print("GL version: " + GlHelper.glGetString(GLVersion()))
 
 You might want to using this package together with [GLFW3](https://github.com/xpac27/pony-glfw3).
 
